@@ -69,6 +69,7 @@
 \RequirePackage {etoolbox}
 \RequirePackage {nameref}
 \RequirePackage {pdfpages}		% \includepdf 
+\RequirePackage {datetime}
 
 % microtype currently supports only protrusion with XeLaTeX :(
 \RequirePackage [protrusion=true] {microtype}
@@ -235,7 +236,6 @@
 
 % adjust settings for minted if used
 \AtBeginDocument {%
-	\renewcommand*{\today}{10. května 2016} % FIXME
 	\@ifpackageloaded {minted} {%
 		% use smaller font in code listings
 		\AtBeginEnvironment {minted} { \singlespacing \fontsize{11}{11} \selectfont }
