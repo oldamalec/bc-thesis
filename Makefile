@@ -1,11 +1,12 @@
-all: BP_Malec_Oldrich_2017.pdf
+NAME = BP_Malec_Oldrich_2017.pdf
 
-BP_Malec_Oldrich_2017.pdf:
+.PHONY:	all clean pdf $(NAME)
+
+all: pdf
+
+pdf:
 	cd tex && arara base.tex
-	mv tex/base.pdf ./BP_Malec_Oldrich_2017.pdf
+	mv tex/base.pdf ./$(NAME)
 
 clean:
 	git clean -Xf
-
-.PHONY:
-	all clean BP_Malec_Oldrich_2017.pdf
