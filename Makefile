@@ -5,7 +5,11 @@ NAME = BP_Malec_Oldrich_2017.pdf
 all: pdf
 
 pdf:
-	cd tex && arara base.tex
+	cd tex && arara base
+	mv tex/base.pdf ./$(NAME)
+
+debug:
+	cd tex && latexmk -xelatex --shell-escape base
 	mv tex/base.pdf ./$(NAME)
 
 clean:

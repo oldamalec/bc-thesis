@@ -1,0 +1,24 @@
+\chapter{Co je to DBS portál} \label{DBSportal}
+
+Celá tato práce se zabývá vývojem a správou portálu pro předmět BI-DBS na FIT ČVUT. Ještě než se tedy ponoříme do jednotlivých součástí vývoje tohoto portálu, chtěl bych čtenáře seznámit s portálem samotným.
+
+\section{Historie výuky BI-DBS}
+
+Předmět Databázové systémy je vyučován na katedře softwarového inženýrství a v současném studijním programu se s ním setkají studenti první ročníku ve svém druhém semestru. Výkuka si klade za cíl přiblížit studentům problematiku ukládání dat, a to především pomocí relačních databází. Důraz je kladen na jazyky RA a SQL.
+
+\paragraph{Semestrální práce}
+Každý student si v rámci své semestrální práce vytvoří vlastní databázi, do které si poté vymýšlí dotazy za pomoci různých konstrukcí výše zmíněných jazyků. Typická semestrální práce obsahuje ve své fin8lní podobě alespoň 25 dotazů do databáze a pokrýva všechny standardní klauzule, které jazyk SQL nabízí.
+
+\paragraph{Testy v semestru a zkouška}
+Kromě semestrálních prací popsaných výše jsou také součástí hodnocení studentů průběžné testy v semestru a závěrečná zkouška. Testy v semestru se týkají především praktické části - tedy používání RA a SQL - které by student měl mít osvojené ze své semestrální práce. Závěrečná zkouška poté kromě praktických částí může obsahovat i teoretické otázky které byly probírány na přednášce či modelování schémat databáze.
+
+\section{Vznik DBS portálu} \label{DBSportal:creation}
+Obě výše popsané součásti výuku jsou poměrně náročné na korekturu vyučujícím. Typicky nebylo možné zajistit, aby vyučující zkontrolovatl každý jednotlivý dotaz, který student vytvořil ve své semestrální práci. Oprava testů, které se psali na papír poté trvala zbytečně dlouho a prakticky nebylo možné ji automatizovat. Z tohoto důvodu přišel v roce 2013 Jiří Hunka - jeden z vyučujících předmětu BI-DBS - s nápadem, že se realizuje portál zaměřený na podporu výuky Databázových systémů, který bude umožňovat jak efektivnější korekturu studentských semestrálních prací, tak rychlejší opravu testů a zkoušek.
+
+\paragraph{Řešitelský tým}
+Vývoj portálu takových rozměrů však nebylo možné financovat běžně dostupnými prostředky, kterými fakulta disponuje. Z toho důvodu bylo rozhodnuto, že bude portál vyvíjen s rámci předmětů BI-SP1 a BI-SP2. Jedná se o předměty vyučované také v oboru Softwarové inženýrství, které si studenti typicky zapisují ve svém 4., respektive 5. semestru studia. Cílem předmětů je vytvořit 3-5 členné týmy, které budou pracovat na softwarovém projektu, počínaje návrhem, analýzou požadavků atp. a konče hotovým softwarem. Bylo tak vypsáno zadání na realizaci DBS portálu, do kterého se přihlásilo 13 studentů.
+Tento způsob záskávání pracovní síly pro další vývoj portálu je používán dodnes. Jelikož SP1 a navazující SP2 má celkové trvání jeden akademický rok, jsou každý rok nabíráni noví studenti. Toto přináší jak obtíže s řízením projektu, tak příležitosti pro jeho změny. Řízení DBS projektu se věnuje kapitola \ref{DBSmanagement}.
+
+\paragraph{Nasazení portálu}
+Portál byl poprvé nasazen do výuky v LS 2016, kdy byl využíván pouze na cvičeních, která vedl Jiří Hunka a ve zkouškovém období byl otestován také na jednom termínu závěrečné zkoušky.
+V ZS 2016 portál používali všichni studenti, kteří měli předmět BI-DBS zapsaný, protože jich v tomto semestru bylo pouze 36, a jednalo se tak o ideální testovací vzorek pro příští semestr. Následující semestr - LS 2017 - již byl portál využíván i ostatními cvičícími mimo Jiřího Hunku a počet studentů se pohyboval kolem 550. Detailům ohledně nasazování portálu se věnuje kapitola \ref{infrastructure}

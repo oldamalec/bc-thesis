@@ -19,7 +19,8 @@
 \usepackage{ lscape }		% to be able to rotate stuff
 \usepackage{ metalogo }		% for \XeLaTeX
 
-\bibliography{library.bib}
+\bibliography{sources.bib}
+
 
 % make list of acronyms
 \makeglossaries
@@ -39,18 +40,20 @@
 
 \begin{introduction}
 \label{introduction}
-\input{uvod.tex}
+\input{0_uvod.tex}
 \end{introduction}
 
-\input{metody_rizeni_projektu.tex}
-\input{navrzene_reseni.tex}
-\input{sprava_infrastruktury.tex}
+\input{1_dbs_portal.tex}
+\input{2_metody_rizeni_projektu.tex}
+\input{3_projektove_rizeni_dbs.tex}
+\input{4_infrastruktura.tex}
 
 \begin{conclusion}
 \label{conclusion}
-\input{zaver.tex}
+\input{5_zaver.tex}
 \end{conclusion}
 
+\nocite{*}
 \printbibliography[title={Zdroje}]
 
 \appendix

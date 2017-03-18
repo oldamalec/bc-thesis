@@ -1,0 +1,61 @@
+\chapter{Metody řízení projektu} \label{methods}
+
+V druhé kapitole bych se chtěl věnovat především tématu metodik vývoje softwaru. Cílem je krátce čtenáře seznámit se standardními a agilními metodami vývoje softwaru a zaměřit se na možnosti jejich aplikace pro vývoj DBS portálu, který byl popisován v kapitole \ref{DBSportal}
+
+\section{Tradiční metody} \label{methods:traditional}
+
+\subsection{Vodopádový model} \label{methods:waterfall}
+
+Jak zmiňuje \cite{kadlec}, nejedná se přímo o metodiku, ale pouze o životní cyklus. Je charakteristický tím, že všechny fáze vývoje jsou prováděny postupně za sebou a není možné se vracet. Případné změny je možní zpracovat až v rámci údržby, která vývoj vždy vrátí do jedné z předchozích etap a následně musí proběhnout i etapy následující.
+Tento model vznikl již v roce 1970 a dnes se tedy dá považovat za zastaralý. Pro vývoj DBS portálu je tedy zcela jistě nevhodný.
+
+\subsection{Spirálový model} \label{methods:spiral}
+
+Vzniku Spirálového modelu dala za vznik především kritika Vodopádového modelu. Hlavní novinkou zde byl \emph{iterativní přístup} a opakovaná \emph{analýza rizik}. V tomto modelu se stále opakují fáze \emph{Stanovení cílů}, \emph{Analýza rizik}, \emph{Vývoj a testování} a \emph{Plánování}. Při každém průchodu těmito fázemi se provádí odlišná činnost než v předchozí iteraci (kromě analýzy rizik, ta je prováděna vždy stejně), například fáze vývoje v první iteraci pracuje pouze s koncepty, v příští iteraci specifikuje požadavky, v další navrhuje architekturu a teprve poté implementuje a testuje.\\
+Stále se však jedná převážně o jednosměrnou cestu, která nejen na počátku ale i v průběhu obsahuje velké množství analýz a návrhů. Pro potřeby vývoje DBS portálu, kde se každý rok mění složení studentů, je tedy nevhodný.
+
+TODO more std methods?
+
+\section{Agilní metody} \label{methods:agile}
+
+Agilní metody řízení vznikly především z důvodu neustále se měnících požadavků na software a rychlejší reakci na požadované změny. Tradiční metody nebyly schopné reagovat na změny požadavků dostatečně rychle. Především když se začneme bavit o vývoji softwaru, kde se neustále mění dostupné technologie a požadavky na finální verzi, jsou tradiční metody zcela nevhodným modelem vývoje.
+
+Rozdíl mezi tradiční a agilní metodikou lze popsat také jejich přístupem k \emph{Funkcionalitě}, \emph{Času} a \emph{Zdrojům} \cite{kadlec}. Zatímco u tradičních metod je funkcionalita stanovena na začátku a musí být dosažena pomocí \emph{nějakého} času a \emph{nějakého} množství zdrojů, u agilních metod je to přesně naopak. Typicky je stanoven termín a dostupné zdroje a funkcionalita \emph{nějaká} bude.
+
+Připomeňme si také \emph{Manifesto for Agile Software Development}\cite{manifesto}, který vznikl v roce 2001:
+
+\begin{quote}
+Objevujeme lepší způsoby vývoje software tím,
+že jej tvoříme a pomáháme při jeho tvorbě ostatním.
+Při této práci jsme dospěli k těmto hodnotám:
+\begin{itemize}
+	\item \emph{Jednotlivci a interakce} před procesy a nástroji
+	\item \emph{Fungující software} před vyčerpávající dokumentací
+	\item \emph{Spolupráce se zákazníkem} před vyjednáváním o smlouvě
+	\item \emph{Reagování na změny} před dodržováním plánu
+\end{itemize}
+Jakkoliv jsou body napravo hodnotné,
+bodů nalevo si ceníme více.
+
+© 2001, výše zmínění autoři
+Toto prohlášení může být volně kopírováno v jakékoli formě,
+ale pouze v plném rozsahu včetně této poznámky. 
+
+TODO change the last par - smaller font, grey color...
+
+\end{quote}
+
+Je tedy zřejmé, že Agilní metodiky více pracují s vývojáři samotnými, a umožňuji i potlačení některých postupů pro dobro celkua dovolují "zanedbat" i náležitosti jako třeba dokumentaci. Následně se na některé agilní metodiky zaměříme více:
+
+\subsection{Extrémní programování}
+
+XP rozvíjí standardní postupy, avšak posouvá je až do extrémů.
+\begin{itemize}
+	\item Vždy budeme pracovat na co nejjednodušší verzi, která splňuje požadavky
+	\item Pokud se osvědčuje \emph{revize kódu}, budeme neustále revidovat kód \ldots
+	\item Pokus se odvědčil \emph{návrh}, budeme neustále navrhovat a vylepšovat specifikaci \ldots
+	\item Pokud se osvědčilo \emph{testování}, budeme neustále testovat \ldots
+\end{itemize}
+TODO rozvést, proč ne pro DBS...
+
+\subsection{Scrum}

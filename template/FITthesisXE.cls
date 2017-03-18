@@ -18,7 +18,7 @@
 % @version: 2013-05-10
 % 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{template/FITthesisXE}[2013/04/26 CTU FIT customized class for theses]
+\ProvidesClass{../template/FITthesisXE}[2013/04/26 CTU FIT customized class for theses]
 
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 % Options
@@ -114,6 +114,26 @@
 
 	\RequirePackage [backend=biber, style=iso-numeric, autolang=other,%
 					sorting=nyt, sortlocale=cs_CZ, spacecolon=false]{ biblatex }
+
+	%%%
+    % Added support for urldate		
+	\newbibmacro{urldate}{%
+	  \printfield{urldate}%
+	  \iffieldundef{urlyear}
+	    {}
+	    {\setunit*{\addspace}%
+	     \printurldate}}
+
+	\DeclareFieldFormat{urldate}{\mkbibparens{\bibstring{urlseen}\space#1}}
+
+	\DeclareLabeldate{%
+	  \field{date}
+	  \field{eventdate}
+	  \field{origdate}
+	  \field{urldate}
+	  \literal{nodate}
+	}
+	%%%
 
 	\renewcommand*{\acronymname}{Seznam použitých zkratek}
 	\renewcommand*{\dirfigurename}{Adresářová struktura}
