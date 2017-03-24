@@ -115,7 +115,7 @@
 	\RequirePackage [backend=biber, style=iso-numeric, autolang=other,%
 					sorting=nyt, sortlocale=cs_CZ, spacecolon=false]{ biblatex }
 
-	%%%
+	%%% edit by @malecold
     % Added support for urldate		
 	\newbibmacro{urldate}{%
 	  \printfield{urldate}%
@@ -133,7 +133,7 @@
 	  \field{urldate}
 	  \literal{nodate}
 	}
-	%%%
+	%%% end edit
 
 	\renewcommand*{\acronymname}{Seznam použitých zkratek}
 	\renewcommand*{\dirfigurename}{Adresářová struktura}
