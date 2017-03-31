@@ -1,0 +1,269 @@
+\chapter{Metodiky vývoje softwaru} \label{methods}
+
+V této kapitole se zaměříme na popis jednotlivých metodik vývoje softwaru a zaměříme se také na možnosti jejich použití při vývoji DBS portálu, který byl popisován v kapitole \ref{DBSportal}.
+
+\section{Tradiční metody} \label{methods:traditional}
+
+\subsection{Vodopádový model} \label{methods:waterfall}
+
+Jak zmiňuje Kadlec \cite{kadlec}, nejedná se přímo o metodiku, ale pouze o životní cyklus. Je charakteristický tím, že všechny fáze vývoje jsou prováděny postupně za sebou a není možné se vracet. Případné změny je možní zpracovat až v rámci údržby, která vývoj vždy vrátí do jedné z předchozích etap a následně musí proběhnout i etapy následující.
+
+\begin{itemize}
+	\item Definice problému
+	\item Specifikace požadavků
+	\item Návrh
+	\item Implementace
+	\item Integrace, testování
+	\item Údržba
+\end{itemize}
+
+\paragraph{Použití v DBS projektu}
+Tento model je obecně pro dnešní vývoj softwaru nevhodný, jelikož software je typicky potřeba dodat nejprve se základní funkcionalitou a poté iterativně přidávat další funkce: přesně tak je vyvíjen i DBS portál.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Spirálový model} \label{methods:spiral}
+
+Vzniku Spirálového modelu dala za vznik především kritika Vodopádového modelu. Hlavní novinkou zde byl \emph{iterativní přístup} a opakovaná \emph{analýza rizik}. V tomto modelu se stále opakují fáze \emph{Stanovení cílů}, \emph{Analýza rizik}, \emph{Vývoj a testování} a \emph{Plánování}. Při každém průchodu těmito fázemi se provádí odlišná činnost než v předchozí iteraci (kromě analýzy rizik, ta je prováděna vždy stejně), například fáze vývoje v první iteraci pracuje pouze s koncepty, v příští iteraci specifikuje požadavky, v další navrhuje architekturu a teprve poté implementuje a testuje.
+Stále se však jedná převážně o jednosměrnou cestu, která nejen na počátku ale i v průběhu obsahuje velké množství analýz a návrhů.
+
+\paragraph{Použití v DBS projektu}
+Tato metodika sice zavádí iterace, ale ty jsou pouze čtyři základní, předem definované. Jak bylo zmíněné výše u vopádového modelu (\ref{methods:waterfall}), DBS projekt potřebuje být vyvíjen pomocí skutečně iterativní metody, která bude v jednotlivých iteracích přidávat funkcionality.
+
+TODO more std methods?
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Agilní metody} \label{methods:agile}
+
+Agilní metody řízení vznikly především z důvodu neustále se měnících požadavků na software a rychlejší reakci na požadované změny. Tradiční metody nebyly schopné reagovat na změny požadavků dostatečně rychle. Především když se začneme bavit o vývoji softwaru, kde se neustále mění dostupné technologie a požadavky na finální verzi, jsou tradiční metody zcela nevhodným modelem vývoje.
+
+Rozdíl mezi tradiční a agilní metodikou lze popsat také jejich přístupem k \emph{Funkcionalitě}, \emph{Času} a \emph{Zdrojům} (Kadled \cite{kadlec}). Zatímco u tradičních metod je funkcionalita stanovena na začátku a musí být dosažena pomocí \emph{nějakého} času a \emph{nějakého} množství zdrojů, u agilních metod je to přesně naopak. Typicky je stanoven termín a dostupné zdroje a funkcionalita \emph{nějaká} bude.
+
+Připomeňme si také \emph{Manifesto for Agile Software Development} \cite{manifesto}, vzniknuvší v roce 2001:
+
+\begin{quote}
+Objevujeme lepší způsoby vývoje software tím,
+že jej tvoříme a pomáháme při jeho tvorbě ostatním.
+Při této práci jsme dospěli k těmto hodnotám:
+\begin{itemize}
+	\item \emph{Jednotlivci a interakce} před procesy a nástroji
+	\item \emph{Fungující software} před vyčerpávající dokumentací
+	\item \emph{Spolupráce se zákazníkem} před vyjednáváním o smlouvě
+	\item \emph{Reagování na změny} před dodržováním plánu
+\end{itemize}
+Jakkoliv jsou body napravo hodnotné,
+bodů nalevo si ceníme více.
+
+\begin{multicols}{3}
+Kent Beck\\
+Mike Beedle\\
+Arie van Bennekum\\
+Alistair Cockburn\\
+Ward Cunningham\\
+Martin Fowler\\
+James Grenning\\
+Jim Highsmith\\
+Andrew Hunt\\
+Ron Jeffries\\
+Jon Kern\\
+Brian Marick\\
+Robert C. Martin\\
+Steve Mellor\\
+Ken Schwaber\\
+Jeff Sutherland\\
+Dave Thomas\\
+\end{multicols}
+
+{\color{gray}
+© 2001, výše zmínění autoři
+Toto prohlášení může být volně kopírováno v jakékoli formě,
+ale pouze v plném rozsahu včetně této poznámky.
+}
+
+\end{quote}
+
+Je tedy zřejmé, že Agilní metodiky více pracují s vývojáři samotnými, a umožňuji i potlačení některých postupů pro dobro celku a dovolují "zanedbat" i náležitosti jako například dokumentaci. Následně se na některé agilní metodiky zaměříme více:
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Extrémní programování} \label{methods:XP}
+
+Na začátek je vhodné říci, že je rozdíl mezi \emph{extrémním vývojem softwaru} a \emph{extrémním projektovým řízením}. Zatímco projektové řízení se dá dělit na tradiční, agilní a extrémní (Wysocki, \cite{wysocki}), u vývoje softwaru se naopak dá říci, že XP položilo základ pro agilní metodiky a je tak jednou z nich.
+
+XP rozvíjí standardní postupy, avšak posouvá je až do extrémů:
+\begin{itemize}
+	\item Vždy budeme pracovat na co nejjednodušší verzi, která splňuje požadavky
+	\item Pokud se osvědčuje \emph{revize kódu}, budeme neustále revidovat kód \ldots
+	\item Pokud se odvědčil \emph{návrh}, budeme neustále navrhovat a vylepšovat specifikaci \ldots
+	\item Pokud se osvědčilo \emph{testování}, budeme neustále testovat \ldots
+	\item Narozdíl od tradičních metodik, které najednou dodají velký balík nových funkcionalit, bude XP dodávat i ty nejmenší funkční kousky. Toto vede na \emph{krátké iterace}.
+\end{itemize}
+
+Tyto postupy přivedené do extrémů jsou reprezentovány v \emph{12 základních postupech XP}, se kterými se seznámíme níže.\\
+Ještě než se dostaneme k samotným postupům, potřebujeme se seznámit s pojmem \emph{karta zadání.}
+
+\paragraph{Karty zadání a karty úkolů} \label{methods:XP:issues}
+Karty zadání vznikají během plánování návrhu softwaru. Tohoto plánování se účastní všichni vývojáři, vedení a i zákazník. Typicky jedna karta popisuje jednu funkcionalitu či jeden požadavek. Kartě náleží vlastnosti jako \emph{datum vytvoření}, \emph{stav}, \emph{priorita}, \emph{odhad vyřešení} a také samozřejmě vlastní zadání úkolu a dodatečné poznámky. Když se poté na jedné kartě pracuje, je aktualizována průběžnými poznámkami, které popisují které části již byly splněny, co je potřeba udělat atp.\\
+Kromě karet zadání existují v XP také \emph{karty úkolů}. Tyto vznikají nikoliv na začátku celého procesu vývoje, ale na začátku jednotlivé iterace.
+
+\paragraph{12 základních postupů XP} \label{methods:XP:12}
+\begin{enumerate}
+	\item \emph{Plánovací hra:} Probíhá jednak na začátku vývoje v rámci návrhu celé aplikace, tak na začátku jednotlivých iterací. Jejím výstupem jsou \emph{Karty zadání} a \emph{Karty úkolů}, popisované v předchozím odstavci.
+	\item \emph{Malé verze:} Verze jsou dodávány neustále. I nejmenší změna funkcionality, která přináší užitek pro zákazníka je vydána jako nová verze.
+	\item \emph{Metafora:} Celý systém je popisován jednoduchým příběhem, jak má ve výsledku fungovat. Tento příběh je sdílen jak vývojáři a managementem, tak zákazníkem a případně dalšími zainteresovanými osobami. Tato metafora u XP nahrazuje tradiční popis architektury.
+	\item \emph{Jednoduchý návrh:} XP navrhuje vždy pouze to, co je přímo požadováno. Žádné přidáné vlastnosti nechce do návrhu zahrnovat, snaží se udělat minimum pro to, aby byly splněny požadavky.
+	\item \emph{Testování:} Během vývoje jsou neustále psány i testy pro nově vznikající komponenty. Nikdy nesmí existovat jednotka, která nemá vlastní unit test. Testy dokonce píší i sami zákazníci, kteří tvoří testy funkcionality.
+	\item \emph{Refaktorizace:} Refaktorizace je změna zdrojového kódu, která ovšem nemění jeho chování. Je prováděna z důvodu zvýšení čitelnosti kódu pro ostatní programátory či jeho zefektivnění. V XP by měl programátor vždy buď pouze implementovat novou funkčnost, nebo refaktorizovat stávající kód.
+	\item \emph{Párové programování:} Zdrojový kód je vždy psán dvěma programátory u jednoho počítače. Zatímco jeden píše kód, druhý sleduje postup a přemýšlí nad dalšími souvislostmi: Je tato funkce napsána správně? Zapadá do celkového konceptu? Změní tato úprava chování jiného modulu? Je potřeba napsat nový test? \ldots
+	\item \emph{Společné vlastnictví:} Zatímco některé jiné metodiky přiřazují jednotlivé třídy určitým programátorům, které za ně poté mají zodpovědnost, v XP je to právě naopak. Všichni mají zodpovědnost za celý kód a kdokoliv tak může měnit libovolnou součást systému.
+	\item \emph{Nepřetržitá integrace:} Systém je sestaven a otestván vždy, jakmile je to možné, typicky tedy ihned po dokončení nové funkcionality.
+	\item \emph{Čtyčicetihodinový pracovní týden:} XP klade důraz i na spokojenost lidských zdrojů. Snaží se tedy o nepřetěžování programátorů, jelikož při jejich únavě se razantně snižuje kvalita jejich výstupu.
+	\item \emph{Zákazník na pracovišti:} Součastí týmu by měl být i sám zákazník, neboli expert na cílovou doménu. Jeho účelem je odpovídat na dotazy, tvořit testy či určovat priority.
+	\item \emph{Standardy pro psaní zdrojového kódu:} Jelikož XP nedefinuje žádné standardní dokumenty, jsou veškeré informaci o projektu obsaženy ve zdojových kódech samotných. Proto je potřeba, aby byly rozumně strukturované, čitelné a pochopitelné.
+\end{enumerate}
+
+\paragraph{Použití v DBS projektu}
+Některé z těchto postupů jsou jistým způsobem používány i při vývoji DBS portálu, více v sekci \ref{methods:dbs}.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Scrum} \label{methods:scrum}
+
+Scrum je charakterizován především pojmy \emph{Sprint} a \emph{Scrum meeting}. První z nich má trvání většinou jeden měsíc a opakuje se několikrát. Jeho cílem je přinést do výsledného produktu nové funkcionality. Naopak Scrum meeting je \emph{každodenní} schůzka, na které se shrnou nově dokončené úkoly a stanoví se, na čem se bude dále pracovat. Schůzku vede tzv. \emph{Scrum master}. Typicky probíhá ve stoje a netrvá déle než 30 minut. Dalo by se říci, že tyto každodenní schůzky jsou stěžejní aktivitou metodiky Scrum. Od těchto schůzek se také odvíjí velikost týmu: Scrum preferuje malé týmy mezi třemi až šesti členy.
+
+\paragraph{Použití v DBS projektu}
+Pro potřeby DBS projektu je tedy Scrum také nevhodný, především jelikož předpokládá každodenní schůzky.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Lean development} \label{methods:lean}
+
+TODO ?
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Feature driven development} \label{methods:fdd}
+
+Jak název napovídá, FDD se soustředí především na \emph{featury}, neboli jednotlivé vlastnosti, funkce či rysy výsledného softwaru. Na počátku je vytvořen základní model softwaru, který je dále členěn na jednotlivé vlastnosti. Vývoj probíhá zpravidla v dvoutýdenních iteracích, jejichž výsledkem by měl vždy být fungující software, který je možné představit zákazníkovi.
+
+Klíčový pojem \emph{feature (vlastnost)}  lze popsat jako samostatnou část systému, která splňuje následující parametry:
+\begin{itemize}
+	\item \emph{měritelnost}: vlastnost je jasně uchopitelná komponenta systému, kterou lze porovnat s požadavkem zákazníka
+	\item \emph{srozumitelnost}: programátor musí rozumět tomu, jak má vlastnost fungovat a co je jejím cílem
+	\item \emph{realizovatelnost}: programátor musí vědět, zda je schopen vlastnost realizovat v odpovídajícím časovém úseky (typicky iterace 2 týdny). V opačném případě je většinou potřeba vlastnost rozdělit na více menších, a na těch pracovat samostatně.
+\end{itemize}
+
+V tuto chvíli by se mohlo zdát, že FDD vůbec nedisponuje \emph{návrhem a modelováním}. Ve skutečnosti je tomu právě naopak, společně s FDD je často zmiňován ještě \emph{model-driven approach}. Jelikož vlastnosti jsou klíčovou stavební jednotkou FDD, je potřeba je kvalitně navrhnout a namodelovat.
+
+Posloupnost kroků při vývoji pomocí FDD zachycuje následující seznam:
+\begin{enumerate}
+	\item vytvoření celkového (globálního) modelu
+	\item vypracování podrobného seznamu vlastností
+	\item plánování podle vlastností
+	\item návrh podle vlastností
+	\item implementace
+\end{enumerate}
+Dvě poslední se poté stále opakují, dokud existují další vlastnosti, které je potřeba pro softwaru přidávat.
+
+Vzhledem k vývoji DBS portálu zde stojí za zmínku především fáze návrhu a implementace:
+
+\paragraph{Návrh}
+Vlastnosti se vždy týkají různých tříd, za které má zpravidla zodpovědnout určitá osoba, či dané třídě nejvíce rozumí určitý programátor. Ti jsou tedy rozděleni do týmů dle potřeby a sestavení týmů se tak pro každou iteraci obměňuje.\\
+Tento nově sestavený tým má poté za úkol připravit návrh implementace vlasnosti, na jehož základě je poté naprogramována.
+
+\paragraph{Implementace}
+Týmy sestavené v předchozí fázi pracují na vlastní funkcionalitě nové vlastnosti. Společně s programovým kódem jsou tvořeny i testy, a to především \emph{unit testy}.\\
+Jakmile je vlastnost dokončena, je vložena do sdíleného prostoru, u FDD nazývaného \emph{class repository}\\
+Hlavní programátor poté dokončené vlastnosti integruje do předchozí verze hlavní aplikace.
+
+Typicky na projektu pracuje několik týmů a hlavní progragramátor poté pouze volí nové vlastnosti k implementaci a integruje hotové vlastnosti do výsledné aplikace.
+
+\paragraph{Použití v DBS projektu}
+Výše popsaný průběh práce hrubě odpovídá i organizaci vývoje DBS projektu, které je popsáno v sekci \ref{methods:dbs}.
+
+TODO popsat týmy podle vlastností? (Kadlec 194)
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Test driven development} \label{methods:tdd}
+
+Součástí každého vývojového procesu je bezesporu i testování výstupu. TDD této skutečnosti využívá a posouvá tvorbu testů ještě před samotný zdrojový kód aplikace. Při přidávání funkcionality do systému je tedy nejprve napsán test, který bude funkcionalitu testovat. Požadovaná funkcionalita je poté naprogramována přesně tak, aby procházela testy. Testy samozřejmě stále přibývají a tak je zapotřebí, aby nová funkcionalita prošla nejen novým testem napsaným přímo pro ni, ale také všemi ostatními.
+Tento přístup vyžaduje jisté odhodlání programátora, jelikož vždy na první pohled vypadá jednodušeji pouze \emph{dopsat tu jednu řádku}. Při korektním postupu pomocí TDD je však i pro nejmenší změnu kódu vždy potřeba napsat test.
+
+\paragraph{Použití v DBS projektu}
+Jelikož TDD se svým konceptem \emph{test first, program later} vzdaluje od klasických vývojových metodik, není vhodné pro vývoj DBS portálu, kde se každý rok mění složení programátorů. DBS projekt samozřejmě využívá testy, viz kapitola TODO nameref, testuje se však vždy funkcionalita, která již existuje. Testy tedy především hlídají, zda změny v kódu nepoškodily jinou funkcionalitu, a testy pro nové funkce jsou dopsány až poté co jsou funkční.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Kanban}
+
+TODO?
+
+TODO more agile methods?
+\\
+\\
+\\
+Na předchozích stránkách jsme si představili \emph{některé} vývojové metodiky. Především těch agilních však existuje nepřeberné množství, a jak říká například Kadlec \cite{kadlec} nebo Rasmusson \cite{rasmusson}, každý projekt je jedinečný a určitě není nejlepší možností striktně dodržovat jednu z vývojivých metodik. Klíčem je spíše skloubení dostupných metodik k vytvoření vlastní, pro daný projekt nejefektivnějšího přístupu k vývoji. Vedoucí týmu či projektový manažer by neměl \emph{slepě} následovat recept předložený například Extrémném programováním a zamítat jakékoliv jeho úpravy. Z toho důvodu i pro DBS projekt vznikla vlastní metodika, které se bude věnovat jak následující sekce, tak celá následující kapitola.
+
+\section{Zvolené řešení pro DBS projekt} \label{methods:dbs}
+
+Jak bylo zmíněno v sekcích o \emph{\nameref{methods:XP}} a \emph{\nameref{methods:fdd}}, DBS projekt je vyvíjem pomocí metody na pomezí XP a FDD.
+
+Na následujících řádcích budu pro potřeby této kapitoly popisovat i nástin \emph{infrastruktury}, která se pro DBS projekt využívá. Tomuto tématu je však věnována také vlastní kapitola \ref{infrastructure}.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Inspirace v XP}
+
+Jedním z požadavků vývoje pomocí \emph{Extrémního programování} je předpoklad, že budou dodržovány všechny jeho náležitosti. Jelikož jsme však na akademické půdě a vývojáři DBS projektu jsou především studenti předmětů BI-SP1, případně BI-SP2 (více v kapitole \nameref{DBSportal}), není možné abychom využívali například \emph{párové programování} či \emph{čtyřicetihodinový pracovní týden}, které XP \uv{předepisuje}.
+Už minimálně z tohoto důvodu nemůže být XP použito ve svém plném obsahu. Důvodu je více, nyní se však pojďme zaměřit naopak na to, co vývoj DBS portálu z Extrémního programování \emph{využívá:}
+
+\paragraph{Revize kódu}
+XP mluví o neustálé revizi kódu. Jelikož studenti, kteří portál programují, jsou často nezkušení, je opravdu důležité jejich kód často revidovat, ideálně ihned po jejich \emph{commitu} do \emph{Gitu}. Revize provádí vedoucí týmu a také vedení projektu, zejména Pavel Kovář. TODO ref sekci z 3. kapitoly
+
+\paragraph{Krátké iterace, malé verze}
+Jelikož DBS portál je \emph{webová aplikace}, je velmi jednoduché vydat novou verzi. Toho je také využíváno a nové veřejné verze jsou publikovány téměř každý týden. Kromě toho jsou publikovány i testovací verze, které je možné používat paralelně s produkční verzí a zde jsou změny nasazovány dle potřeby - někdy i vícekrát denně.
+
+\paragraph{Karty zadání}
+XP popisuje \emph{Karty úkolů} (\ref{methods:XP:issues}), které víceméně odpovídají úkolům, které jsou v DBS projektu zadávány v \emph{Redmine}. Odpovídají zejména pole jako \emph{datum}, \emph{stav}, \emph{priorita} či \emph{průběžné poznámky plnění}.
+
+Obecně se ale dá říct, že takovouto funkci \emph{issue trackeru} musí určitý systém plnit prakticky v \emph{jakékoliv} vývojové metodice, mluvit o \emph{inspiraci z XP} tak u tohoto bodu nemá takový dopad.
+
+\paragraph{Testování a nepřetržitá integrace}
+V XP je \uv{předepsáno} neustále dopisovat testy pro nově vznikající komponenty. To probíhá i při vývoji DBS portálu, což je podpořeno i \emph{neustálou integrací}. Jakmile je dopsána nová funkčnost, tak při jejím \emph{push}i do \emph{Gitlab}u se automaticky spustí \gls{gCI}.
+
+\paragraph{Zákazník na pracovišti}
+Tato součást není při vývoji DBS portálu dodržována zcela, již z důvodu, že prakticky neexistuje sdílené pracoviště. Jednotliví členové pracují typicky odděleně, kdekoliv.
+Zákazník ovšem \emph{je} součástí týmu. V případě DBS projektu se jedná o Jiřího Hunku, vedoucího této práce, který jakožto vyučující předmětu BI-DBS je zároveň jedním z hlavních uživatelů výsledné aplikace. Určuje tedy priority, testuje nové verze a hlásí chyby či požadavky.
+\\
+\\
+\\
+Vývoj DBS portálu tedy přebírá z Extrémního programování zhruba \emph{polovinu} jeho základních postupů (\ref{methods:XP:12}). Dále se pojďme zaměřit na to, co je přebráno z \nameref{methods:fdd}.
+
+\subsection{Inspirace v FDD}
+
+I z \nameref{methods:fdd} jsou přebrány některé metody vývoje pro DBS projekt. Především rozdělení na jednotlivé \emph{featury} a role \emph{hlavního programátora}:
+
+\paragraph{Featury} Ve FDD je vývoj hnán kupředu především seznamem vlastností, které má finální podoba mít. Toho využívá i DBS projekt, u kterého takový seznam existuje a z jedné strany se stále rozšiřuje novými požadavky, na straně druhé je zpracováván programátory. Jednotlivé vlastnosti jsou meřitelné, v případě jejich nesrozumitelnosti jsou programátorovi dopřesněny a jsou člěneny tak, aby byly realizovatelné do následující iterace (1-2 týdny).
+
+\paragraph{Hlavní programátor}
+Ve FDD dominuje role \emph{hlavního programátora}, který určuje priority jednotlivých vlastností připravených k implementaci a integruje jejich hotové řešení do výsledné aplikace. Tuto roli zastávám v DBS projektu já, jakožto \emph{projektový manažer}. Mým úkolem je mimo jiné zpracovávat požadavky a nahlášené chyby do jednotlivých zadání. Této činnosti se blíže věnuje TODO ref na příslušné kapitoly.

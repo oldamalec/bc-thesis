@@ -26,7 +26,8 @@
 % make list of acronyms
 \makeglossaries
 \input{acronyms.tex}
-\glsaddall	% add even unused acronyms
+\input{glossaries.tex}
+\glsaddall
 
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
 
@@ -44,7 +45,7 @@
 \end{introduction}
 
 \input{1_dbs_portal.tex}
-\input{2_metody_rizeni_projektu.tex}
+\input{2_metodiky_vyvoje_sw.tex}
 \input{3_projektove_rizeni_dbs.tex}
 \input{4_infrastruktura.tex}
 
@@ -60,5 +61,8 @@
 \chapter{Seznam použitých zkratek}
 \setglossarystyle{acronyms}
 \printglossary[type=\acronymtype,style=acronyms]
+
+\chapter{Slovník pojmů}
+\printglossary[type=main]
 
 \end{document}

@@ -661,10 +661,13 @@ of works or by adapting the Work (including translation), and at the same time m
 	%\listofdirfigurescond
 
 	\cleardoublepage
-	\listoftablescond
+	% \listoftablescond %% temporarily disabled listing of tables @malecold
 
 	\cleardoublepage
 	\listoffigurescond
 
 	\pagestyle{ruled}
 }
+
+%% @malecold additions
+\newcommand\uv[1]{\quotedblbase #1\textquotedblleft}
