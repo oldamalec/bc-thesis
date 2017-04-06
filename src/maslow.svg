@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="139.81667mm"
+   height="57.213215mm"
+   viewBox="0 0 139.81666 57.213215"
+   version="1.1"
+   id="svg8"
+   inkscape:version="0.92.1 r15371"
+   sodipodi:docname="maslow.svg">
+  <defs
+     id="defs2" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="1.4"
+     inkscape:cx="326.77296"
+     inkscape:cy="136.5933"
+     inkscape:document-units="mm"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:measure-start="545.987,714.683"
+     inkscape:measure-end="395.475,726.3"
+     inkscape:snap-bbox="false"
+     inkscape:bbox-paths="false"
+     inkscape:window-width="1600"
+     inkscape:window-height="837"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0" />
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Vrstva 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-34.466979,-42.097494)">
+    <path
+       sodipodi:type="star"
+       id="path3684"
+       sodipodi:sides="3"
+       sodipodi:cx="128.28937"
+       sodipodi:cy="149.46722"
+       sodipodi:r1="134.59351"
+       sodipodi:r2="59.473927"
+       sodipodi:arg1="0.52407218"
+       sodipodi:arg2="1.5712697"
+       inkscape:flatsided="true"
+       inkscape:rounded="0"
+       inkscape:randomized="0"
+       d="M 244.81889,216.81915 11.696127,216.70879 128.35308,14.873733 Z"
+       inkscape:transform-center-x="-0.41268817"
+       inkscape:transform-center-y="-8.162536"
+       style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:1.5;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       transform="matrix(0.5931451,0,0,0.28018769,28.300207,38.350339)" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:10.58333302px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="84.178093"
+       y="94.810593"
+       id="text4501"><tspan
+         sodipodi:role="line"
+         id="tspan4499"
+         x="84.178093"
+         y="94.810593"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.23333311px;font-family:'Linux Libertine';-inkscape-font-specification:'Linux Libertine';stroke-width:0.26458332">1. Fyziologické potřeby</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:10.58333302px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="95.683334"
+       y="85.31057"
+       id="text4501-0"><tspan
+         sodipodi:role="line"
+         id="tspan4499-7"
+         x="95.683334"
+         y="85.31057"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.23333311px;font-family:'Linux Libertine';-inkscape-font-specification:'Linux Libertine';stroke-width:0.26458332">2. Bezpečí</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:10.58333302px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="88.250198"
+       y="75.793999"
+       id="text4501-4"><tspan
+         sodipodi:role="line"
+         id="tspan4499-1"
+         x="88.250198"
+         y="75.793999"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.23333311px;font-family:'Linux Libertine';-inkscape-font-specification:'Linux Libertine';stroke-width:0.26458332">3. Sociální potřeby</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:10.58333302px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="91.579193"
+       y="66.705307"
+       id="text4501-2"><tspan
+         sodipodi:role="line"
+         id="tspan4499-6"
+         x="91.579193"
+         y="66.705307"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.23333311px;font-family:'Linux Libertine';-inkscape-font-specification:'Linux Libertine';stroke-width:0.26458332">4. Úcta, uznání</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:10.58333302px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="90.839188"
+       y="57.699295"
+       id="text4501-5"><tspan
+         sodipodi:role="line"
+         id="tspan4499-15"
+         x="90.839188"
+         y="57.699295"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.23333311px;font-family:'Linux Libertine';-inkscape-font-specification:'Linux Libertine';stroke-width:0.26458332">5. Seberealizace</tspan></text>
+    <path
+       style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.25940061;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:0.12970031, 0.12970031;stroke-dashoffset:0;stroke-opacity:1"
+       d="M 58.272805,79.997295 149.67085,79.59627"
+       id="path3738"
+       inkscape:connector-curvature="0" />
+    <path
+       style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.28884575;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:0.14442288, 0.14442288;stroke-dashoffset:0;stroke-opacity:1"
+       d="M 47.351735,89.13056 161.03082,88.730783"
+       id="path3738-7"
+       inkscape:connector-curvature="0" />
+    <path
+       style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.2258236;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:0.11291179, 0.11291179;stroke-dashoffset:0;stroke-opacity:1"
+       d="M 69.755171,70.866878 138.77875,70.464431"
+       id="path3738-1"
+       inkscape:connector-curvature="0" />
+    <path
+       style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.18639137;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:0.0931957, 0.0931957;stroke-dashoffset:0;stroke-opacity:1"
+       d="M 80.850611,61.737572 127.68643,61.333517"
+       id="path3738-70"
+       inkscape:connector-curvature="0" />
+  </g>
+</svg>
