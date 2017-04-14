@@ -19,9 +19,10 @@
 \usepackage{ lscape }		% to be able to rotate stuff
 \usepackage{ metalogo }		% for \XeLaTeX
 \usepackage{ multicol }		% for multiple columns
+\usepackage{ booktabs }		% for prettier tables
+\usepackage{ rotating }		% for rotating pictures
 
 \bibliography{sources.bib}
-
 
 % make list of acronyms
 \makeglossaries
@@ -64,5 +65,9 @@
 
 \chapter{Slovník pojmů}
 \printglossary[type=main]
+
+\input{6_diagramy.tex}
+\input{7_kviz.tex}
+\input{8_hodnoceni.tex}
 
 \end{document}

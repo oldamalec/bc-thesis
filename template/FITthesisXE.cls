@@ -661,7 +661,7 @@ of works or by adapting the Work (including translation), and at the same time m
 	%\listofdirfigurescond
 
 	\cleardoublepage
-	% \listoftablescond %% temporarily disabled listing of tables @malecold
+	\listoftablescond %% temporarily disabled listing of tables @malecold
 
 	\cleardoublepage
 	\listoffigurescond
@@ -671,3 +671,4 @@ of works or by adapting the Work (including translation), and at the same time m
 
 %% @malecold additions
 \newcommand\uv[1]{\quotedblbase #1\textquotedblleft}
+\newcommand{\code}[1]{\texttt{#1}}

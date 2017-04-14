@@ -1,6 +1,10 @@
 \chapter{Metodiky vývoje softwaru} \label{methods}
 
-V této kapitole se zaměříme na popis jednotlivých metodik vývoje softwaru a zaměříme se také na možnosti jejich použití při vývoji DBS portálu, který byl popisován v kapitole \ref{DBSportal}.	
+V této kapitole čtenáře seznámím s jednotlivými metodikami vývoje softwaru a zaměříme se také na možnosti jejich použití při vývoji DBS portálu, který byl popisován v kapitole \ref{DBSportal}.	
+
+\paragraph{Proč používat metodiku vývoje softwaru}
+Ještě než začneme s představením jednotlivých metodik, měli bychom si říci, proč bychom vlastně měli nějakou metodiku vývoje používat.\\
+Při práci na \emph{malém} softwaru, který píše pouze jedna osoba, je opravdu mnohdy zbytečené starat se o \emph{nějakou} vývojovou metodiku. Jakmile však chceme spojit práci více lidí, požadujeme aby výsledný produkt byl hotový do určitého termínu, splňoval všechny předem stanovené požadavky a byl udržovatelný i po jeho nasazení, začínáme mít potřebu zavádět určitá pravidla či předpisy, které nám pomohou všechny požadavky naplnit. Právě v tuto chvíli vstupují do hry \emph{metodiky vývoje softwaru}, které právě tento \uv{balík} pravidel předepisují a vedení projektu poté stačí zvolit nejvhodnější metodiku či jejich kombinaci pro daný projekt.
 
 \section{Tradiční metody} \label{methods:traditional}
 
@@ -44,7 +48,7 @@ Agilní metody řízení vznikly především z důvodu neustále se měnících
 
 Rozdíl mezi tradiční a agilní metodikou lze popsat také jejich přístupem k \emph{Funkcionalitě}, \emph{Času} a \emph{Zdrojům} (Kadlec \cite{kadlec}). Zatímco u tradičních metod je funkcionalita stanovena na začátku a musí být dosažena pomocí \emph{nějakého} času a \emph{nějakého} množství zdrojů, u agilních metod je to přesně naopak. Typicky je stanoven termín a dostupné zdroje a funkcionalita \emph{nějaká} bude.
 
-Připomeňme si také \emph{Manifesto for Agile Software Development} \cite{manifesto}, vzniknuvší v roce 2001:
+Připomeňme si také \emph{Manifesto for Agile Software Development} \cite{manifesto}, který vznikl v roce 2001:
 
 \begin{quote}
 Objevujeme lepší způsoby vývoje software tím,
@@ -206,7 +210,7 @@ Součástí každého vývojového procesu je bezesporu i testování výstupu. 
 Tento přístup vyžaduje jisté odhodlání programátora, jelikož vždy na první pohled vypadá jednodušeji pouze \emph{dopsat tu jednu řádku}. Při korektním postupu pomocí TDD je však i pro nejmenší změnu kódu vždy potřeba napsat test.
 
 \paragraph{Použití v DBS projektu}
-Jelikož TDD se svým konceptem \emph{test first, program later} vzdaluje od klasických vývojových metodik, není vhodné pro vývoj DBS portálu, kde se každý rok mění složení programátorů. DBS projekt samozřejmě využívá testy, viz kapitola TODO nameref, testuje se však vždy funkcionalita, která již existuje. Testy tedy především hlídají, zda změny v kódu nepoškodily jinou funkcionalitu, a testy pro nové funkce jsou dopsány až poté co jsou funkční.
+Jelikož TDD se svým konceptem \emph{test first, program later} vzdaluje od klasických vývojových metodik, není vhodné pro vývoj DBS portálu, kde se každý rok mění složení programátorů. DBS projekt samozřejmě využívá testy, viz kapitola TODO nameref, testuje se však vždy funkcionalita, která již existuje. Testy tedy především hlídají, zda změny v kódu nepoškodily jinou funkcionalitu, a testy pro nové funkce jsou dopsány až poté, co je funkční.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -238,7 +242,7 @@ Jedním z požadavků vývoje pomocí \emph{Extrémního programování} je pře
 Už minimálně z tohoto důvodu nemůže být XP použito ve svém plném obsahu. Důvodu je více, nyní se však pojďme zaměřit naopak na to, co vývoj DBS portálu z Extrémního programování \emph{využívá:}
 
 \paragraph{Revize kódu}
-XP mluví o neustálé revizi kódu. Jelikož studenti, kteří portál programují, jsou často nezkušení, je opravdu důležité jejich kód často revidovat, ideálně ihned po jejich \emph{commitu} do \emph{Gitu}. Revize provádí vedoucí týmu a také vedení projektu, zejména Pavel Kovář. TODO ref sekci z 3. kapitoly
+XP mluví o neustálé revizi kódu. Jelikož studenti, kteří portál programují, jsou často nezkušení, je opravdu důležité jejich kód často revidovat, ideálně ihned po jejich \emph{commitu} do \emph{Gitu}. Revize provádí vedoucí týmu a také vedení projektu, zejména Pavel Kovář.
 
 \paragraph{Krátké iterace, malé verze}
 Jelikož DBS portál je \emph{webová aplikace}, je velmi jednoduché vydat novou verzi. Toho je také využíváno a nové veřejné verze jsou publikovány téměř každý týden. Kromě toho jsou publikovány i testovací verze, které je možné používat paralelně s produkční verzí a zde jsou změny nasazovány dle potřeby - někdy i vícekrát denně.

@@ -7,7 +7,14 @@ Tato práce se zabývá především vývojem a správou portálu pro předmět 
 Předmět Databázové systémy je vyučován na katedře softwarového inženýrství a v současném studijním programu se s ním setkají studenti bakalářského programu Informatika ve svém druhém semestru. Výuka si klade za cíl přiblížit studentům problematiku ukládání dat, a to především pomocí relačních databází. Důraz je kladen na jazyky RA a SQL. Forma výuky předmětu pochází již z dob výuky na FEL ČVUT a používala se již déle než 10 let.
 
 \paragraph{Semestrální práce}
-Každý student si v rámci své semestrální práce vytvoří vlastní databázi, do které si poté vymýšlí dotazy za pomoci různých konstrukcí výše zmíněných jazyků. Typická semestrální práce obsahuje ve své finální podobě alespoň 25 dotazů do databáze a pokrýva všechny standardní klauzule, které jazyk SQL nabízí. Semestrální práce se vypracovávala ve formátu XML, který byl následně pomocí XSLT převeden do HTML pro přehlednější reprezentaci. Zejméne studenti si často na nutnost vyplňovat XML šablonu stěžovali.
+Každý student si v rámci své semestrální práce vytvoří vlastní databázi, kterou naplní testovacími daty a následně vymýšlí dotazy. Typická semestrální práce obsahuje ve své finální podobě alespoň 25 dotazů do a pokrývá všechny standardní klauzule DML, jednak z jazyku \emph{relační algerby} a také z SQL. DML v SQL vypadá následovně:
+\begin{itemize}
+	\item \code{SELECT ... FROM ... WHERE ...}
+	\item \code{INSERT INTO ... VALUES ...}
+	\item \code{UPDATE ... SET ... WHERE ...}
+	\item \code{DELETE FROM ... WHERE ...}
+\end{itemize}
+Semestrální práce se vypracovávala ve formátu XML, který byl následně pro přehlednější reprezentaci převeden do HTML pomocí XSLT. Zejména studenti si často na nutnost vyplňování XML šablony stěžovali.
 
 \paragraph{Testy v semestru a zkouška}
 Kromě semestrálních prací popsaných výše jsou také součástí hodnocení studentů průběžné testy v semestru a závěrečná zkouška. Testy v semestru se týkají především praktické části - tedy používání RA a SQL či modelování schémat databáze - které by student měl mít osvojené ze své semestrální práce. Závěrečná zkouška poté kromě praktických částí může obsahovat i teoretické otázky které byly probírány na přednášce.
@@ -23,6 +30,8 @@ Tento způsob získávání pracovní síly pro další vývoj portálu je použ
 Portál byl poprvé nasazen do výuky v LS 2016, kdy byl využíván pouze na cvičeních, která vedl Jiří Hunka a ve zkouškovém období byl otestován také na jednom termínu závěrečné zkoušky.
 V ZS 2016 portál používali všichni studenti, kteří měli předmět BI-DBS zapsaný, protože jich v tomto semestru bylo pouze 36. Jednalo se tak o ideální testovací vzorek pro příští semestr. Následující semestr - LS 2017 - již byl portál využíván všemi cvičícími a počet studentů se pohyboval kolem 550. Detailům ohledně nasazování portálu se věnuje kapitola \ref{infrastructure}.
 
-\section{Mé působení při vývoji portálu} \label{intro:me}
-Já sám jsem se s portálem seznámil poprvé v letním semestru 2015 v rámci předmětu BI-SP1. V té době byla aplikace nasazena na testovací doméně, ale nebyla ještě používána \uv{veřejností}. Další vývoj tak probíhal pomocí dvou řešitelských týmů po 4 členech, které navázaly na předchozí týmy. Projektové řízení bylo v té době - především z kapacitních důvodů - na velmi slabé úrovni. K dospizici jsme měli Jiřího Hunku, s kterým probíhala každý týden schůzka a dále Jana Sýkoru, který v té době pracoval na své bakalářské práci na téma \emph{Podpora automatizované kontroly semestrální práce z předmětu Databázové systémy}.\\
+\section{Historie řízení vývoje portálu} \label{intro:management}
+
+Já sám jsem se s portálem seznámil poprvé v letním semestru 2015 v rámci předmětu BI-SP1. V té době byla aplikace nasazena na testovací doméně, ale nebyla ještě používána \uv{veřejností}.\\
+Další vývoj probíhal pomocí dvou řešitelských týmů po 4 členech, které navázaly na předchozí týmy. Projektové řízení bylo v té době - především z kapacitních důvodů - na velmi slabé úrovni: V týmech byli stanoveni vedoucí, kteří měli za práci týmu zodpovídat, ve skutečnosti však spíše pracoval každý sám za sebe. Hotová práce se poté prezentovala jednou týdně na schůzce s Jiřím Hunkou. Jeden z týmů měl navíc k dispozici ještě Jana Sýkoru, který - spíše než interní vedoucí - zastával roli vedoucího týmu. Honza v té době pracoval na své bakalářské práci na téma \emph{Podpora automatizované kontroly semestrální práce z předmětu Databázové systémy} a týmům zadával úkoly pro realizaci jeho návrhů UI a funkcionality a výstup poté i kontroloval.\\
 Po dokončení předmětů BI-SP1 a následně BI-SP2 jsem u projektu zůstal a začal jsem se naplno věnovat jeho projektovému řízení, správě infrastruktury a opravě kritických chyb. V současnosti vedu již druhý běh studentů BI-SP1 a mezitím vznikly i čtyři další bakalářské a jedna diplomová práce související s portálem.
