@@ -207,7 +207,7 @@
 }
 
 % line breaks in URL
-\def \UrlBreaks {\do\/\do\-}
+\def \UrlBreaks {\do\/\do\-\do\.}
 
 % change default fonts (provided by OS)
 \setmainfont [Ligatures=TeX, BoldFont={* Semibold}] {Linux Libertine O}
@@ -661,7 +661,7 @@ of works or by adapting the Work (including translation), and at the same time m
 	%\listofdirfigurescond
 
 	\cleardoublepage
-	\listoftablescond %% temporarily disabled listing of tables @malecold
+	\listoftablescond
 
 	\cleardoublepage
 	\listoffigurescond
