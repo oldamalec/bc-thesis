@@ -346,21 +346,92 @@ Podobné skripty mám připraveny i pro samotné nasazení \code{master} branche
 
 \subsection{Zálohování}
 
-TODO pravděpodobně https://www.idrive.com/online-backup-linux
+Zálohovat data je potřeba vždy a všude. Když nastane problém s úložištěm, první otázka bývá \uv{A máte zálohy?}. Především když se jedná o studijní data 550 studentů a připravené testové otázky mnoha vyučujících, je žádoucí o tato data pečovat.\\
+Zálohování probíhá jednak na serveru - na stejný filesystém. Tento typ zálohy se hodí ve chvíli, kdy se v současných datech objevil problém a je potřeba navrátit starší verzi. Pro případ problému s úložištěm samotným je však potřeba provédět i tzv. \emph{off-site} zálohy, neboli zálohy na \emph{jiný počítač}.\\
+Oba typy záloh provádí bash script, který na serveru spouští \emph{cron}. Zálohy jsou spouštěny 1x denně - kolem 4 hodiny ranní. Zálohuje se databáze a soubory na filesystému - data semestrálních prací studentů. Zálohy jsou uchovávány vždy týden, starší jsou mazány. Navíc 1x měsíčně je uchována i persistenstní záloha. Na konci skriptu probíhá i nahrání nových souborů na externí úložiště - IDrive \cite{idrive}.\\
+Skript vypadá následovně (pro účely tohoto textu byl mírně zjednodušen a byly zcenzurovány přístupové údaje):
+\begin{minted}[]{Bash}
+#!/bin/bash
+
+PROJECTPATH="/var/www/newDBS"
+
+
+# ===== SWFILES =====
+# preparements
+mkdir -p $PROJECTPATH/backup/swFiles
+
+# create backup
+cd $PROJECTPATH/www
+tar zcf $PROJECTPATH/backup/swFiles/$(date +%Y%m%d).tar.gz swFiles
+
+# delete backups older than a week
+cd $PROJECTPATH/backup/swFiles/
+rm $(find . -maxdepth 1 -type f -regex '.*\.tar\.gz' | sort | head -n-7)
+
+# once a month, create a persistent backup
+if [ $(date +%d) == 01 ] ; then
+    mkdir -p persistent
+    cp $(find . -maxdepth 1 -type f -regex '.*\.tar\.gz' | sort |
+        tail -1) persistent/
+fi
+
+
+# ===== DATABASE =====
+# preparements
+mkdir -p $PROJECTPATH/backup/database
+echo 'localhost:*:newdbs:<db_user>:<db_pass>' > ~/.pgpass
+chmod 0600 ~/.pgpass
+
+# create dump
+cd $PROJECTPATH/backup/database/
+pg_dump -h localhost -d newdbs -U <db_user> > $(date +%Y%m%d).sql
+gzip -f $(date +%Y%m%d).sql
+
+# delete dumps older than a week
+rm $(find . -maxdepth 1 -type f -regex '.*\.sql\.gz' | sort | head -n-7)
+
+# once a month, create a persistent dump
+if [ $(date +%d) == 01 ] ; then
+    mkdir -p persistent
+    cp $(find . -maxdepth 1 -type f -regex '.*\.sql\.gz' | sort |
+        tail -1) persistent/
+fi
+
+
+# ===== OFFSITE BACKUP =====
+/etc/idrive/idevsutil --password-file=/etc/idrive/pwfile
+        --files-from=/etc/idrive/filelist.txt
+        / dbsfitcvutcz@gmail.com@evs1247.idrive.com::home/
+
+\end{minted}
+Kromě zálohování databáze a dat semestrálních prací jsou samozřejmě zálohovány i zdrojové kódy aplikace. Toto je však řešeno implicitně používáním gitu, který je \emph{distribuovaný} a v případě problému s hlavním repozitářem je možné jej obnovit z jakéhokoliv klienta.
 
 \subsection{Monitoring serveru a aplikace}
 
-TODO
+Každý server, který poskytuje obsah koncovým uživatelům, musí být nějakým způsobem monitorovaný - sledována jeho dostupnost, rychlost atp. Kromě serveru samotného je navíc vhodné sledovat i výkon aplikace, což může odhalit problémy s nastavením nebo neefektivnou kódu, které mohou vést až na dlouhé načítání stránek koncových uživatelů.\\
+Pro DBS portál jsou v současnosti využívány následující služby:
 
 \subsubsection{Datadog}
 
-TODO
+Datadog \cite{datadog} je monitorovací služba, která umožňuje získávat data z mnoha různých služeb běžících na serveru, jako jsou například webserver, databáze, verzovací systém či obecné zatížení procesoru, paměti a diskových operací. Pro tyto služby jsou nabízeny připravené integrace, které nabízejí jednoduché nastavení jejich monitoringu. Dále je možné také do výsledných grafů přidat aktivitu z Gitu či Redmine, což ulehčuje následné hledání chyby - například navýšení využívání operační paměti lze poté jednoduše spojit i commitem v gitu, který začal způsobovat memory leaky. Právě toto propojení \emph{všech} služeb je hlavní výhodou Datadogu.\\
+
+Do DBS projektu jsem nasadil Datadog až v letním semestru 2017, jelikož se standardně jedná o placenou službu, avšak nyní jsem objevil možnost využívání zdarma pro studijní účely - což DBS projekt rozhodně je.\\
+Monitorované služby jsou:
+\begin{itemize}
+	\item TODO
+\end{itemize}
 
 \subsubsection{Ansible, Nagios}
 
 TODO
 
 \subsubsection{Google Analytics}
+
+Analytics \cite{ga} je webová služba, která nabízí přehledy o uživatelích webové stránky, zdroj jejich příchodu, navštívené stránky, používaný operační systém, prohlížeč, rozlišení obrazovky atp.\\
+V komerční sféře jsou tato data využívána především pro zvýšení \emph{konverzního poměru}, jelikož je možné sledovat jak se například návštěvník eshopu dostane k finální koupi produktu či zda je vhodné investovat i do optimalizace webu pro mobilní zobrazení.\\
+Pro DBS portál má však nasazení Google Analytics také svůj význam, jelikož je měřena i rychlost načítání stránek - tím můžeme detekovat TODO 
+
+\subsubsection{NewRelic}
 
 TODO?
 
