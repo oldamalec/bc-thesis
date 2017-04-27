@@ -637,6 +637,10 @@ of works or by adapting the Work (including translation), and at the same time m
 \renewcommand*{\l@listing}{\@dottedtocline{1}{0em}{2.3em}}
 
 \AtBeginDocument{
+
+	\frontmatter 	%% @malecold additions
+	\pagenumbering{gobble} %% @malecold additions
+
 	\if@assignmentdefined{\includepdf[pages={1}]{\theassignment}}
 
 	\cleardoublepage
@@ -653,6 +657,8 @@ of works or by adapting the Work (including translation), and at the same time m
 	\cleardoublepage
 	\pagestyle{plain}
 	\tableofcontents*
+
+	\mainmatter %% @malecold additions
 
 	\cleardoublepage
 	\listoflistingscond

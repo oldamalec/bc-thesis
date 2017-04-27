@@ -36,7 +36,7 @@ Stále se však jedná převážně o jednosměrnou cestu, která nejen na poč�
 \paragraph{Použití v DBS projektu}
 Tato metodika sice zavádí iterace, ale ty jsou pouze čtyři základní, předem definované. Jak bylo zmíněné výše u vopádového modelu (\ref{methods:waterfall}), DBS projekt potřebuje být vyvíjen pomocí skutečně iterativní metody, která bude v jednotlivých iteracích přidávat funkcionality.
 
-TODO more std methods?
+Tradičních metod existuje samozřejmě větší množství, pro potřeby této práce jich však nebudu více uvádět a přesuneme se k Agilním metodám.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -190,8 +190,6 @@ Typicky na projektu pracuje několik týmů a hlavní progragramátor poté pouz
 \paragraph{Použití v DBS projektu}
 Výše popsaný průběh práce hrubě odpovídá i organizaci vývoje DBS projektu, které je popsáno v sekci \ref{methods:dbs}.
 
-TODO popsat týmy podle vlastností? (Kadlec 194)
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -202,16 +200,10 @@ Součástí každého vývojového procesu je bezesporu i testování výstupu. 
 Tento přístup vyžaduje jisté odhodlání programátora, jelikož vždy na první pohled vypadá jednodušeji pouze \emph{dopsat tu jednu řádku}. Při korektním postupu pomocí TDD je však i pro nejmenší změnu kódu vždy potřeba napsat test.
 
 \paragraph{Použití v DBS projektu}
-Jelikož TDD se svým konceptem \emph{test first, program later} vzdaluje od klasických vývojových metodik, není vhodné pro vývoj DBS portálu, kde se každý rok mění složení programátorů. DBS projekt samozřejmě využívá testy, viz kapitola TODO nameref, testuje se však vždy funkcionalita, která již existuje. Testy tedy především hlídají, zda změny v kódu nepoškodily jinou funkcionalitu, a testy pro nové funkce jsou dopsány až poté, co je funkční.
+Jelikož TDD se svým konceptem \emph{test first, program later} vzdaluje od klasických vývojových metodik, není vhodné pro vývoj DBS portálu, kde se každý rok mění složení programátorů. DBS projekt samozřejmě využívá testy, viz kapitola \ref{version:gitlab:tests}, testuje se však vždy funkcionalita, která již existuje. Testy tedy především hlídají, zda změny v kódu nepoškodily jinou funkcionalitu, a testy pro nové funkce jsou dopsány až poté, co je funkční.
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-TODO more agile methods?
-\\
-\\
-\\
+
 Na předchozích stránkách jsme si představili \emph{některé} vývojové metodiky. Především těch agilních však existuje nepřeberné množství, a jak říká například Kadlec \cite{kadlec} nebo Rasmusson \cite{rasmusson}, každý projekt je jedinečný a určitě není nejlepší možností striktně dodržovat jednu z vývojivých metodik. Klíčem je spíše skloubení dostupných metodik k vytvoření vlastní, pro daný projekt nejefektivnějšího přístupu k vývoji. Vedoucí týmu či projektový manažer by neměl \emph{slepě} následovat recept předložený například Extrémném programováním a zamítat jakékoliv jeho úpravy. Z toho důvodu i pro DBS projekt vznikla vlastní metodika, které se bude věnovat jak následující sekce, tak celá následující kapitola.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -266,4 +258,4 @@ I z \nameref{methods:fdd} jsou přebrány některé metody vývoje pro DBS proje
 \paragraph{Featury} Ve FDD je vývoj hnán kupředu především seznamem vlastností, které má finální podoba mít. Toho využívá i DBS projekt, u kterého takový seznam existuje a z jedné strany se stále rozšiřuje novými požadavky, na straně druhé je zpracováván programátory. Jednotlivé vlastnosti jsou meřitelné, v případě jejich nesrozumitelnosti jsou programátorovi dopřesněny a jsou člěneny tak, aby byly realizovatelné do následující iterace (1-2 týdny).
 
 \paragraph{Hlavní programátor}
-Ve FDD dominuje role \emph{hlavního programátora}, který určuje priority jednotlivých vlastností připravených k implementaci a integruje jejich hotové řešení do výsledné aplikace. Tuto roli zastávám v DBS projektu já, jakožto \emph{projektový manažer}. Mým úkolem je mimo jiné zpracovávat požadavky a nahlášené chyby do jednotlivých zadání. Této činnosti se blíže věnuje TODO ref na příslušné kapitoly.
+Ve FDD dominuje role \emph{hlavního programátora}, který určuje priority jednotlivých vlastností připravených k implementaci a integruje jejich hotové řešení do výsledné aplikace. Tuto roli zastávám v DBS projektu já, jakožto \emph{projektový manažer}. Mým úkolem je mimo jiné zpracovávat požadavky a nahlášené chyby do jednotlivých zadání. Této činnosti se blíže věnují mnohé z následujících sekcí, jak z kapitoly \nameref{DBSmanagement}, tak \nameref{infrastructure}.
