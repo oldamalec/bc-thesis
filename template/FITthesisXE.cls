@@ -678,3 +678,6 @@ of works or by adapting the Work (including translation), and at the same time m
 %% @malecold additions
 \newcommand\uv[1]{\quotedblbase #1\textquotedblleft}
 \newcommand{\code}[1]{\texttt{#1}}
+\definecolor{code-gray}{gray}{0.95}
+\BeforeBeginEnvironment{minted}{\begin{mdframed}[backgroundcolor=code-gray,linewidth=0pt]}
+\AfterEndEnvironment{minted}{\end{mdframed}}

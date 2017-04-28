@@ -8,7 +8,7 @@ pdf:
 	cd tex && arara base
 	mv tex/base.pdf ./$(NAME)
 
-debug:
+debug: clean
 	cd tex && latexmk -xelatex --shell-escape base
 	mv tex/base.pdf ./$(NAME)
 

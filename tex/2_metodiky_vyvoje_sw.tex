@@ -6,7 +6,7 @@ V této kapitole čtenáře seznámím s jednotlivými metodikami vývoje softwa
 Ještě než začneme s představením jednotlivých metodik, měli bychom si říci, proč bychom vlastně měli nějakou metodiku vývoje používat.\\
 Při práci na \emph{malém} softwaru, který píše pouze jedna osoba, je opravdu mnohdy zbytečené starat se o \emph{nějakou} vývojovou metodiku. Jakmile však chceme spojit práci více lidí, požadujeme aby výsledný produkt byl hotový do určitého termínu, splňoval všechny předem stanovené požadavky a byl udržovatelný i po jeho nasazení, začínáme mít potřebu zavádět určitá pravidla či předpisy, které nám pomohou všechny požadavky naplnit. Právě v tuto chvíli vstupují do hry \emph{metodiky vývoje softwaru}, které právě tento \uv{balík} pravidel předepisují a vedení projektu poté stačí zvolit nejvhodnější metodiku či jejich kombinaci pro daný projekt.
 
-\section{Tradiční metody} \label{methods:traditional}
+\section{Tradiční metodiky} \label{methods:traditional}
 
 \subsection{Vodopádový model} \label{methods:waterfall}
 
@@ -34,19 +34,19 @@ Vzniku Spirálového modelu dala za vznik především kritika Vodopádového mo
 Stále se však jedná převážně o jednosměrnou cestu, která nejen na počátku ale i v průběhu obsahuje velké množství analýz a návrhů.
 
 \paragraph{Použití v DBS projektu}
-Tato metodika sice zavádí iterace, ale ty jsou pouze čtyři základní, předem definované. Jak bylo zmíněné výše u vopádového modelu (\ref{methods:waterfall}), DBS projekt potřebuje být vyvíjen pomocí skutečně iterativní metody, která bude v jednotlivých iteracích přidávat funkcionality.
+Tato metodika sice zavádí iterace, ale ty jsou pouze čtyři základní, předem definované. Jak bylo zmíněné výše u vopádového modelu (\ref{methods:waterfall}), DBS projekt potřebuje být vyvíjen pomocí skutečně iterativní metodiky, která bude v jednotlivých iteracích přidávat funkcionality.
 
-Tradičních metod existuje samozřejmě větší množství, pro potřeby této práce jich však nebudu více uvádět a přesuneme se k Agilním metodám.
+Tradičních metodik existuje samozřejmě větší množství, pro potřeby této práce jich však nebudu více uvádět a přesuneme se k Agilním metodikám.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Agilní metody} \label{methods:agile}
+\section{Agilní metodiky} \label{methods:agile}
 
-Agilní metody řízení vznikly především z důvodu neustále se měnících požadavků na software a rychlejší reakci na požadované změny. Tradiční metody nebyly schopné reagovat na změny požadavků dostatečně rychle. Především když se začneme bavit o vývoji softwaru, kde se neustále mění dostupné technologie a požadavky na finální verzi, jsou tradiční metody zcela nevhodným modelem vývoje.
+Agilní metodiky řízení vznikly především z důvodu neustále se měnících požadavků na software a rychlejší reakci na požadované změny. Tradiční metodiky nebyly schopné reagovat na změny požadavků dostatečně rychle. Především když se začneme bavit o vývoji softwaru, kde se neustále mění dostupné technologie a požadavky na finální verzi, jsou tradiční metodiky zcela nevhodným modelem vývoje.
 
-Rozdíl mezi tradiční a agilní metodikou lze popsat také jejich přístupem k \emph{Funkcionalitě}, \emph{Času} a \emph{Zdrojům} (Kadlec \cite{kadlec}). Zatímco u tradičních metod je funkcionalita stanovena na začátku a musí být dosažena pomocí \emph{nějakého} času a \emph{nějakého} množství zdrojů, u agilních metod je to přesně naopak. Typicky je stanoven termín a dostupné zdroje a funkcionalita \emph{nějaká} bude.
+Rozdíl mezi tradiční a agilní metodikou lze popsat také jejich přístupem k \emph{Funkcionalitě}, \emph{Času} a \emph{Zdrojům} (Kadlec \cite{kadlec}). Zatímco u tradičních metodik je funkcionalita stanovena na začátku a musí být dosažena pomocí \emph{nějakého} času a \emph{nějakého} množství zdrojů, u agilních metodik je to přesně naopak. Typicky je stanoven termín a dostupné zdroje a funkcionalita \emph{nějaká} bude.
 
 Připomeňme si také \emph{Manifesto for Agile Software Development} \cite{manifesto}, který vznikl v roce 2001:
 
@@ -212,7 +212,7 @@ Na předchozích stránkách jsme si představili \emph{některé} vývojové me
 
 \section{Zvolené řešení pro DBS projekt} \label{methods:dbs}
 
-Jak bylo zmíněno v sekcích o \emph{\nameref{methods:XP}} a \emph{\nameref{methods:fdd}}, DBS projekt je vyvíjem pomocí metody na pomezí XP a FDD.
+Jak bylo zmíněno v sekcích o \emph{\nameref{methods:XP}} a \emph{\nameref{methods:fdd}}, DBS projekt je vyvíjem pomocí metodiky na pomezí XP a FDD.
 
 Na následujících řádcích budu pro potřeby této kapitoly popisovat i nástin \emph{infrastruktury}, která se v DBS projektu využívá. Tomuto tématu je však věnována také vlastní kapitola \ref{infrastructure}.
 
@@ -253,7 +253,7 @@ Vývoj DBS portálu tedy přebírá z Extrémního programování zhruba \emph{p
 
 \subsection{Inspirace v FDD}
 
-I z \nameref{methods:fdd} jsou přebrány některé metody vývoje pro DBS projekt. Především rozdělení na jednotlivé \emph{featury} a role \emph{hlavního programátora}:
+I z \nameref{methods:fdd} jsou přebrány některé metodiky vývoje pro DBS projekt. Především rozdělení na jednotlivé \emph{featury} a role \emph{hlavního programátora}:
 
 \paragraph{Featury} Ve FDD je vývoj hnán kupředu především seznamem vlastností, které má finální podoba mít. Toho využívá i DBS projekt, u kterého takový seznam existuje a z jedné strany se stále rozšiřuje novými požadavky, na straně druhé je zpracováván programátory. Jednotlivé vlastnosti jsou meřitelné, v případě jejich nesrozumitelnosti jsou programátorovi dopřesněny a jsou člěneny tak, aby byly realizovatelné do následující iterace (1-2 týdny).
 

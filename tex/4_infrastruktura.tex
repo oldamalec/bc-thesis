@@ -258,9 +258,10 @@ Aplikace standardně běží na adrese \url{dbs.fit.cvut.cz}, v letním semestru
 \begin{enumerate}
 	\item \emph{Vygenerování certifikátu:} certifikáty generuje cetrifikační autorita - pro naši fakultu CESNET. Komunikace s CESNETem navíc zajišťuje Ing. Martin Bílý, napsal jsem mu tedy email a za pár dní mi byl zaslán certifikát pro novou doménu
 	\item \emph{Nasazení certifikátu na server:} přes standarní konzolové příkazy je vygenerovaný certifikát a klíč potřeba nahrát do složky \code{/etc/ssl/certs/}, respektive \code{/etc/ssl/private/}
-	\item \emph{Konfigurace webserveru:} v \code{/etc/apache2/sites-available} (jedná se o Debian) je potřeba nakonfigurovat jednak přesměrování standardních ne-https požadavků na https, jednak nastavit samotné https. Základní konfigurace SSL může pro \code{apache} webserver vypadat následovně:
-	\expandafter\def\csname PY@tok@err\endcsname{} % a little hack for hiding errors in minted environment
-	\begin{minted}[]{ApacheConf}
+	\item \emph{Konfigurace webserveru:} v \code{/etc/apache2/sites-available} (jedná se o Debian) je potřeba nakonfigurovat jednak přesměrování standardních ne-https požadavků na https, jednak nastavit samotné https. Konfigurace \code{apache} webserveru pro využívání SSL je zachycena v ukázce kódu \ref{code:ssl}
+	\begin{listing}
+		\expandafter\def\csname PY@tok@err\endcsname{} % a little hack for hiding errors in minted environment
+		\begin{minted}[]{ApacheConf}
 SSLEngine on
 
 SSLCipherSuite ECDHE-RSA-AES256-GCM-SHA384:ECDHE-RSA-AES128-GCM-SHA
@@ -275,7 +276,9 @@ SSLCertificateChainFile /etc/ssl/certs/chain_TERENA_SSL_CA_3.pem
 SSLCertificateKeyFile /etc/ssl/private/dbs2.fit.cvut.cz.key
 
 # ostatní standardní konfigurace, netýkající se SSL
-	\end{minted}
+		\end{minted}
+		\caption{Konfigurace Apache pro použití SSL} \label{code:ssl}
+	\end{listing}
 \end{enumerate}
 
 \subsection{Shibboleth} \label{app:shibboleth}
@@ -286,8 +289,8 @@ Shibboleth je jedním ze světově nejpoužívanějších řešení pro propojen
 Shibboleth poskytuje SSO (Single Sign-On) a dovoluje stránkám provádět autorizovaná rozhodnutí o přístupu k chráněnému obsahu pro jednotlivé uživatele \cite{shibboleth}.
 \end{quote}
 Tento systém je využíván právě i na ČVUT, o jeho používání pro přihlašování do DBS portálu tedy nebylo pochyb. Systém umožňuje koncovému uživateli přihlásit se na \emph{jakoukoliv} stránku, kde autorizace přístupu probíhá pomocí Shibbolethu a následně má přístup i k ostatním aplikacím, které rovněž využívají Shibboleth, bez nutnosti dalšího přihlašování.\\
-Zprovoznění systému však není triviální, stejně jako v předchozím případě s SSL, i Shibboleth jsem pro doménu \url{dbs2.fit.cvut.cz} nasazoval já, a její hlavní část sestávala v úpravě konfiguračních souborů na serveru ve složce \code{/etc/shibb\\oleth/}, kam bylo do souboru \code{shibboleth2.xml} potřeba přidat nový \code{ApplicationOverride}, které bude odkazovat na SSL certifikáty, probírané v předchozí sekci. Override je potřeba z důvodu, že na serveru již běží jiná aplikace, která Shibboleth využívá - \code{dbs.fit.cvut.cz} a přihlášení do jednotlivých aplikací má cíleně být na sobě nezávislé:
-\begin{minted}[]{XML}
+\begin{listing}
+	\begin{minted}[]{XML}
 <ApplicationOverride id="dbs2.fit.cvut.cz" entityID="https://dbs2.fit.
     cvut.cz/shibboleth">
     <CredentialResolver type="File">
@@ -299,26 +302,32 @@ Zprovoznění systému však není triviální, stejně jako v předchozím př�
         </Certificate>
     </CredentialResolver>
 </ApplicationOverride>
-\end{minted}
-Dále bylo potřeba opět upravit konfiguraci webserveru (\code{apache}):
-\expandafter\def\csname PY@tok@err\endcsname{} % a little hack for hiding errors in minted environment
-\begin{minted}[]{ApacheConf}
+	\end{minted}
+	\caption{Konfigurace Shibboleth pro novou doménu s vlastním SSL certifikátem} \label{code:shibboleth}
+\end{listing}
+Zprovoznění systému však není triviální, stejně jako v předchozím případě s SSL, i Shibboleth jsem pro doménu \url{dbs2.fit.cvut.cz} nasazoval já, a její hlavní část sestávala v úpravě konfiguračních souborů na serveru ve složce \code{/etc/shibboleth/}, kam bylo do souboru \code{shibboleth2.xml} potřeba přidat nový \code{ApplicationOverride} (ukázka kódu \ref{code:shibboleth}), který bude odkazovat na SSL certifikáty probírané v předchozí sekci. Override je potřeba z důvodu, že na serveru již běží jiná aplikace, která Shibboleth využívá - \code{dbs.fit.cvut.cz} a přihlášení do jednotlivých aplikací má cíleně být na sobě nezávislé.\\
+Dále bylo potřeba opět upravit konfiguraci webserveru (\code{apache}), což znázorňuje ukázka kódu \ref{code:apache-shibboleth}. Na adrese, kam směřuje přepisovací pravidlo v ukázce kódu \ref{code:apache-shibboleth}, tedy \url{https://dbs2.fit.cvut.cz/Shibboleth.sso/Metadata} je zároveň během konfigurace Shibbolethu možné sledovat, zda je nastaven správně. Přístup na tuto adresu stáhne soubor Metadata, který obsahuje informace o této doméně, její jméno, adresu, certifikát, vlastníka atp. Toto jsou informace, na základě kterých je uživatelům umožněno k aplikaci přistupovat. Informace o vlastníkovi domény se standardně definují formou šablony, v podobném umístění jako první ukázka konfigurace - pro zprovoznění domény \url{dbs2.fit.cvut.cz} však nebylo zapotřebí konfigurovat novou šablonu popisujících informací, jelikož již jedna existovala pro hlavní doménu.
+\begin{listing}
+	\expandafter\def\csname PY@tok@err\endcsname{} % a little hack for hiding errors in minted environment
+	\begin{minted}[]{ApacheConf}
 RewriteEngine on
 RewriteRule ^/shibboleth
     https://dbs2.fit.cvut.cz/Shibboleth.sso/Metadata [R,L] 
 
 # ostatní konfigurace, netýkající se Shibbolethu
 # je však potřeba konfigurovat SSL
-\end{minted}
-Na adrese, kam směřuje toto přepisovací pravidlo, tedy \url{https://dbs2.fit.cvut.cz/Shibboleth.sso/Metadata} je zároveň během konfigurace Shibbolethu možné sledovat, zda je nastaven správně. Přístup na tuto adresu stáhne soubor Metadata, který obsahuje informace o této doméně, její jméno, adresu, certifikát, vlastníka atp. Toto jsou informace, na základě kterých je uživatelům umožněno k aplikaci přistupovat. Informace o vlastníkovi domény se standardně definují formou šablony, v podobném umístění jako první ukázka konfigurace - pro zprovoznění domény \url{dbs2.fit.cvut.cz} však nebylo zapotřebí konfigurovat novou šablonu popisujících informací, jelikož již jedna existovala pro hlavní doménu.
+	\end{minted}
+	\caption{Konfigurace Apache pro použití Shibboleth autentizace} \label{code:apache-shibboleth}
+\end{listing}
 
 \paragraph{Poznámka k označení \emph{doména}}
-V předchozím textu jsem často používal označení \emph{doména} pro adresy \url{dbs.fit.cvut.cz} a \url{dbs2.fit.cvut.cz}. Ve skutečnosti se však nejedná o rozdílné domény, pouze rozdílná CNAME neboli Canonical name \cite{dns}. To znamená, že se jedná pouze o alias, který ukazuje na stejný server a zde probíhá rozdělení na základě name-based virtual hostů, které jsou nakonfigurované ve webserveru, v našem případě \code{apache}.
+V předchozím textu jsem často používal označení \emph{doména} pro adresy \url{dbs.fit.cvut.cz} a \url{dbs2.fit.cvut.cz}. Ve skutečnosti se však nejedná o rozdílné domény, pouze rozdílná \code{CNAME} neboli Canonical name \cite{dns}. To znamená, že se jedná pouze o alias, který ukazuje na stejný server a zde probíhá rozdělení na základě name-based virtual hostů, které jsou nakonfigurované ve webserveru, v našem případě \code{apache}.
 
 \subsection{Skripty pro nasazení aplikace} \label{app:deploy_script}
 
-Nasazování aplikace je jedním z úkonů, které opakují stále stejné postupy, není však cílem je plně automatizovat. Důvodem je kontrola nad aktuální nasazenou verzí, především ta na produkčním serveru \emph{musí} být vždy stabilní. Nasazování provádím já a pro zjednodušení práce jsem si vytvořil skripty, například pro nasazení \code{master} branche na \url{dbs.fit.cvut.cz}:
-\begin{minted}[]{Bash}
+Nasazování aplikace je jedním z úkonů, které opakují stále stejné postupy, není však cílem je plně automatizovat. Důvodem je kontrola nad aktuální nasazenou verzí, především ta na produkčním serveru \emph{musí} být vždy stabilní. Nasazování provádím já a pro zjednodušení práce jsem si vytvořil skripty, například pro nasazení \code{master} branche na \url{dbs.fit.cvut.cz} je využíván skript z ukázky kódu \ref{code:deploy}.
+\begin{listing}
+	\begin{minted}[]{Bash}
 #!/bin/bash
 
 set -o errexit -o nounset -o pipefail
@@ -344,7 +353,9 @@ ssh -t root@dbs.fit.cvut.cz '
 # return to original directory
 git pull
 cd -
-\end{minted}
+	\end{minted}
+	\caption{Skript pro nasazení nové verze aplikace pomocí gitu} \label{code:deploy}
+\end{listing}
 Tento skript se spouští z rootu lokálně nasazené aplikace a využívá Git, ve kterém nejprve do \code{master} branche provede merge z \code{devtest}, jak bylo popisováno v sekci \ref{version:git:branching}. Následně se připojí na server přes \code{ssh} a zde provede \code{pull}, čímž aktualizuje zdrojové soubory ze sdíleného repozitáře. Nakonec jsou ještě promazány cache, které se mohly z důvodu aktualizace zdrojových souborů stát neaktuálními.\\
 Podobné skripty mám připraveny i pro samotné nasazení \code{master} branche, bez přidávání změn z \code{devtest}, což je využíváno při aplikaci hotfixů přímo do produkční větve. Dalším skriptem je nasazování testovací verze na \url{dbs2.fit.cvut.cz}, který se velmi podobná výše zmíněnému, pouze jsou prohozeny větve \code{master} a \code{devtest}, jelikož je cílem do druhé zmíněné dostat i případné hotfixy, které byly provedeny přímo v té produkční.
 
@@ -352,47 +363,52 @@ Podobné skripty mám připraveny i pro samotné nasazení \code{master} branche
 
 Zálohovat data je potřeba vždy a všude. Když nastane problém s úložištěm, první otázka bývá \uv{A máte zálohy?}. Především když se jedná o studijní data 550 studentů a připravené testové otázky mnoha vyučujících, je žádoucí o tato data pečovat.\\
 Zálohování probíhá jednak na serveru - na stejný filesystém. Tento typ zálohy se hodí ve chvíli, kdy se v současných datech objevil problém a je potřeba navrátit starší verzi. Pro případ problému s úložištěm samotným je však potřeba provédět i tzv. \emph{off-site} zálohy, neboli zálohy na \emph{jiný počítač}.\\
-Oba typy záloh provádí bash script, který na serveru spouští \emph{cron}. Zálohy jsou spouštěny 1x denně - kolem 4 hodiny ranní. Zálohuje se databáze a soubory na filesystému - data semestrálních prací studentů. Zálohy jsou uchovávány vždy týden, starší jsou mazány. Navíc 1x měsíčně je uchována i persistenstní záloha. Na konci skriptu probíhá i nahrání nových souborů na externí úložiště - IDrive \cite{idrive}.\\
-Skript vypadá následovně (pro účely tohoto textu byl mírně zjednodušen a byly zcenzurovány přístupové údaje):
-\begin{minted}[]{Bash}
+Oba typy záloh provádí bash script znázorněný v ukázkách kódu \ref{code:backup-a} a \ref{code:backup-b}, který na serveru spouští \emph{cron}. Zálohy jsou spouštěny 1x denně - kolem 4 hodiny ranní. Zálohuje se databáze a soubory na filesystému - data semestrálních prací studentů a obrázky použité v testových otázkách. Zálohy jsou uchovávány vždy týden, starší jsou mazány. Navíc 1x měsíčně je uchována i persistenstní záloha. Na konci skriptu probíhá i nahrání nových souborů na externí úložiště - IDrive \cite{idrive}.\\
+Kromě zálohování databáze a dat semestrálních prací a obrázků použitých v testech jsou samozřejmě zálohovány i zdrojové kódy aplikace. Toto je však řešeno implicitně používáním gitu, který je \emph{distribuovaný} a v případě problému s hlavním repozitářem je možné jej obnovit z jakéhokoliv klienta.
+\begin{listing}[H]
+	\begin{minted}[]{Bash}
 #!/bin/bash
 
 PROJECTPATH="/var/www/newDBS"
 
-
 # ===== SWFILES =====
-# preparements
-mkdir -p $PROJECTPATH/backup/swFiles
+for DIR in swFiles swFilesSubmitted images
+do
+    # preparements
+    mkdir -p ${PROJECTPATH}/backup/${DIR}
 
-# create backup
-cd $PROJECTPATH/www
-tar zcf $PROJECTPATH/backup/swFiles/$(date +%Y%m%d).tar.gz swFiles
+    # create backup
+    cd ${PROJECTPATH}/www
+    tar zcf ${PROJECTPATH}/backup/${DIR}/$(date +%Y%m%d).tar.gz ${DIR}
 
-# delete backups older than a week
-cd $PROJECTPATH/backup/swFiles/
-rm $(find . -maxdepth 1 -type f -regex '.*\.tar\.gz' | sort | head -n-7)
+    # delete backups older than a week
+    cd ${PROJECTPATH}/backup/${DIR}/
+    rm $(find . -maxdepth 1 -type f -regex '.*\.tar\.gz' | sort |
+        head -n-7) 2>/dev/null
 
-# once a month, create a persistent backup
-if [ $(date +%d) == 01 ] ; then
-    mkdir -p persistent
-    cp $(find . -maxdepth 1 -type f -regex '.*\.tar\.gz' | sort |
-        tail -1) persistent/
-fi
-
+    # once a month, create a persistent backup
+    if [ $(date +%d) == 01 ] ; then
+        cd ${PROJECTPATH}/backup/${DIR}/
+        mkdir -p persistent
+        cp $(find . -maxdepth 1 -type f -regex '.*\.tar\.gz' | sort |
+            tail -1) persistent/
+    fi
+done
 
 # ===== DATABASE =====
 # preparements
-mkdir -p $PROJECTPATH/backup/database
-echo 'localhost:*:newdbs:<db_user>:<db_pass>' > ~/.pgpass
+mkdir -p ${PROJECTPATH}/backup/database
+echo 'localhost:*:<dbname>:<dbuser>:<pass>' > ~/.pgpass
 chmod 0600 ~/.pgpass
 
 # create dump
-cd $PROJECTPATH/backup/database/
-pg_dump -h localhost -d newdbs -U <db_user> > $(date +%Y%m%d).sql
+cd ${PROJECTPATH}/backup/database/
+pg_dump -h localhost -d <dbname> -U <dbuser> > $(date +%Y%m%d).sql
 gzip -f $(date +%Y%m%d).sql
 
 # delete dumps older than a week
-rm $(find . -maxdepth 1 -type f -regex '.*\.sql\.gz' | sort | head -n-7)
+rm $(find . -maxdepth 1 -type f -regex '.*\.sql\.gz' | sort |
+    head -n-7)
 
 # once a month, create a persistent dump
 if [ $(date +%d) == 01 ] ; then
@@ -400,15 +416,38 @@ if [ $(date +%d) == 01 ] ; then
     cp $(find . -maxdepth 1 -type f -regex '.*\.sql\.gz' | sort |
         tail -1) persistent/
 fi
-
-
+	\end{minted}
+	\caption{Skript pro automatické zálohování databáze a souborů aplikace - část A} \label{code:backup-a}
+\end{listing}
+\begin{listing}[H]
+	\begin{minted}[]{Bash}
 # ===== OFFSITE BACKUP =====
-/etc/idrive/idevsutil --password-file=/etc/idrive/pwfile
-        --files-from=/etc/idrive/filelist.txt
-        / dbsfitcvutcz@gmail.com@evs1247.idrive.com::home/
+# delete older backups, we only have 5 gigs of space there
+for DIR in swFiles swFilesSubmitted images
+do
+    cd ${PROJECTPATH}/backup/${DIR}/
+    find . -maxdepth 1 -type f -regex '.*\.tar\.gz' | sort |
+        head -n-7 > /etc/idrive/to_delete.txt
+    /etc/idrive/idevsutil --password-file=/etc/idrive/pwfile
+        --delete-items --files-from=/etc/idrive/to_delete.txt
+        dbsfitcvutcz@gmail.com@evs1247.idrive.com::
+        home/var/www/newDBS/backup/${DIR}
+done
+cd ${PROJECTPATH}/backup/database/
+find . -maxdepth 1 -type f -regex '.*\.sql\.gz' | sort |
+    head -n-7 > /etc/idrive/to_delete.txt
+/etc/idrive/idevsutil --delete-items
+    --password-file=/etc/idrive/pwfile
+    --files-from=/etc/idrive/to_delete.txt dbsfitcvutcz@gmail.com
+    @evs1247.idrive.com::home/var/www/newDBS/backup/database
 
-\end{minted}
-Kromě zálohování databáze a dat semestrálních prací jsou samozřejmě zálohovány i zdrojové kódy aplikace. Toto je však řešeno implicitně používáním gitu, který je \emph{distribuovaný} a v případě problému s hlavním repozitářem je možné jej obnovit z jakéhokoliv klienta.
+# upload new backups
+/etc/idrive/idevsutil --password-file=/etc/idrive/pwfile
+    --files-from=/etc/idrive/filelist.txt /
+    dbsfitcvutcz@gmail.com@evs1247.idrive.com::home/
+	\end{minted}
+	\caption{Skript pro automatické zálohování databáze a souborů aplikace - část B} \label{code:backup-b}
+\end{listing}
 
 \subsection{Monitoring serveru a aplikace}
 
