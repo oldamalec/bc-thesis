@@ -658,9 +658,7 @@ of works or by adapting the Work (including translation), and at the same time m
 	\pagestyle{plain}
 	\tableofcontents*
 
-	\mainmatter %% @malecold additions
-
-	\cleardoublepage
+		\cleardoublepage
 	\listoflistingscond
 
 	%\cleardoublepage
@@ -671,6 +669,8 @@ of works or by adapting the Work (including translation), and at the same time m
 
 	\cleardoublepage
 	\listoffigurescond
+
+	\mainmatter %% @malecold additions
 
 	\pagestyle{ruled}
 }
