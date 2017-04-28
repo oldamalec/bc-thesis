@@ -256,9 +256,9 @@ Toto umožňuje bezpečně posílat citlivé údaje - čísla kreditních karet,
 Pro DBS portál je toto důležité, jelikož umižňuje přihlašování uživatelů - učitelů i studentů. Jelikož je pro přihlašování navíc využívána technologie Shibboleth, o které ještě pojednává následující sekce \ref{app:shibboleth}, a pro jejíž běh je SSL vyžadováno, muselo být pro funkčnost portálu nasazeno.\\
 Aplikace standardně běží na adrese \url{dbs.fit.cvut.cz}, v letním semestru 2016 však zároveň probíhalo přepsání celé aplikace z důvodu nového lepšího návrhu a efektivnější znovupoužitelnosti kódu. Z toho důvodu byla zřízena nová doména \url{dbs2.fit.cvut.cz}, na které měla souběžně se starou verzí běžet i nová verze aplikace. I tuto doménu však bylo potřeba zabezpečit pomocí SSL, o což jsem se postaral vykonáním následujících kroků:
 \begin{enumerate}
-	\item \emph{Vygenerování certifikátu:} certifikáty generuje cetrifikační autorita - pro naši fakultu CESNET. Komunikace s CESNETem navíc zajišťuje Ing. Martin Bílý, napsal jsem mu tedy email a za pár dní mi byl zaslán certifikát pro novou doménu
-	\item \emph{Nasazení certifikátu na server:} přes standarní konzolové příkazy je vygenerovaný certifikát a klíč potřeba nahrát do složky \code{/etc/ssl/certs/}, respektive \code{/etc/ssl/private/}
-	\item \emph{Konfigurace webserveru:} v \code{/etc/apache2/sites-available} (jedná se o Debian) je potřeba nakonfigurovat jednak přesměrování standardních ne-https požadavků na https, jednak nastavit samotné https. Konfigurace \code{apache} webserveru pro využívání SSL je zachycena v ukázce kódu \ref{code:ssl}
+	\item \emph{Vygenerování certifikátu:} certifikáty generuje cetrifikační autorita - pro naši fakultu CESNET. Komunikace s CESNETem navíc zajišťuje Ing. Martin Bílý, napsal jsem mu tedy email a za pár dní mi byl zaslán certifikát pro novou doménu.
+	\item \emph{Nasazení certifikátu na server:} přes standarní konzolové příkazy je vygenerovaný certifikát a klíč potřeba nahrát do složky \code{/etc/ssl/certs/}, respektive \code{/etc/ssl/private/}.
+	\item \emph{Konfigurace webserveru:} v \code{/etc/apache2/sites-available} (jedná se o Debian) je potřeba nakonfigurovat jednak přesměrování standardních ne-https požadavků na https, jednak nastavit samotné https. Konfigurace \code{apache} webserveru pro využívání SSL je zachycena v ukázce kódu \ref{code:ssl}.
 	\begin{listing}
 		\expandafter\def\csname PY@tok@err\endcsname{} % a little hack for hiding errors in minted environment
 		\begin{minted}[]{ApacheConf}
@@ -461,12 +461,12 @@ Datadog \cite{datadog} je monitorovací služba, která umožňuje získávat da
 Do DBS projektu jsem nasadil Datadog až v letním semestru 2017, jelikož se standardně jedná o placenou službu, avšak nyní jsem objevil možnost využívání zdarma pro studijní účely - což DBS projekt rozhodně je.\\
 Monitorované služby jsou:
 \begin{itemize}
-	\item \emph{Obecné statistiky:} zatížení CPU, využití paměti
-	\item \emph{Síťové statistiky:} velikost přenesených dat (download vs upload)
-	\item \emph{Diskové statistiky:} prodleva přístupu k disku, množství zápisu a čtení, využití CPU při diskových operacích
-	\item \emph{Monitoring webserveru (apache):} Množství přístupů, velikost servírovaných dat, poměr pracujících a čekajících threadů
-	\item \emph{Monitoring databáze (PostgreSQL):} Počet načtených řádků, počet připojení, počet úprav databáze, využití disku, zatížení systému, využití paměti, velikost přenesených dat po síti
-	\item \emph{Monitoring Docker kontejnerů:} Sledování výkonu automatických testů spouštěných v Dockeru (\ref{version:gitlab:tests}). U kontejnerů je sledováno velké množství informaci jako například využití CPU, paměti, swapu, cache, sítě, disku atp.
+	\item \emph{obecné statistiky:} zatížení CPU, využití paměti,
+	\item \emph{síťové statistiky:} velikost přenesených dat (download vs upload),
+	\item \emph{diskové statistiky:} prodleva přístupu k disku, množství zápisu a čtení, využití CPU při diskových operacích,
+	\item \emph{monitoring webserveru (apache):} Množství přístupů, velikost servírovaných dat, poměr pracujících a čekajících threadů,
+	\item \emph{monitoring databáze (PostgreSQL):} Počet načtených řádků, počet připojení, počet úprav databáze, využití disku, zatížení systému, využití paměti, velikost přenesených dat po síti,
+	\item \emph{monitoring Docker kontejnerů:} Sledování výkonu automatických testů spouštěných v Dockeru (\ref{version:gitlab:tests}). U kontejnerů je sledováno velké množství informaci jako například využití CPU, paměti, swapu, cache, sítě, disku atp.
 \end{itemize}
 V tuto chvíli jsou navíc do Datadogu integrovány i novinky z Redmine, commity z Gitu však zatím integrované nejsou. Je to z důvodu, že Datadog nabízí buďto integraci Gitu, jehož hlavní repozitář je právě na monitorovaném serveru, nebo externě na GitHubu. My však máme repozitář na školním GitLabu, který v současnosti jako integrace podporovaný není. Snažil jsem se integraci provést úpravou skriptů, které integrují repozitář hostovaný na monitorovaném serveru, bohužel však neúspěsně.
 
@@ -486,7 +486,7 @@ Pro DBS portál má však nasazení Google Analytics také svůj význam, jeliko
 Kromě toho také získáváme obecné statistiky o uživatelích. Některé za zajímavých informací získaných z Google Analytics v období 1. 2. 2017 až 26. 4. 2017:
 \begin{itemize}
 	\item \emph{61,16\% připojení je z OS Linux} - toto je způsobeno jednak oblibou GNU/Linux mezi studenty FITu, ale především používáním systému ze školních učeben.
-	\item \emph{57\% připojení je přes ISP ČVUT} - přesně odpovídá předchozímu zjištění - většina studentů se systémem pracuje ze školy
+	\item \emph{57\% připojení je přes ISP ČVUT} - přesně odpovídá předchozímu zjištění - většina studentů se systémem pracuje ze školy.
 	\item \emph{7\% připojení je buďto z mobilu, nebo tabletu} - DBS portál není \emph{vůbec} optimalizován pro mobilní zařízení. Přesto jsou u této statistiky zajímavá data:
 	\begin{itemize}
 		\item \emph{Míra okamžitého opuštění}, neboli Bounce Rate, je u mobilních zařízení 3x vyšší: 18\% oproti 6\% u desktopu. Stále to však znamená, že \emph{82\%} uživatelů se rozhodne i přesto portál z mobilního zařízení používat.

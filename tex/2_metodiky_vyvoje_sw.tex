@@ -10,15 +10,15 @@ Při práci na \emph{malém} softwaru, který píše pouze jedna osoba, je oprav
 
 \subsection{Vodopádový model} \label{methods:waterfall}
 
-Jak zmiňuje Kadlec \cite{kadlec}, nejedná se přímo o metodiku, ale pouze o životní cyklus. Je charakteristický tím, že všechny fáze vývoje jsou prováděny postupně za sebou a není možné se vracet. Případné změny je možní zpracovat až v rámci údržby, která vývoj vždy vrátí do jedné z předchozích etap a následně musí proběhnout i etapy následující.
-
+Jak zmiňuje Kadlec \cite{kadlec}, nejedná se přímo o metodiku, ale pouze o životní cyklus. Je charakteristický tím, že všechny fáze vývoje jsou prováděny postupně za sebou a není možné se vracet. Případné změny je možné zpracovat až v rámci údržby, která vývoj vždy vrátí do jedné z předchozích etap a následně musí proběhnout i etapy následující.\\
+Seznam vývojových fází:
 \begin{itemize}
-	\item Definice problému
-	\item Specifikace požadavků
-	\item Návrh
-	\item Implementace
-	\item Integrace, testování
-	\item Údržba
+	\item Definice problému,
+	\item Specifikace požadavků,
+	\item Návrh,
+	\item Implementace,
+	\item Integrace, testování,
+	\item Údržba.
 \end{itemize}
 
 \paragraph{Použití v DBS projektu}
@@ -55,10 +55,10 @@ Objevujeme lepší způsoby vývoje software tím,
 že jej tvoříme a pomáháme při jeho tvorbě ostatním.
 Při této práci jsme dospěli k těmto hodnotám:
 \begin{itemize}
-	\item \emph{Jednotlivci a interakce} před procesy a nástroji
-	\item \emph{Fungující software} před vyčerpávající dokumentací
-	\item \emph{Spolupráce se zákazníkem} před vyjednáváním o smlouvě
-	\item \emph{Reagování na změny} před dodržováním plánu
+	\item \emph{Jednotlivci a interakce} před procesy a nástroji.
+	\item \emph{Fungující software} před vyčerpávající dokumentací.
+	\item \emph{Spolupráce se zákazníkem} před vyjednáváním o smlouvě.
+	\item \emph{Reagování na změny} před dodržováním plánu.
 \end{itemize}
 Jakkoliv jsou body napravo hodnotné,
 bodů nalevo si ceníme více.
@@ -103,7 +103,7 @@ Na začátek je vhodné říci, že je rozdíl mezi \emph{extrémním vývojem s
 
 XP rozvíjí standardní postupy, avšak posouvá je až do extrémů:
 \begin{itemize}
-	\item Vždy budeme pracovat na co nejjednodušší verzi, která splňuje požadavky
+	\item Vždy budeme pracovat na co nejjednodušší verzi, která splňuje požadavky.
 	\item Pokud se osvědčuje \emph{revize kódu}, budeme neustále revidovat kód \ldots
 	\item Pokud se odvědčil \emph{návrh}, budeme neustále navrhovat a vylepšovat specifikaci \ldots
 	\item Pokud se osvědčilo \emph{testování}, budeme neustále testovat \ldots
@@ -157,20 +157,20 @@ Jak název napovídá, FDD se soustředí především na \emph{featury}, neboli
 
 Klíčový pojem \emph{feature (vlastnost)}  lze popsat jako samostatnou část systému, která splňuje následující parametry:
 \begin{itemize}
-	\item \emph{měritelnost}: vlastnost je jasně uchopitelná komponenta systému, kterou lze porovnat s požadavkem zákazníka
-	\item \emph{srozumitelnost}: programátor musí rozumět tomu, jak má vlastnost fungovat a co je jejím cílem
-	\item \emph{realizovatelnost}: programátor musí vědět, zda je schopen vlastnost realizovat v odpovídajícím časovém úseky (typicky iterace 2 týdny). V opačném případě je většinou potřeba vlastnost rozdělit na více menších, a na těch pracovat samostatně.
+	\item \emph{Měritelnost}: vlastnost je jasně uchopitelná komponenta systému, kterou lze porovnat s požadavkem zákazníka.
+	\item \emph{Srozumitelnost}: programátor musí rozumět tomu, jak má vlastnost fungovat a co je jejím cílem.
+	\item \emph{Realizovatelnost}: programátor musí vědět, zda je schopen vlastnost realizovat v odpovídajícím časovém úseky (typicky iterace 2 týdny). V opačném případě je většinou potřeba vlastnost rozdělit na více menších, a na těch pracovat samostatně.
 \end{itemize}
 
 V tuto chvíli by se mohlo zdát, že FDD vůbec nedisponuje \emph{návrhem a modelováním}. Ve skutečnosti je tomu právě naopak, společně s FDD je často zmiňován ještě \emph{model-driven approach}. Jelikož vlastnosti jsou klíčovou stavební jednotkou FDD, je potřeba je kvalitně navrhnout a namodelovat.
 
 Posloupnost kroků při vývoji pomocí FDD zachycuje následující seznam:
 \begin{enumerate}
-	\item vytvoření celkového (globálního) modelu
-	\item vypracování podrobného seznamu vlastností
-	\item plánování podle vlastností
-	\item návrh podle vlastností
-	\item implementace
+	\item vytvoření celkového (globálního) modelu,
+	\item vypracování podrobného seznamu vlastností,
+	\item plánování podle vlastností,
+	\item návrh podle vlastností,
+	\item implementace.
 \end{enumerate}
 Dvě poslední se poté stále opakují, dokud existují další vlastnosti, které je potřeba pro softwaru přidávat.
 
