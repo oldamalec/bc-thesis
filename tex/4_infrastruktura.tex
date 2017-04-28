@@ -245,7 +245,7 @@ V poslední sekci správy infrastruktury se zaměřím na služby a procesy, kte
 Changelog popisuje změny aplikace v jejích jednotlivých verzích. Je užitečný jak pro koncové uživatele, kteří se pomocí changelogu mohou dozvědět, co je v aplikaci nového, tak pro testery, kteří vědí, které změny testovat.\\
 Jak psát changelog hezky popisuje například Olivier Lacan \cite{changelog}. Changelog je pro lidi, rozhodně by tedy jeho obsah neměl být automaticky generován například z výpisu commitů z gitu. Tento výpis již existuje a vývojáři i testeři k němu mají v rámci repozitáře přístup, kopírovat jej do changelogu by tedy byla navíc duplikace informací. Správný changelog by měl jednoduše vypíchnout nejdůležitější novinky, změny a opravy v nové verzi.\\
 Pro DBS aplikaci píši v současné době changelog já, a to ve chvíli, kdy se slévají změny z jednotlivých týmů do branche devtest, jak bylo popisováno ve workflow gitu v sekci \ref{version:git:branching}. Nejnovější sekce změn je nadepsána \emph{Unreleased} a v této verzi je aplikace nasazena na \url{dbs2.fit.cvut.cz}. Učitelé, kteří se rozhodnout na této doméně otestovat novou verzi tak mají k dospizici seznam změn, které se měnily, aby se na ně mohli zaměřit. Při následném nasazení na hlavní doménu \url{dbs.fit.cvut.cz} je součástí skriptu, který nasazení provádí (více v sekci \ref{app:deploy_script}), automatická změna nadpisu \emph{Unreleased} na aktuální verzi a datum.\\
-TODO git tag?
+TODO git tag? TODO parsedown lib?
 
 \subsection{SSL}
 
