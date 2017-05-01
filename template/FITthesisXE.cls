@@ -658,7 +658,7 @@ of works or by adapting the Work (including translation), and at the same time m
 	\pagestyle{plain}
 	\tableofcontents*
 
-		\cleardoublepage
+	\cleardoublepage
 	\listoflistingscond
 
 	%\cleardoublepage

@@ -1,6 +1,6 @@
 \chapter{Metodiky vývoje softwaru} \label{methods}
 
-V této kapitole čtenáře seznámím s jednotlivými metodikami vývoje softwaru a zaměříme se také na možnosti jejich použití při vývoji DBS portálu, který byl popisován v kapitole \ref{DBSportal}.	
+V této kapitole čtenáře seznámím s různými metodikami vývoje softwaru a zaměřím se také na možnosti jejich využívání při vývoji DBS portálu.
 
 \paragraph{Proč používat metodiku vývoje softwaru}
 Ještě než začneme s představením jednotlivých metodik, měli bychom si říci, proč bychom vlastně měli nějakou metodiku vývoje používat.\\
@@ -17,7 +17,7 @@ Seznam vývojových fází:
 	\item Specifikace požadavků,
 	\item Návrh,
 	\item Implementace,
-	\item Integrace, testování,
+	\item Integrace a testování,
 	\item Údržba.
 \end{itemize}
 
@@ -44,7 +44,7 @@ Tradičních metodik existuje samozřejmě větší množství, pro potřeby té
 
 \section{Agilní metodiky} \label{methods:agile}
 
-Agilní metodiky řízení vznikly především z důvodu neustále se měnících požadavků na software a rychlejší reakci na požadované změny. Tradiční metodiky nebyly schopné reagovat na změny požadavků dostatečně rychle. Především když se začneme bavit o vývoji softwaru, kde se neustále mění dostupné technologie a požadavky na finální verzi, jsou tradiční metodiky zcela nevhodným modelem vývoje.
+Agilní metodiky řízení vznikly především z důvodu neustále se měnících požadavků na software a potřebnosti rychlejší reakce na požadované změny. Tradiční metodiky nebyly schopné reagovat na změny požadavků dostatečně rychle. Především když se začneme bavit o vývoji softwaru, kde se neustále mění dostupné technologie a požadavky na finální verzi, jsou tradiční metodiky zcela nevhodným modelem vývoje.
 
 Rozdíl mezi tradiční a agilní metodikou lze popsat také jejich přístupem k \emph{Funkcionalitě}, \emph{Času} a \emph{Zdrojům} (Kadlec \cite{kadlec}). Zatímco u tradičních metodik je funkcionalita stanovena na začátku a musí být dosažena pomocí \emph{nějakého} času a \emph{nějakého} množství zdrojů, u agilních metodik je to přesně naopak. Typicky je stanoven termín a dostupné zdroje a funkcionalita \emph{nějaká} bude.
 
@@ -122,9 +122,9 @@ Kromě karet zadání existují v XP také \emph{karty úkolů}. Tyto vznikají 
 	\item \emph{Plánovací hra:} Probíhá jednak na začátku vývoje v rámci návrhu celé aplikace, tak na začátku jednotlivých iterací. Jejím výstupem jsou \emph{Karty zadání} a \emph{Karty úkolů}, popisované v předchozím odstavci.
 	\item \emph{Malé verze:} Verze jsou dodávány neustále. I nejmenší změna funkcionality, která přináší užitek pro zákazníka je vydána jako nová verze.
 	\item \emph{Metafora:} Celý systém je popisován jednoduchým příběhem, jak má ve výsledku fungovat. Tento příběh je sdílen jak vývojáři a managementem, tak zákazníkem a případně dalšími zainteresovanými osobami. Tato metafora u XP nahrazuje tradiční popis architektury.
-	\item \emph{Jednoduchý návrh:} XP navrhuje vždy pouze to, co je přímo požadováno. Žádné přidáné vlastnosti nechce do návrhu zahrnovat, snaží se udělat minimum pro to, aby byly splněny požadavky.
+	\item \emph{Jednoduchý návrh:} XP navrhuje vždy pouze to, co je přímo požadováno. Nechce do návrhu zahrnovat žádné přidáné vlastnosti, snaží se udělat minimum pro to, aby byly splněny požadavky.
 	\item \emph{Testování:} Během vývoje jsou neustále psány i testy pro nově vznikající komponenty. Nikdy nesmí existovat jednotka, která nemá vlastní unit test. Testy dokonce píší i sami zákazníci, kteří tvoří testy funkcionality.
-	\item \emph{Refaktorizace:} Refaktorizace je změna zdrojového kódu, která ovšem nemění jeho chování. Je prováděna z důvodu zvýšení čitelnosti kódu pro ostatní programátory či jeho zefektivnění. V XP by měl programátor vždy buď pouze implementovat novou funkčnost, nebo refaktorizovat stávající kód.
+	\item \emph{Refaktorizace:} Refaktorizace je změna zdrojového kódu, která ovšem nemění jeho chování. Je prováděna z důvodu zvýšení čitelnosti kódu pro ostatní programátory či jeho zefektivnění. V XP by měl programátor vždy buď pouze implementovat novou funkčnost, nebo refaktorizovat stávající kód, nikdy ne obě činnosti současně.
 	\item \emph{Párové programování:} Zdrojový kód je vždy psán dvěma programátory u jednoho počítače. Zatímco jeden píše kód, druhý sleduje postup a přemýšlí nad dalšími souvislostmi: Je tato funkce napsána správně? Zapadá do celkového konceptu? Změní tato úprava chování jiného modulu? Je potřeba napsat nový test? \ldots
 	\item \emph{Společné vlastnictví:} Zatímco některé jiné metodiky přiřazují jednotlivé třídy určitým programátorům, které za ně poté mají zodpovědnost, v XP je to právě naopak. Všichni mají zodpovědnost za celý kód a kdokoliv tak může měnit libovolnou součást systému.
 	\item \emph{Nepřetržitá integrace:} Systém je sestaven a otestván vždy, jakmile je to možné, typicky tedy ihned po dokončení nové funkcionality.
