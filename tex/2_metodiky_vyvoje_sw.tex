@@ -127,7 +127,7 @@ Kromě karet zadání existují v XP také \emph{karty úkolů}. Tyto vznikají 
 	\item \emph{Refaktorizace:} Refaktorizace je změna zdrojového kódu, která ovšem nemění jeho chování. Je prováděna z důvodu zvýšení čitelnosti kódu pro ostatní programátory či jeho zefektivnění. V XP by měl programátor vždy buď pouze implementovat novou funkčnost, nebo refaktorizovat stávající kód, nikdy ne obě činnosti současně.
 	\item \emph{Párové programování:} Zdrojový kód je vždy psán dvěma programátory u jednoho počítače. Zatímco jeden píše kód, druhý sleduje postup a přemýšlí nad dalšími souvislostmi: Je tato funkce napsána správně? Zapadá do celkového konceptu? Změní tato úprava chování jiného modulu? Je potřeba napsat nový test? \ldots
 	\item \emph{Společné vlastnictví:} Zatímco některé jiné metodiky přiřazují jednotlivé třídy určitým programátorům, které za ně poté mají zodpovědnost, v XP je to právě naopak. Všichni mají zodpovědnost za celý kód a kdokoliv tak může měnit libovolnou součást systému.
-	\item \emph{Nepřetržitá integrace:} Systém je sestaven a otestván vždy, jakmile je to možné, typicky tedy ihned po dokončení nové funkcionality.
+	\item \emph{Nepřetržitá integrace:} Systém je sestaven a otestován vždy, jakmile je to možné, typicky tedy ihned po dokončení nové funkcionality.
 	\item \emph{Čtyčicetihodinový pracovní týden:} XP klade důraz i na spokojenost lidských zdrojů. Snaží se tedy o nepřetěžování programátorů, jelikož při jejich únavě se razantně snižuje kvalita jejich výstupu.
 	\item \emph{Zákazník na pracovišti:} Součastí týmu by měl být i sám zákazník, neboli expert na cílovou doménu. Jeho účelem je odpovídat na dotazy, tvořit testy či určovat priority.
 	\item \emph{Standardy pro psaní zdrojového kódu:} Jelikož XP nedefinuje žádné standardní dokumenty, jsou veškeré informaci o projektu obsaženy ve zdojových kódech samotných. Proto je potřeba, aby byly rozumně strukturované, čitelné a pochopitelné.
@@ -145,7 +145,7 @@ Některé z těchto postupů jsou jistým způsobem používány i při vývoji 
 Scrum je charakterizován především pojmy \emph{Sprint} a \emph{Scrum meeting}. První z nich má trvání většinou jeden měsíc a opakuje se několikrát. Jeho cílem je přinést do výsledného produktu nové funkcionality. Naopak Scrum meeting je \emph{každodenní} schůzka, na které se shrnou nově dokončené úkoly a stanoví se, na čem se bude dále pracovat. Schůzku vede tzv. \emph{Scrum master}. Typicky probíhá ve stoje a netrvá déle než 30 minut. Dalo by se říci, že tyto každodenní schůzky jsou stěžejní aktivitou metodiky Scrum. Od těchto schůzek se také odvíjí velikost týmu: Scrum preferuje malé týmy mezi třemi až šesti členy.
 
 \paragraph{Použití v DBS projektu}
-Pro potřeby DBS projektu je tedy Scrum také nevhodný, především jelikož předpokládá každodenní schůzky.
+Pro potřeby DBS projektu je Scrum také nevhodný, především jelikož předpokládá každodenní schůzky.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -185,7 +185,7 @@ Týmy sestavené v předchozí fázi pracují na vlastní funkcionalitě nové v
 Jakmile je vlastnost dokončena, je vložena do sdíleného prostoru, u FDD nazývaného \emph{class repository}\\
 Hlavní programátor poté dokončené vlastnosti integruje do předchozí verze hlavní aplikace.
 
-Typicky na projektu pracuje několik týmů a hlavní progragramátor poté pouze volí nové vlastnosti k implementaci a integruje hotové vlastnosti do výsledné aplikace.
+Typicky na projektu pracuje několik týmů a hlavní progragramátor pouze volí nové vlastnosti k implementaci a integruje hotové vlastnosti do výsledné aplikace.
 
 \paragraph{Použití v DBS projektu}
 Výše popsaný průběh práce hrubě odpovídá i organizaci vývoje DBS projektu, které je popsáno v sekci \ref{methods:dbs}.
@@ -223,7 +223,7 @@ Na následujících řádcích budu pro potřeby této kapitoly popisovat i nás
 \subsection{Inspirace v XP}
 
 Jedním z požadavků vývoje pomocí \emph{Extrémního programování} je předpoklad, že budou dodržovány všechny jeho náležitosti. Jelikož jsme však na akademické půdě a vývojáři DBS projektu jsou především studenti předmětů BI-SP1, případně BI-SP2 (více v kapitole \nameref{DBSportal}), není možné abychom využívali například \emph{párové programování} či \emph{čtyřicetihodinový pracovní týden}, které XP \uv{předepisuje}.
-Už minimálně z tohoto důvodu nemůže být XP použito ve svém plném obsahu. Důvodu je více, nyní se však pojďme zaměřit naopak na to, co vývoj DBS portálu z Extrémního programování \emph{využívá:}
+Už minimálně z tohoto důvodu nemůže být XP použito ve svém plném obsahu. Důvodů je více, nyní se však pojďme zaměřit naopak na to, co vývoj DBS portálu z Extrémního programování \emph{využívá:}
 
 \paragraph{Revize kódu}
 XP mluví o neustálé revizi kódu. Jelikož studenti, kteří portál programují, jsou často nezkušení, je opravdu důležité jejich kód často revidovat, ideálně ihned po jejich \emph{commitu} do \emph{Gitu}. Revize provádí vedoucí týmu a také vedení projektu, zejména Pavel Kovář.
@@ -237,7 +237,7 @@ XP popisuje \emph{Karty úkolů} (\ref{methods:XP:issues}), které víceméně o
 Obecně se ale dá říct, že takovouto funkci \emph{issue trackeru} musí určitý systém plnit prakticky v \emph{jakékoliv} vývojové metodice, mluvit o \emph{inspiraci z XP} tak u tohoto bodu nemá takový dopad.
 
 \paragraph{Testování a nepřetržitá integrace}
-V XP je \uv{předepsáno} neustále dopisovat testy pro nově vznikající komponenty. To probíhá i při vývoji DBS portálu, což je podpořeno i \emph{neustálou integrací}. Jakmile je dopsána nová funkčnost, tak při jejím \emph{push}i do \emph{Gitlab}u se automaticky spustí \gls{gCI}.
+V XP je \uv{předepsáno} neustále dopisovat testy pro nově vznikající komponenty. To probíhá i při vývoji DBS portálu, což je podpořeno i \emph{neustálou integrací}. Jakmile je dopsána nová funkčnost, tak při jejím \emph{push}i do \emph{Gitlab}u se automaticky spustí automatické testy.
 
 \paragraph{Zákazník na pracovišti}
 Tato součást není při vývoji DBS portálu dodržována zcela, již z důvodu, že prakticky neexistuje sdílené pracoviště. Jednotliví členové pracují typicky odděleně, kdekoliv.

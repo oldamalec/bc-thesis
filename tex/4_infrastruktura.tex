@@ -9,10 +9,10 @@ V této kapitole často zmiňuji práci \emph{manažera projektu}, čímž mám 
 
 \section{Issue tracker}
 
-Základním stavebním kamenem jakéhokoliv projektu, je \emph{issue tracker}, neboli \uv{systém sledování úkolů}. Do něj jsou zadávány úkoly které je potřeba realizovat, tyto úkoly se poté přiřazují lidem, kteří je budou řešit a všechny změny úkoly jsou vždy jednoduše dohledatelné a měřitelné. Do těchto systémů je také často možné zaznamenávat čas strávený řešením daného úkolu, nastavovat termíny, hierarchie úkolů, a řídit přístup různých rolí k určitým funkcionalitám.\\
+Základním stavebním kamenem jakéhokoliv projektu, je \emph{issue tracker}, neboli \uv{systém sledování úkolů}. Do něj jsou zadávány úkoly, které je potřeba realizovat. Tyto úkoly se poté přiřazují lidem, kteří je budou řešit a všechny změny úkolu jsou vždy jednoduše dohledatelné a měřitelné. Do těchto systémů je také často možné zaznamenávat čas strávený řešením daného úkolu, nastavovat termíny, hierarchie úkolů a řídit přístup různých rolí k určitým funkcionalitám.\\
 Při vývoji DBS portálu využíváme následující issue trackery:
 \begin{itemize}
-	\item \emph{Redmine:} interní issue tracker využíván vývojovým týmem a manažerem. Přístup k němu mají pouze role definované v předchozí kapitole v organizačním členění vývoje projektu (Obrázek \ref{picture:obs}). Slouží pro vývoj, rozdělení práce i záznam času.
+	\item \emph{Redmine:} interní issue tracker využívaný vývojovým týmem a manažerem. Přístup k němu mají pouze role definované v předchozí kapitole v organizačním členění vývoje projektu (Obrázek \ref{picture:obs}). Slouží pro vývoj, rozdělení práce i záznam času.
 	\item \emph{Gitlab:} veřejný issue tracker dostupný všem studentům i vyučujícím na FIT ČVUT, který slouží jako \emph{bug report} neboli \uv{hlášení chyb}. Chyby zde nahlašují typicky koncoví uživatelé portálu a z vývojového týmu na ně reaguje pouze manažer projektu, který poté potřebné úkoly zadává na interní issue tracker: Redmine.
 \end{itemize}
 
@@ -24,16 +24,16 @@ Redmine je flexibilní webová aplikace pro správu řízení projektu. Díky po
 
 Redmine je při vývoji DBS portálu využíván především pro:
 \begin{itemize}
-	\item Shromažďování úkolů k řešení
-	\item Sledování práce na přiřazeném úkolu
-	\item Záznam času stráveného řešením úkolu či u projektu
-	\item Shromažďování návodů a dokumentací - Wiki
+	\item Shromažďování úkolů k řešení.
+	\item Sledování práce na přiřazeném úkolu.
+	\item Záznam času stráveného řešením úkolu či u projektu.
+	\item Shromažďování návodů a dokumentací - Wiki.
 \end{itemize}
 Jednotlivé body si následně popíšeme blíže, předtím bych však ještě chtěl zmínit možnost rozdělení úkolů do jednotlivých \emph{projektů}:
 
 \subsubsection{Projekty v Redmine} \label{if:redmine:projects}
 
-Redmine umožňuje na jedné instalaci provozovat několik oddělených (a nebo hiararchicky uspořádaných) projektů. V rukou hlavního administrátora (kterého u DBS projektu zastávám také já) poté je možnost umožnit určitým uživatelům či rolím přístup k různým projektům a také různé pravomoce v těchto projektech.\\
+Redmine umožňuje na jedné instalaci provozovat několik oddělených (a nebo hiararchicky uspořádaných) projektů. V rukou hlavního administrátora (kterého u DBS projektu zastávám také já) poté je možnost umožnit určitým uživatelům či rolím přístup k různým projektům a také udělit různé pravomoce v těchto projektech.\\
 Pro vývoj DBS portálu využíváme následující projekty:
 \begin{itemize}
 	\item \code{newDBS}: projekt shromažďující veškeré úkoly, které bude potřeba řešit, nemají však zatím přiřazeného řešitele.
@@ -46,7 +46,7 @@ Pro vývoj DBS portálu využíváme následující projekty:
 
 \paragraph{Proč dělit práci na projekty?}
 Rozdělení na projekty je v běžné firmě jasné: v jednu chvíli se může pracovat na projektech několika klientů, které se sebou vůbec nemusí souviset. Proč ale dělit práci na projekty i u DBS portálu, který je jako celek pouze jeden projekt? Důvodem je především možnost využívání hromadných statistik, ale také rozdělení na realizační týmy.\\
-Rozdělení má význam ve chvíli, kdy chce vedoucí týmu nebo manažer projektu zobrazit například celkový strávený čas jednoho z týmů, nebo zobrazení přidělené práce danému týmu. Díky odlišným projektům je snadné rozdělit úkoly na kterých pracuje team 1, team2 a nebo nejsou zatím přiděleny k realizaci. Také vedoucí týmů mají snažší práci s přehledem práce jejich vlastního týmu, mohou si zapnout emailové notifikace pouze pro změny v projektu, který patří jejich týmu atp.
+Rozdělení má význam ve chvíli, kdy chce vedoucí týmu nebo manažer projektu zobrazit například celkový strávený čas jednoho z týmů, nebo zobrazení přidělené práce danému týmu. Díky odlišným projektům je snadné rozdělit úkoly na kterých pracuje Team 1, Team 2 a nebo nejsou zatím přiděleny k realizaci. Také vedoucí týmů mají snažší práci s přehledem práce jejich vlastního týmu, mohou si zapnout emailové notifikace pouze pro změny v projektu, který patří jejich týmu atp.
 
 \subsubsection{Shromažďování úkolů k řešení}
 
@@ -54,10 +54,10 @@ Během práci na projektu často vyvstávají nové požadavky či se objevují 
 Odtud úkol typicky putuje dále zásahem manažera, který rozhodne o nutnosti jeho realizace a přiřadí úkol do jednoho z týmů - tedy projektu \code{Team 1} nebo \code{Team 2}. Některé úkoly jsou řešeny i přímo zde, ale to pouze výjimečně - na těch pracuji buďto přímo já a nebo některý ze studentů pracujících na BP či DP.\\
 Úkol, který je nově vytvořen v \code{newDBS} projektu má typicky vyplněna pouze následující pole:
 \begin{itemize}
-	\item \emph{Název:} stručný název úkolu. Na začátku názvu mohou být dodatečné popisné \emph{tagy}, například \code{[databaze]} nebo \code{[menu]}, které jasně definují, které komponenty systému se úkol týká
-	\item \emph{Popis:} detailní zadání úkolu, obsahující kroky k replikaci chyby, popis požadavku či nástin jak úkol řešit
-	\item \emph{Stav:} výčet stavů, v tuto chvíli nastaven na \emph{Nový}. Všechny změny stavů popisuje \nameref{picture:activity} dostupný v příloze \ref{picture:activity}
-	\item \emph{Priorita:} priorita úkolu, u většiny úkolů nastavena na \emph{Normální}. Dalšími možnými stavy je \emph{Nizká}, \emph{Vysoká}, \emph{Urgentní} a \emph{Okamžitá}\\
+	\item \emph{Název:} stručný název úkolu. Na začátku názvu mohou být dodatečné popisné \emph{tagy}, například \code{[databaze]} nebo \code{[menu]}, které jasně definují, které komponenty systému se úkol týká.
+	\item \emph{Popis:} detailní zadání úkolu, obsahující kroky k replikaci chyby, popis požadavku či nástin jak úkol řešit.
+	\item \emph{Stav:} výčet stavů, v tuto chvíli nastaven na \emph{Nový}. Všechny změny stavů popisuje \nameref{picture:activity} dostupný v příloze \ref{picture:activity}.
+	\item \emph{Priorita:} priorita úkolu, u většiny úkolů nastavena na \emph{Normální}. Dalšími možnými stavy je \emph{Nizká}, \emph{Vysoká}, \emph{Urgentní} a \emph{Okamžitá}.
 \end{itemize}
 
 
@@ -71,13 +71,13 @@ Odtud úkol typicky putuje dále zásahem manažera, který rozhodne o nutnosti 
 Jakmile je úkol přeřazen do jednoho z týmů, vyplní manažer i další dostupná pole:
 \begin{itemize}
 	\item \emph{Přiřazeno:} pole, které určuje člověka, po kterém je k úkolu požadován další vstup. Proces změny tohoto pole také popisuje \nameref{picture:activity} dostupný v příloze \ref{picture:activity}.
-	\item \emph{Uzavřít do:} úkolu se nastaví termín, do kterého musí být vyřešen. V případě nevyřešení může být tým, kterému byl úkol přiřazen, bodově penalizován
-	\item \emph{Body:} manažer odhadne obtížnost řešení úkolu a přiřadí mu určité bodové ohodnocení. Více o bodování bylo probíráno v sekci \ref{ppl:ranking}: \nameref{ppl:ranking}
+	\item \emph{Uzavřít do:} úkolu se nastaví termín, do kterého musí být vyřešen. V případě nevyřešení může být tým, kterému byl úkol přiřazen, bodově penalizován.
+	\item \emph{Body:} manažer odhadne obtížnost řešení úkolu a přiřadí mu určité bodové ohodnocení. Více o bodování bylo probíráno v sekci \ref{ppl:ranking}: \nameref{ppl:ranking}.
 \end{itemize}
 
 V tuto chvíli přechází úkol do kompetence daného týmu, který na úkolu začne pracovat a postupně vykazuje svůj postup. K tomu slouží jednak možnost přidávat k úkolu komentáře, jednak možnost měnit pole \emph{\% Hotovo} a také zaznamenávat strávený čas (viz sekce \ref{redmine:time}).
 
-Průběh práce je také možné sledovat na \emph{gitu}, respektive \emph{Gitlabu}, kterým se více věnují samostatných sekcích \ref{version:git}, respektive \ref{version:gitlab}.
+Průběh práce je také možné sledovat na \emph{gitu}, respektive \emph{Gitlabu}, kterým se více věnují samostatné sekce \ref{version:git}, respektive \ref{version:gitlab}.
 
 \paragraph{Návaznost commitů v gitu na Redmine úkoly} \label{redmine:commitlink}
 Redmine umožňuje k projektu připojit i repozitář - v našem případě git. Při takovém provázání je vhodné, aby jednotlivé commity v gitu byly určitým způsobem provázány s úkolem, který řeší. Toho lze docílit přidáním ID úkolu do \emph{commit message}. Jedná se o jednu z guidelines pro psaní commitů, kterím se blíže věnuje sekce \ref{version:git:commit}. Takto provázané commity se poté zobrazují pod úkolem vedle poznámek uživatelů a je možné si je jednoduše otevřít a zobrazit změny v kódu.
@@ -98,12 +98,12 @@ Když je úkol dokončen, je dle workflow (příloha \ref{picture:activity}) př
 
 \subsubsection{Záznam času} \label{redmine:time}
 
-Řešitel úkolu si k němu také zaznamenává strávený čas, spolu s poznámkami na čem v zaznamenané době pracoval. Tento čas se poté zobrazuje u úkolu a lze tak sledovat, zda byl odhat doby řešení správný, nebo je potřeba zvýšit časovou či bodovou dotaci. Také je možné v přehledu projektu či projektů zobrazovat, kolik hodin kteří uživatelé odpracovali a podle toho například rozdělovat hodnocení jejich práce.\\
+Řešitel úkolu si k němu také zaznamenává strávený čas, spolu s poznámkami na čem v zaznamenané době pracoval. Tento čas se poté zobrazuje u úkolu a lze tak sledovat, zda byl odhad doby řešení správný, nebo je potřeba zvýšit časovou či bodovou dotaci. Také je možné v přehledu projektu či projektů zobrazovat, kolik hodin kteří uživatelé odpracovali a podle toho například rozdělovat hodnocení jejich práce.\\
 Je však nutno zmínit, že záznam času není vždy ideálním měřidlem výkonu uživatele. Stejně obtížný úkol může zkušený programátor zrealizovat během 20 minut, kdežto nezkušený nováček může nad úkolem strávit i několik hodin a výstup i přesto zůstává sporný. Pro hodnocení by tak kromě vykázaného času měl být brán ohled i na kvalitu výstupu, případně další ukazatele.
 
 \subsubsection{Wiki}
 
-Redmine poskytuje také možnost tvorby \emph{knowledge base} či \emph{Wiki}, kterou využíváme především u newDBS\footnote{Dle rozdělení projektů v Redmine v sekci \ref{if:redmine:projects}} projektu. Informace zde shromažďované slouží jak pro podporu nových studentů, tak jako dokumentace aplikace, jsou zde návody jak spouštět testy atp. Struktura Wiki v současnosti vypadá následovně:
+Redmine poskytuje také možnost tvorby \emph{knowledge base} či \emph{Wiki}, kterou využíváme především u newDBS\footnote{Dle rozdělení projektů v Redmine v sekci \ref{if:redmine:projects}} projektu. Informace zde shromažďované slouží jak pro podporu nových studentů, tak jako dokumentace aplikace. Jsou zde návody jak nasadit vývojové prostředí, spouštět testy, požadované formáty kódu i commit message a další. Struktura Wiki v současnosti vypadá následovně:
 \begin{itemize}
 	\item Instalujeme projekt - \emph{Sekce popisující nasazení vývojové verze projektu na počítač programátora}
 	\begin{itemize}
@@ -148,10 +148,14 @@ Redmine poskytuje také možnost tvorby \emph{knowledge base} či \emph{Wiki}, k
 		\item Doporučený git workflow
 	\end{itemize}
 	\item Server - \emph{Informace o serveru, na kterém výsledná aplikace běží}
+	\begin{itemize}
+		\item Datadog monitoring - \emph{Informace o Datadogu, v této práci blíže popsáno v sekci \ref{app:datadog}}
+		\item Offsite zálohy - \emph{Informace o zálohách nahrávaných na externí úložiště}
+	\end{itemize}
 \end{itemize}
 
-Je tedy jasné, že v případě jakýchkoliv nejasností je Wiki výchozím místem kde hledat informace o projektu a všem, co s ním souvisí. Podoba Wiki se v průběhu času mění, jak nejen aplikace samotná ale i její vývoj prochází inovacemi.\\
-Je důležité na Wiki zaznamenávat i dokumentaci různých procesů, které většina uživatelů využívá pouze uživatelsky a nikoliv administrativně, a to především z důvodu, aby byl \emph{kdokoliv v projektu nahraditelný}. Kvalitní dokumentaci umožní při výpadku člena týmu pokračování ve vývoji i v případech, kdy se daný člen staral například o nasazování aplikace na server nebo spravoval jinou důležitou součást.
+Je tedy jasné, že v případě jakýchkoliv nejasností je Wiki výchozím místem kde hledat informace o projektu a všem, co s ním souvisí. Podoba Wiki se v průběhu času mění, jak nejen aplikace samotná, ale i její vývoj prochází inovacemi.\\
+Je důležité na Wiki zaznamenávat i dokumentaci různých procesů, které většina členů projektu využívá pouze uživatelsky a nikoliv administrativně, a to především z důvodu, aby byl \emph{kdokoliv v projektu nahraditelný}. Kvalitní dokumentace umožní při výpadku člena týmu pokračování ve vývoji i v případech, kdy se daný člen staral například o nasazování aplikace na server nebo spravoval jinou důležitou součást.
 
 \subsection{Gitlab}
 
@@ -169,7 +173,7 @@ Uživatelé aplikace se k tomuto issue trackeru dostanou přes proklik přímo z
 
 \section{Verzování a testování}
 
-Prakticky jakýkoliv projekt, na kterém pracuje více lidí nebo trvá více než několik hodin je potřeba \emph{verzovat}. Jedním z nejpopulárnějších nástrojů pro verzování softwaru a jiných textově-založených projektů (jako je třeba tato práce psaná v \XeLaTeX) je \emph{Git}.\\
+Prakticky jakýkoliv projekt, na kterém pracuje více lidí nebo trvá více než několik hodin je potřeba \emph{verzovat}. Jedním z nejpopulárnějších nástrojů pro verzování softwaru a jiných textově-založených projektů (jako je například tato práce psaná v \XeLaTeX) je \emph{Git}.\\
 Git sám o sobě nabízí pouze command line ovládání a prostředí, existují však různé nástavby nad gitem, které usnadňují či zpřehledňují jeho použití. Nejpopulárnějším je bezesporu Github, pro účely DBS projektu je však využíván Gitlab, který je na fakultě dostupný všem studentům i vyučujícím.
 S verzováním softwaru úzce souvisí jeho testování. Automatické testy, neboli CI je spouštěno na Gitlabu při každé změně zdrojových kódů.
 
@@ -204,7 +208,7 @@ Tagování commitů probíhá u DBS projektu automaticky, během nasazování no
 
 \subsubsection{Hooky v gitu} \label{version:git:hook}
 Hooky \cite{hooks}, česky háky nebo háčky, jsou vlastně skripty, které se automaticky spouští před nebo po provedení některé akce v gitu. Jako příklad lze uvést \code{pre-commit} hook, který je spuštěn vždy ve chvíli, kdy uživatel (nebo jiný skript) použije \code{commit}. Teprve po skončení \code{pre-commit} hooku se pokračuje ve vykonání samotného \emph{commitu}.\\
-V DBS projektu je na celoprojektové úrovni využíván \code{post-merge} hook, který je součástí repozitáře s nasazenou aplikací umístěného na serveru. Tento se spouští \emph{vždy}, kdy je proveden \emph{merge} (tedy při nasazené jakékoliv nové změny na server, protože v \code{pull} je interně zahrnut i \code{merge}). Jeho cílem je jednak změnit verzi aplikace, která se zobrazuje cílovému uživateli a používá se i pro verzování proměnných zdrojů - načítané Javascript a CSS soubory, jednak aktualizuje changelog, jak bude popsáno v sekci \ref{app:changelog}, která se tomutu tématu věnuje blíže. Nakonec je ještě přidán \emph{tag}, který byl popsán v sekci předchozí. Zkrácená ukázka \code{post-merge} hooku je znázorněna v ukázce kódu \ref{code:hook}.
+V DBS projektu je na celoprojektové úrovni využíván \code{post-merge} hook, který je součástí repozitáře s nasazenou aplikací umístěného na serveru. Tento se spouští \emph{vždy}, kdy je proveden \emph{merge} (tedy při nasazení jakékoliv nové změny na server, protože v \code{pull} je interně zahrnut i \code{merge}). Jeho cílem je jednak změnit verzi aplikace, která se zobrazuje cílovému uživateli a používá se i pro verzování proměnných zdrojů - načítané Javascript a CSS soubory, jednak aktualizuje changelog, jak bude popsáno v sekci \ref{app:changelog}, která se tomutu tématu věnuje blíže. Nakonec je ještě přidán \emph{tag}, který byl popsán v sekci předchozí. Zkrácená ukázka \code{post-merge} hooku je znázorněna v ukázce kódu \ref{code:hook}.
 \begin{listing}[H]
 	\begin{minted}[]{Bash}
 awk '
@@ -284,16 +288,16 @@ Slack je komunikační nástroj 21. století \cite{slack}. Jedná se o webovou, 
 Tým je ucelené sdružení lidí, kteří pracují na stejném projektu. V rámci jednoho týmu může komunikovat jakýkoliv člen s kterýmkoliv dalším přes soukromé zprávy, navíc ale mohou být vytvořeny kanály, ve kterých probíhá komunikace se zaměřením na určité téma. Tyto kanály mohou být jednak veřejné - kdokoliv z týmu vidí obsah a může se do kanálu připojit, nebo soukromé - autor kanálu musí pozvat ty členy, kteří mají mít přístup. U DBS projektu využíváme následující kanály:
 \begin{itemize}
 	\item \emph{\#ci\_build:} kanál slouží pro automatický report neúspěšných testů z Gitlabu, jak již bylo popsáno v sekci \ref{version:gitlab}. Typicky se poté kolem oznámení o špatném buildu vytvoří další diskuze manažera a autora testu, ohledně toho, proč se testování nezdařilo.
-	\item \emph{\#dbsdm:} komunikace s autorem DBSDM komponenty - nástroje pro tvorbu ER diagramů \cite{fedor}
-	\item \emph{\#general:} základní výchozí kanál každého Slack týmu - slouží pro vše, co je potřeba napsat všem a nezapadá do ostatních kanálů
-	\item \emph{\#grido\_render:} kanál zabývající se možností nasazení lepšího frontendu pro tabulky použité v aplikaci
-	\item \emph{\#meetigns:} slouží pro domlouvání termínů schůzek, omluvy při absenci atp.
+	\item \emph{\#dbsdm:} komunikace s autorem DBSDM komponenty - nástroje pro tvorbu ER diagramů \cite{fedor}.
+	\item \emph{\#general:} základní výchozí kanál každého Slack týmu - slouží pro vše, co je potřeba napsat všem a nezapadá do ostatních kanálů.
+	\item \emph{\#grido\_render:} kanál zabývající se možností nasazení lepšího frontendu pro tabulky použité v aplikaci.
+	\item \emph{\#meetings:} slouží pro domlouvání termínů schůzek, omluvy při absenci atp.
 	\item \emph{\#quiz:} kanál sloužil zejména na začátku semestru pro řešení problémů se vstupním kvízem, o kterém jsem již psal v předchozí kapitole (\ref{DBSmanagement:quiz}).
-	\item \emph{\#random:} druhý z výchozích kanálů, spolu s \code{\#general}. Slouží pro ne-projektové povídání, spam či odreagování
-	\item \emph{\#team\_leaders:} kanál určený pro komunikace manažera s vedoucími týmů
-	\item \emph{\#tests:} v tomto kanále se řeší problémy s automatickými testy či návrhy a požadavky nové testy
-	\item \emph{\#vagrant:} řešení problémů s Vagrantem - vývojovým prostředím programátorů na jejich lokálních strojích. Také se využívá pro oznamování vydání nových verzí Vagrantu a sběr požadavků pro zakomponování do nové verze
-	\item \emph{\#vedeni:} uzavřený kanál vedení projektu, členem jsem já, Jiří Hunka a studenti pracující na BP týkající se projektu, kteří mají přímý zásah i do týmů, tento semestr tedy Pavel Kovář a Milan Vlasák. Z minulého semestru také v kanálu zůstal Filip Glazar, který je autorem kostry systému pro semestrální práce ale v současnosti se již projektu nevěnuje v takové míře
+	\item \emph{\#random:} druhý z výchozích kanálů, spolu s \code{\#general}. Slouží pro ne-projektové povídání, spam či odreagování.
+	\item \emph{\#team\_leaders:} kanál určený pro komunikaci manažera s vedoucími týmů.
+	\item \emph{\#tests:} v tomto kanále se řeší problémy s automatickými testy či návrhy a požadavky nové testy.
+	\item \emph{\#vagrant:} řešení problémů s Vagrantem - vývojovým prostředím programátorů na jejich lokálních strojích. Také se využívá pro oznamování vydání nových verzí Vagrantu a sběr požadavků pro zakomponování do nové verze.
+	\item \emph{\#vedeni:} uzavřený kanál vedení projektu, členem jsem já, Jiří Hunka a studenti pracující na BP týkající se projektu, kteří mají přímý zásah i do týmů, tento semestr tedy Pavel Kovář a Milan Vlasák. Z minulého semestru také v kanálu zůstal Filip Glazar, který je autorem kostry systému pro semestrální práce \cite{glazar}, ale v současnosti se již projektu nevěnuje v takové míře.
 \end{itemize}
 Kromě těchto kanálů jistě existují ještě další uzavřené, které si například vytvořily jednotlivé týmy a já k nim nemám přístup.
 \begin{figure}[h]
@@ -307,7 +311,7 @@ Kromě Slacku je samozřejmě důležitým komunikačním kanálem i Redmine, na
 
 \subsection{Schůzka}
 
-Nejméně častým, ale zato neintenzivnějším komunikačním kanálem je bezesporu \emph{schůzka}, která probíhá jedenkrát týdně a trvá většinou kolem jedné hodiny, často však po schůzce zůstanou někteří studenti déle a probírají s vedením řešení jejich úkolů či se řeší neočekávané chyby. Schůzka byla již částečně popisována v předchozí kapitole v sekci \ref{DBSmanagement:meeting} a tak ji v kapitole o \emph{Infrastruktuře} nebudu dále rozvádět.
+Nejméně častým, ale zato neintenzivnějším komunikačním kanálem je bezesporu \emph{schůzka}, která probíhá jedenkrát týdně a trvá většinou kolem jedné hodiny, často však po schůzce zůstanou někteří studenti déle a probírají s vedením řešení jejich úkolů, či se řeší neočekávané chyby. Schůzka byla již částečně popisována v předchozí kapitole v sekci \ref{DBSmanagement:meeting} a tak ji v kapitole o \emph{Infrastruktuře} nebudu dále rozvádět.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -320,7 +324,7 @@ V poslední sekci správy infrastruktury se zaměřím na služby a procesy, kte
 \subsection{Changelog} \label{app:changelog}
 
 Changelog popisuje změny aplikace v jejích jednotlivých verzích. Je užitečný jak pro koncové uživatele, kteří se pomocí changelogu mohou dozvědět, co je v aplikaci nového, tak pro testery, kteří vědí, které změny testovat.\\
-Jak psát changelog hezky popisuje například Olivier Lacan \cite{changelog}. Changelog je pro lidi, rozhodně by tedy jeho obsah neměl být automaticky generován například z výpisu commitů z gitu. Tento výpis již existuje a vývojáři i testeři k němu mají v rámci repozitáře přístup, kopírovat jej do changelogu by tedy byla navíc duplikace informací. Správný changelog by měl jednoduše vypíchnout nejdůležitější novinky, změny a opravy v nové verzi.\\
+Jak psát changelog hezky popisuje například Olivier Lacan \cite{changelog}. Changelog je pro lidi, rozhodně by tedy jeho obsah neměl být automaticky generován například z výpisu commitů z gitu. Tento výpis již existuje a vývojáři i testeři k němu mají v rámci repozitáře přístup, kopírovat jej do changelogu by tedy navíc byla duplikace informací. Správný changelog by měl jednoduše vypíchnout nejdůležitější novinky, změny a opravy v nové verzi.\\
 \begin{figure}[H]
 \includegraphics[width=\textwidth]{../png/changelog.png}
 \caption{Ukázka changelogu DBS portálu} \label{picture:changelog}
@@ -333,11 +337,11 @@ Pro DBS aplikaci píši v současné době changelog já, a to ve chvíli, kdy s
 SSL (Secure Sockers Layer) je zabezpečovací technologie, použivaná pro navazování zašifrovaných spojení mezi serverem a klientem - typicky webovým serverem a prohlížečem, případně mezi mailovým serverem a mailovým klientem.\\
 Toto umožňuje bezpečně posílat citlivé údaje - čísla kreditních karet, hesla k účtům atp. \cite{ssl}.
 \end{quote}
-Pro DBS portál je toto důležité, jelikož umižňuje přihlašování uživatelů - učitelů i studentů. Jelikož je pro přihlašování navíc využívána technologie Shibboleth, o které ještě pojednává následující sekce \ref{app:shibboleth}, a pro jejíž běh je SSL vyžadováno, muselo být pro funkčnost portálu nasazeno.\\
+Pro DBS portál je toto důležité, jelikož umožňuje přihlašování uživatelů - učitelů i studentů. Jelikož je pro přihlašování navíc využívána technologie Shibboleth, o které ještě pojednává následující sekce \ref{app:shibboleth}, a pro jejíž běh je SSL vyžadováno, muselo být pro funkčnost portálu nasazeno.\\
 Aplikace standardně běží na adrese \url{dbs.fit.cvut.cz}, v letním semestru 2016 však zároveň probíhalo přepsání celé aplikace z důvodu nového lepšího návrhu a efektivnější znovupoužitelnosti kódu. Z toho důvodu byla zřízena nová doména \url{dbs2.fit.cvut.cz}, na které měla souběžně se starou verzí běžet i nová verze aplikace. I tuto doménu však bylo potřeba zabezpečit pomocí SSL, o což jsem se postaral vykonáním následujících kroků:
 \begin{enumerate}
 	\item \emph{Vygenerování certifikátu:} certifikáty generuje cetrifikační autorita - pro naši fakultu CESNET. Komunikace s CESNETem navíc zajišťuje Ing. Martin Bílý, napsal jsem mu tedy email a za pár dní mi byl zaslán certifikát pro novou doménu.
-	\item \emph{Nasazení certifikátu na server:} přes standarní konzolové příkazy je vygenerovaný certifikát a klíč potřeba nahrát do složky \code{/etc/ssl/certs/}, respektive \code{/etc/ssl/private/}.
+	\item \emph{Nasazení certifikátu na server:} přes standardní konzolové příkazy je vygenerovaný certifikát a klíč potřeba nahrát do složky \code{/etc/ssl/certs/}, respektive \code{/etc/ssl/private/}.
 	\item \emph{Konfigurace webserveru:} v \code{/etc/apache2/sites-available} (jedná se o Debian) je potřeba nakonfigurovat jednak přesměrování standardních ne-https požadavků na https, jednak nastavit samotné https. Konfigurace \code{apache} webserveru pro využívání SSL je zachycena v ukázce kódu \ref{code:ssl}.
 	\begin{listing}
 		\expandafter\def\csname PY@tok@err\endcsname{} % a little hack for hiding errors in minted environment
@@ -385,7 +389,7 @@ Tento systém je využíván právě i na ČVUT, o jeho používání pro přihl
 	\end{minted}
 	\caption{Konfigurace Shibboleth pro novou doménu s vlastním SSL certifikátem} \label{code:shibboleth}
 \end{listing}
-Zprovoznění systému však není triviální, stejně jako v předchozím případě s SSL, i Shibboleth jsem pro doménu \url{dbs2.fit.cvut.cz} nasazoval já, a její hlavní část sestávala v úpravě konfiguračních souborů na serveru ve složce \code{/etc/shibboleth/}, kam bylo do souboru \code{shibboleth2.xml} potřeba přidat nový \code{ApplicationOverride} (ukázka kódu \ref{code:shibboleth}), který bude odkazovat na SSL certifikáty probírané v předchozí sekci. Override je potřeba z důvodu, že na serveru již běží jiná aplikace, která Shibboleth využívá - \code{dbs.fit.cvut.cz} a přihlášení do jednotlivých aplikací má cíleně být na sobě nezávislé.\\
+Zprovoznění systému však není triviální, stejně jako v předchozím případě s SSL, i Shibboleth jsem pro doménu \url{dbs2.fit.cvut.cz} nasazoval já, a její hlavní část sestávala v úpravě konfiguračních souborů na serveru ve složce \code{/etc/shibboleth/}, kam bylo do souboru \code{shibboleth2.xml} potřeba přidat nový \code{ApplicationOverride} (ukázka kódu \ref{code:shibboleth}), který bude odkazovat na SSL certifikáty probírané v předchozí sekci. Override je potřeba z důvodu, že na serveru již běží jiná aplikace, která Shibboleth využívá - \code{dbs.fit.cvut.cz} a přihlášení do jednotlivých aplikací má být na sobě nezávislé.\\
 Dále bylo potřeba opět upravit konfiguraci webserveru (\code{apache}), což znázorňuje ukázka kódu \ref{code:apache-shibboleth}. Na adrese, kam směřuje přepisovací pravidlo v ukázce kódu \ref{code:apache-shibboleth}, tedy \url{https://dbs2.fit.cvut.cz/Shibboleth.sso/Metadata} je zároveň během konfigurace Shibbolethu možné sledovat, zda je nastaven správně. Přístup na tuto adresu stáhne soubor Metadata, který obsahuje informace o této doméně, její jméno, adresu, certifikát, vlastníka atp. Toto jsou informace, na základě kterých je uživatelům umožněno k aplikaci přistupovat. Informace o vlastníkovi domény se standardně definují formou šablony v podobném umístění jako první ukázka konfigurace - pro zprovoznění domény \url{dbs2.fit.cvut.cz} však nebylo zapotřebí konfigurovat novou šablonu popisujících informací, jelikož již jedna existovala pro hlavní doménu.
 \begin{listing}
 	\expandafter\def\csname PY@tok@err\endcsname{} % a little hack for hiding errors in minted environment
@@ -544,7 +548,7 @@ Monitorované služby jsou:
 	\item \emph{monitoring Docker kontejnerů:} Sledování výkonu automatických testů spouštěných v Dockeru (\ref{version:gitlab:tests}). U kontejnerů je sledováno velké množství informaci jako například využití CPU, paměti, swapu, cache, sítě, disku atp.
 \end{itemize}
 V tuto chvíli jsou navíc do Datadogu integrovány i novinky z Redmine, commity z Gitu však zatím integrované nejsou. Je to z důvodu, že Datadog nabízí buďto integraci Gitu, jehož hlavní repozitář je právě na monitorovaném serveru, nebo externě na GitHubu. My však máme repozitář na školním GitLabu, který v současnosti jako integrace podporovaný není. Snažil jsem se integraci provést úpravou skriptů, které integrují repozitář hostovaný na monitorovaném serveru, bohužel však neúspěsně.\\
-Níže přikládám ukázku grafu \ref{picture:datadog-apache}, který znázorňuje počet příchozích požadavků na webserver. Graf je ze dne, kdy byly psány testy - je vidět zvýšená aktivita v době spouštění testů: 9:15, 11:00, 12:45 a 16:15, což odpovídá začátku výukových hodin.\\
+Níže přikládám ukázku grafu \ref{picture:datadog-apache}, který znázorňuje počet příchozích požadavků na webserver. Graf je ze dne, kdy byly v aplikaci psány testy - je vidět zvýšená aktivita v době spouštění testů: 9:15, 11:00, 12:45 a 16:15, což odpovídá začátku výukových hodin.\\
 \begin{figure}[H]
 \includegraphics[width=\textwidth]{../png/datadog-apache.png}
 \caption{Sledování počtu požadavků na webserver v Datadogu během psaní testů} \label{picture:datadog-apache}
@@ -554,7 +558,7 @@ Následující graf \ref{picture:datadog-memory-normal} shrnuje průměrné vyu�
 \includegraphics[width=\textwidth]{../png/datadog-memory-normal.png}
 \caption{Sledování využití paměti v Datadogu během psaní testů} \label{picture:datadog-memory-normal}
 \end{figure}
-Poslední graf \ref{picture:datadog-memory-tests} znázorňuje také využití paměti, ovšem ve chvíli, kdy jsou na serveru spuštěny automatické testy z Gitlabu, o kterých jsem se již zmiňoval v sekci \ref{version:gitlab:tests}. Je vidět, že testy potřebují velké množství prostředků, proto je důležité omezovat jejich dostupné zdroje, aby se neprojevily výkonnostní problémy pro uživatele aplikace. Jedním z možných vylepšení do budoucna je zařízení dedikovaného \emph{build serveru}, který by sloužil pouze pro CI a mohl být využíván na 100\% pouze těmito testy.
+Poslední graf \ref{picture:datadog-memory-tests} znázorňuje také využití paměti, ovšem ve chvíli, kdy jsou na serveru spuštěny automatické testy z Gitlabu, o kterých jsem se již zmiňoval v sekci \ref{version:gitlab:tests}. Je vidět, že testy potřebují velké množství prostředků, proto je důležité omezovat jejich dostupné zdroje, aby se neprojevily výkonnostní problémy pro koncového uživatele aplikace. Jedním z možných vylepšení do budoucna je zařízení dedikovaného \emph{build serveru}, který by sloužil pouze pro CI a mohl být využíván na 100\% pouze těmito testy.
 \begin{figure}[H]
 \includegraphics[width=\textwidth]{../png/datadog-memory-tests.png}
 \caption{Sledování využití paměti v Datadogu během automatizovaného testování nové verze aplikace (Gitlab CI)} \label{picture:datadog-memory-tests}
@@ -568,7 +572,7 @@ Analytics \cite{ga} je webová služba, která nabízí přehledy o uživatelíc
 V komerční sféře jsou tato data využívána především pro zvýšení \emph{konverzního poměru}, jelikož je možné sledovat jak se například návštěvník eshopu dostane k finální koupi produktu či rozhodnout, zda je vhodné investovat i do optimalizace webu pro mobilní zobrazení díky znalosti poměru počtu návštěv z mobilního zařízení.\\
 Pro DBS portál má však nasazení Google Analytics také svůj význam, jelikož je měřena i rychlost načítání stránek nebo průchod uživatelů systémem. Prvním zmíněným můžeme detekovat pomalé stránky a případně optimalizovat rychlost jejich načítání. Pomocí průchodu uživalů systémem zase můžeme zlepšovat rozdělení menu nebo zobrazování důležitých informací. Analýza současného \emph{user flow} odhalila například následující skutečnost:
 \begin{itemize}
-	\item V komponentě semestrálních prací je velmi často navštivována stránka \emph{termínů odevzdání}. Zde student získává pouze informaci, do kdy musí vyhotovit jednotlivé kontrolní body své práce. Díky tomuto zjištění byl zadán úkol k realizaci zobrazování informací o termínech odevzdání přímo na domovské stránce studenta, kde bude přehledně vidět jak \uv{nejbližší termínu}, tak přehled všech termínů.
+	\item V komponentě semestrálních prací je velmi často navštivována stránka \emph{termínů odevzdání}. Zde student získává pouze informaci, do kdy musí vyhotovit jednotlivé kontrolní body své práce. Na základě tohoto zjištění byl zadán úkol k realizaci zobrazování informací o termínech odevzdání přímo na domovské stránce studenta, kde bude přehledně vidět jak \emph{nejbližší termín}, tak přehled všech termínů.
 \end{itemize}
 
 Kromě toho také získáváme obecné statistiky o uživatelích. Některé za zajímavých informací získaných z Google Analytics v období 1. 2. 2017 až 26. 4. 2017:
@@ -595,18 +599,18 @@ Na závěr bych rád prezentoval některé další návrhy na zlepšení infrast
 Datadog (\ref{app:datadog}) - tedy monitorovací službu serveru - jsem zavedl během tohoto semestru. Tento nástroj však nabízí \emph{obrovské} množství nastavitelných monitorů, upozornění atp. Cílem do budoucna by tedy mělo být další rozšiřování konfigurace Datadogu, z nichž některé návrhy dále rozvedu:
 \begin{itemize}
 	\item \emph{Propojení s Gitem:} Na konci sekce o Datadogu jsem zmiňoval chybějící podporu integrace GitLabu do Datadogu. Při vylepšování monitoringu je jedním z cílů zahrnout do sledovaných událostí i informaci o commitech, což by usnadnilo případné hledání chyb.
-	\item \emph{Nastavení monitorů upozorňujících na výkonnostní problémy:} Datadog umožňuje konfigurovat vlastní monitory, které poté hlídají například počet příchozích spojení, využití CPU nebo jakoukoliv jinou statistiku, která je to Datadogu integrovaná. K těmto měřitelným jevům poté umožňuje nastavit limity, kterých by měly za normálního běhu dosahovat. Při překročení limitu je vyvoláno upozornění, buďto formou emailu, nebo zasláním zprávy na Slack.
-	\item \emph{Statistiky přímo z aplikace:} Datadog umožňuje i integraci přímo do běžící aplikace, formou úpravy PHP souborů. Je tak možné tvořit vlastní grafy, počty zobrazení určitých stránek nebo měřit rychlost funkcí. Pro ještě jemnější sledování využívání aplikace je tedy možné přidat na určitá místa kódu odesílání dat do Datadogu.
+	\item \emph{Nastavení monitorů upozorňujících na výkonnostní problémy:} Datadog umožňuje konfigurovat vlastní monitory, které poté hlídají například počet příchozích spojení, využití CPU nebo jakoukoliv jinou statistiku, která je to Datadogu integrovaná. K těmto měřitelným jevům poté umožňuje nastavit limity, kterých by měly za normálního běhu dosahovat. Při překročení limitu je vyvoláno upozornění, buďto formou emailu, nebo zasláním zprávy na Slack. V současnosti jsou nastaveny pouze monitory \emph{nedostatku operační paměti} a \emph{nedostatku místa na disku}.
+	\item \emph{Statistiky přímo z aplikace:} Datadog umožňuje i integraci přímo do běžící aplikace, formou úpravy PHP souborů. Je tak možné tvořit vlastní grafy, měřit počty zobrazení určitých stránek nebo rychlost určitých bloků kódu. Pro ještě jemnější sledování využívání aplikace je tedy možné přidat na určitá místa kódu odesílání dat do Datadogu.
 \end{itemize}
 
 \subsection{Třetí testovací prostředí}
 
 V současnosti má aplikace jednu produkční verzi - \url{dbs.fit.cvut.cz} s nasazenou větví \code{master} a jedno \uv{testovací} prostředí nových verzí - \url{dbs2.fit.cvut.cz} s nasazenou větví \code{devtest}.\\
-Tato dvě prostředí mají \emph{sdílenou databázi}, což přináší jak výhody, tak nevýhody. Mezi výhody lze zařadit možnost používání testovací verze na ostrých datech - tester může s portálem pracovat na druhé doméně a testovat tak nové funkce. Když narazí na nepřekonatelnou chybu, tak ji nahlásí a pokračuje v práci na stabilní produkční verzi, jelikož data aplikací jsou stejná. Naopak nevýhodou je nemožnost testovat \uv{agresivně}, právě z důvodu možného poničení produkčních dat. Právě z důvodu sdílené databáze také nemáme v projektu implementováno automatické nasazování změn z Gitu na server - jedná se o choulostivou akci, kterou je lepší provídět manuálně (byť skriptem (\ref{app:deploy_script}), ale manuálně spuštěným).\\
+Tato dvě prostředí mají \emph{sdílenou databázi}, což přináší jak výhody, tak nevýhody. Mezi výhody lze zařadit možnost používání testovací verze na ostrých datech - tester může s portálem pracovat na druhé doméně a testovat tak nové funkce. Když narazí na nepřekonatelnou chybu, tak ji nahlásí a pokračuje v práci na stabilní produkční verzi, jelikož data aplikací jsou stejná. Naopak nevýhodou je nemožnost testovat \uv{agresivně}, právě z důvodu možného poničení produkčních dat. Kvůli sdílení databáze také nemáme v projektu implementováno automatické nasazování změn z Gitu na server - jedná se o choulostivou akci, kterou je lepší provídět manuálně (byť skriptem (\ref{app:deploy_script}), ale manuálně spuštěným).\\
 Cílem tohoto návrhu je tedy zajištění \emph{třetího testovacího prostředí}, kam by se nové verze nasazovaly automaticky, a které by mělo vlastní, oddělenou databázi. Dále je před realizací vhodné zvážit:
 \begin{itemize}
 	\item Které větve z Gitu budou na nové testovací prostředí nasazovány?
-	\item Bude umožněno využívat toto prostředí i studentům z SP1/SP2 týmů?
+	\item Bude umožněno využívat toto prostředí i studentům z BI-SP1/BI-SP2 týmů?
 	\item Bude se při nasazení vždy kopírovat produkční databáze, nebo bude databáze zcela nezávislá?
 	\item Na jaké adrese bude testovací verze nasazena?
 	\item Bude využíván Shibboleth (\ref{app:shibboleth}), jako pro přihlášení na produkční verzi, nebo bude jednoduché přihlášení přes heslo?
