@@ -640,6 +640,8 @@ of works or by adapting the Work (including translation), and at the same time m
 
 	\frontmatter 	%% @malecold additions
 	\pagenumbering{gobble} %% @malecold additions
+	\includepdf{../cover/cover.pdf} %% @malecold additions
+	\cleardoublepage
 
 	\if@assignmentdefined{\includepdf[pages={1}]{\theassignment}}
 
