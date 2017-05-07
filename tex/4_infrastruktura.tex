@@ -1,7 +1,7 @@
 \chapter{Infrastruktura DBS projektu} \label{infrastructure}
 
-Z předchozích kapitol již víme, jak efektivně vyvíjet software a jak řídit lidské zdroje. V poslední kapitole mé práce bych se chtěl věnovat infrastruktuře - tedy softwaru, procesům a nástrojům, které při vývoji DBS portálu využíváme.\\
-V této kapitole často zmiňuji práci \emph{manažera projektu}, čímž mám na mysli mou vlastní práci.
+Z předchozích kapitol již víme, jak efektivně vyvíjet software a jak řídit lidské zdroje. V poslední kapitole své práce bych se chtěl věnovat infrastruktuře - tedy softwaru, procesům a nástrojům, které při vývoji DBS portálu využíváme.\\
+V této kapitole často zmiňuji práci \emph{manažera projektu}, čímž mám na mysli svou vlastní práci.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -9,7 +9,7 @@ V této kapitole často zmiňuji práci \emph{manažera projektu}, čímž mám 
 
 \section{Issue tracker}
 
-Základním stavebním kamenem jakéhokoliv projektu, je \emph{issue tracker}, neboli \uv{systém sledování úkolů}. Do něj jsou zadávány úkoly, které je potřeba realizovat. Tyto úkoly se poté přiřazují lidem, kteří je budou řešit a všechny změny úkolu jsou vždy jednoduše dohledatelné a měřitelné. Do těchto systémů je také často možné zaznamenávat čas strávený řešením daného úkolu, nastavovat termíny, hierarchie úkolů a řídit přístup různých rolí k určitým funkcionalitám.\\
+Základním stavebním kamenem jakéhokoliv projektu, je \emph{issue tracker}, neboli \uv{systém sledování úkolů}. Do něj jsou zadávány úkoly, které je potřeba realizovat. Tyto úkoly se poté přiřazují lidem, kteří je budou řešit, a všechny změny úkolu jsou vždy jednoduše dohledatelné a měřitelné. Do těchto systémů je také často možné zaznamenávat čas strávený řešením daného úkolu, nastavovat termíny, hierarchie úkolů a řídit přístup různých rolí k určitým funkcionalitám.\\
 Při vývoji DBS portálu využíváme následující issue trackery:
 \begin{itemize}
 	\item \emph{Redmine:} interní issue tracker využívaný vývojovým týmem a manažerem. Přístup k němu mají pouze role definované v předchozí kapitole v organizačním členění vývoje projektu (Obrázek \ref{picture:obs}). Slouží pro vývoj, rozdělení práce i záznam času.
@@ -19,7 +19,7 @@ Při vývoji DBS portálu využíváme následující issue trackery:
 \subsection{Redmine} \label{if:redmine}
 
 \begin{quote}
-Redmine je flexibilní webová aplikace pro správu řízení projektu. Díky použití frameworku Ruby on Rails je multiplatformní a multidatabázová \cite{redmine}.
+\quotedblbase Redmine je flexibilní webová aplikace pro správu řízení projektu. Díky použití frameworku Ruby on Rails je multiplatformní a multidatabázová\textquotedblleft \cite{redmine}.
 \end{quote}
 
 Redmine je při vývoji DBS portálu využíván především pro:
@@ -29,15 +29,15 @@ Redmine je při vývoji DBS portálu využíván především pro:
 	\item Záznam času stráveného řešením úkolu či u projektu.
 	\item Shromažďování návodů a dokumentací - Wiki.
 \end{itemize}
-Jednotlivé body si následně popíšeme blíže, předtím bych však ještě chtěl zmínit možnost rozdělení úkolů do jednotlivých \emph{projektů}:
+Jednotlivé body si následně popíšeme blíže, předtím bych však ještě chtěl zmínit možnost rozdělení úkolů do jednotlivých \emph{projektů}.
 
 \subsubsection{Projekty v Redmine} \label{if:redmine:projects}
 
-Redmine umožňuje na jedné instalaci provozovat několik oddělených (a nebo hiararchicky uspořádaných) projektů. V rukou hlavního administrátora (kterého u DBS projektu zastávám také já) poté je možnost umožnit určitým uživatelům či rolím přístup k různým projektům a také udělit různé pravomoce v těchto projektech.\\
+Redmine umožňuje na jedné instalaci provozovat několik oddělených (a nebo hiararchicky uspořádaných) projektů. V rukou hlavního administrátora (kterého u DBS projektu zastávám také já) je možnost umožnit určitým uživatelům či rolím přístup k různým projektům a také udělit různé pravomoce v těchto projektech.\\
 Pro vývoj DBS portálu využíváme následující projekty:
 \begin{itemize}
 	\item \code{newDBS}: projekt shromažďující veškeré úkoly, které bude potřeba řešit, nemají však zatím přiřazeného řešitele.
-	\item \code{SP-DBS-2017}: projekt zastřešující projekty jednotlivých týmů studentů, kteří mají zapsáni předměty BI-SP1/BI-SP2. Tento projekt a jeho dílčí subprojekty se obměňují každým rokem, podle aktuálního počtu přihlášených studentů. V letním semestru 2017 se tento projekt dále dělí na:
+	\item \code{SP-DBS-2017}: projekt zastřešující projekty jednotlivých týmů studentů, kteří mají zapsané předměty BI-SP1/BI-SP2. Tento projekt a jeho dílčí subprojekty se obměňují každým rokem, podle aktuálního počtu přihlášených studentů. V letním semestru 2017 se tento projekt dále dělí na:
 	\begin{itemize}
 		\item \code{Team 1}
 		\item \code{Team 2}
@@ -45,17 +45,17 @@ Pro vývoj DBS portálu využíváme následující projekty:
 \end{itemize}
 
 \paragraph{Proč dělit práci na projekty?}
-Rozdělení na projekty je v běžné firmě jasné: v jednu chvíli se může pracovat na projektech několika klientů, které se sebou vůbec nemusí souviset. Proč ale dělit práci na projekty i u DBS portálu, který je jako celek pouze jeden projekt? Důvodem je především možnost využívání hromadných statistik, ale také rozdělení na realizační týmy.\\
-Rozdělení má význam ve chvíli, kdy chce vedoucí týmu nebo manažer projektu zobrazit například celkový strávený čas jednoho z týmů, nebo zobrazení přidělené práce danému týmu. Díky odlišným projektům je snadné rozdělit úkoly na kterých pracuje Team 1, Team 2 a nebo nejsou zatím přiděleny k realizaci. Také vedoucí týmů mají snažší práci s přehledem práce jejich vlastního týmu, mohou si zapnout emailové notifikace pouze pro změny v projektu, který patří jejich týmu atp.
+Rozdělení na projekty je v běžné firmě jasné. V jednu chvíli se může pracovat na projektech několika klientů, které se sebou vůbec nemusí souviset. Proč ale dělit práci na projekty i u DBS portálu, který je jako celek pouze jeden projekt? Důvodem je především možnost využívání hromadných statistik, ale také rozdělení na realizační týmy.\\
+Rozdělení má význam ve chvíli, kdy chce vedoucí týmu nebo manažer projektu zobrazit například celkový strávený čas jednoho z týmů, nebo zobrazení přidělené práce danému týmu. Díky odlišným projektům je snadné rozdělit úkoly, na kterých pracuje Team 1, Team 2 a nebo které nejsou zatím přiděleny k realizaci. Také vedoucí týmů mají snazší práci s přehledem práce svého vlastního týmu, mohou si zapnout emailové notifikace pouze pro změny v projektu, který patří jejich týmu atp.
 
 \subsubsection{Shromažďování úkolů k řešení}
 
-Během práci na projektu často vyvstávají nové požadavky či se objevují nové chyby. Tyto je potřeba \emph{ihned} zaznamenávat do issue trackeru. K tomu slouží projekt \code{newDBS}, který slouží jako \uv{shromaždiště úkolů}, které jsou \emph{volné} k řešení.\\
-Odtud úkol typicky putuje dále zásahem manažera, který rozhodne o nutnosti jeho realizace a přiřadí úkol do jednoho z týmů - tedy projektu \code{Team 1} nebo \code{Team 2}. Některé úkoly jsou řešeny i přímo zde, ale to pouze výjimečně - na těch pracuji buďto přímo já a nebo některý ze studentů pracujících na BP či DP.\\
+Během práce na projektu často vyvstávají nové požadavky či se objevují nové chyby. Tyto chyby a požadavky je potřeba \emph{ihned} zaznamenávat do issue trackeru. K tomu slouží projekt \code{newDBS}, který slouží jako \uv{shromaždiště úkolů}, které jsou \emph{volné} k řešení.\\
+Odtud úkol typicky putuje dále zásahem manažera, který rozhodne o nutnosti jeho realizace a přiřadí úkol do jednoho z týmů - tedy projektu \code{Team 1} nebo \code{Team 2}. Některé úkoly jsou řešeny i přímo zde, ale to pouze výjimečně - na těch pracuji buďto přímo já nebo některý ze studentů pracujících na BP či DP.\\
 Úkol, který je nově vytvořen v \code{newDBS} projektu má typicky vyplněna pouze následující pole:
 \begin{itemize}
 	\item \emph{Název:} stručný název úkolu. Na začátku názvu mohou být dodatečné popisné \emph{tagy}, například \code{[databaze]} nebo \code{[menu]}, které jasně definují, které komponenty systému se úkol týká.
-	\item \emph{Popis:} detailní zadání úkolu, obsahující kroky k replikaci chyby, popis požadavku či nástin jak úkol řešit.
+	\item \emph{Popis:} detailní zadání úkolu, obsahující kroky k replikaci chyby, popis požadavku či nástin, jak úkol řešit.
 	\item \emph{Stav:} výčet stavů, v tuto chvíli nastaven na \emph{Nový}. Všechny změny stavů popisuje \nameref{picture:activity} dostupný v příloze \ref{picture:activity}.
 	\item \emph{Priorita:} priorita úkolu, u většiny úkolů nastavena na \emph{Normální}. Dalšími možnými stavy je \emph{Nizká}, \emph{Vysoká}, \emph{Urgentní} a \emph{Okamžitá}.
 \end{itemize}
@@ -80,13 +80,13 @@ V tuto chvíli přechází úkol do kompetence daného týmu, který na úkolu z
 Průběh práce je také možné sledovat na \emph{gitu}, respektive \emph{Gitlabu}, kterým se více věnují samostatné sekce \ref{version:git}, respektive \ref{version:gitlab}.
 
 \paragraph{Návaznost commitů v gitu na Redmine úkoly} \label{redmine:commitlink}
-Redmine umožňuje k projektu připojit i repozitář - v našem případě git. Při takovém provázání je vhodné, aby jednotlivé commity v gitu byly určitým způsobem provázány s úkolem, který řeší. Toho lze docílit přidáním ID úkolu do \emph{commit message}. Jedná se o jednu z guidelines pro psaní commitů, kterím se blíže věnuje sekce \ref{version:git:commit}. Takto provázané commity se poté zobrazují pod úkolem vedle poznámek uživatelů a je možné si je jednoduše otevřít a zobrazit změny v kódu.
+Redmine umožňuje k projektu připojit i repozitář - v našem případě git. Při takovém provázání je vhodné, aby jednotlivé commity v gitu byly určitým způsobem provázány s úkolem, který řeší. Toho lze docílit přidáním ID úkolu do \emph{commit message}. Jedná se o jedno z pravidel pro psaní commitů, kterým se blíže věnuje sekce \ref{version:git:commit}. Takto provázané commity se poté zobrazují pod úkolem vedle poznámek uživatelů a je možné si je jednoduše otevřít a zobrazit změny v kódu.
 
 \paragraph{Automatický report chyb v testech} \label{redmine:CI_report}
-Jelikož nové \emph{commity} jsou po nahrání do sdíleného repozitáře testovány automatickými testy, je možné ihned zjistit případné nedostatky řešení. Pokud se při automatickém testu objeví chyba, je přes Redmine API přidán komentář k úkolu, ke kterému se commit váže s informací, že test selhal a odkazem na Gitlab.
+Jelikož nové \emph{commity} jsou po nahrání do sdíleného repozitáře testovány automatickými testy, je možné ihned zjistit případné nedostatky řešení. Pokud se při automatickém testu objeví chyba, je přes Redmine API přidán komentář k úkolu, ke kterému se commit váže, s informací, že test selhal, a s odkazem na Gitlab.
 
 \paragraph{Provázání commitů na Gitlab}
-Kromě automatického reportu chyb, který zrealizoval Pavel Kovář v rámci své BP jsem také já upravil zdrojové kódy naší instalace Redmine pro snažší integraci Redmine a Gitlab. Jak již bylo zmíněno výše, Redmine sám zobrazuje u úkolu příslušné commity, samotné zobrazení commitu ale nedosahuje takových kvalit jako dedikované řešení: Gitlab. Z toho důvodu jsem k zobrazení odkazu na commit přidal i odkaz na Gitlab, jak znázorňuje obrázek \ref{picture:redmineTOgitlab}.
+Kromě automatického reportu chyb, který zrealizoval Pavel Kovář v rámci své BP, jsem také já upravil zdrojové kódy naší instalace Redmine pro snazší integraci Redmine a Gitlab. Jak již bylo zmíněno výše, Redmine sám zobrazuje u úkolu příslušné commity, samotné zobrazení commitu ale nedosahuje takových kvalit jako dedikované řešení: Gitlab. Z toho důvodu jsem k zobrazení odkazu na commit přidal i odkaz na Gitlab, jak znázorňuje obrázek \ref{picture:redmineTOgitlab}.
 \begin{figure}[h]
 \includegraphics[width=8cm]{../png/redmineTOgitlab.png}
 \caption{Stav před a po nasazení úpravy kódu Redmine pro zobrazování odkazu na Gitlab} \label{picture:redmineTOgitlab}
@@ -98,7 +98,7 @@ Když je úkol dokončen, je dle workflow (příloha \ref{picture:activity}) př
 
 \subsubsection{Záznam času} \label{redmine:time}
 
-Řešitel úkolu si k němu také zaznamenává strávený čas, spolu s poznámkami na čem v zaznamenané době pracoval. Tento čas se poté zobrazuje u úkolu a lze tak sledovat, zda byl odhad doby řešení správný, nebo je potřeba zvýšit časovou či bodovou dotaci. Také je možné v přehledu projektu či projektů zobrazovat, kolik hodin kteří uživatelé odpracovali a podle toho například rozdělovat hodnocení jejich práce.\\
+Řešitel úkolu si k němu také zaznamenává strávený čas, spolu s poznámkami, na čem v zaznamenané době pracoval. Tento čas se poté zobrazuje u úkolu a lze tak sledovat, zda byl odhad doby řešení správný, nebo je potřeba zvýšit časovou či bodovou dotaci. Také je možné v přehledu projektu či projektů zobrazovat, kolik hodin kteří uživatelé odpracovali a podle toho například rozdělovat hodnocení jejich práce.\\
 Je však nutno zmínit, že záznam času není vždy ideálním měřidlem výkonu uživatele. Stejně obtížný úkol může zkušený programátor zrealizovat během 20 minut, kdežto nezkušený nováček může nad úkolem strávit i několik hodin a výstup i přesto zůstává sporný. Pro hodnocení by tak kromě vykázaného času měl být brán ohled i na kvalitu výstupu, případně další ukazatele.
 
 \subsubsection{Wiki}
@@ -154,13 +154,13 @@ Redmine poskytuje také možnost tvorby \emph{knowledge base} či \emph{Wiki}, k
 	\end{itemize}
 \end{itemize}
 
-Je tedy jasné, že v případě jakýchkoliv nejasností je Wiki výchozím místem kde hledat informace o projektu a všem, co s ním souvisí. Podoba Wiki se v průběhu času mění, jak nejen aplikace samotná, ale i její vývoj prochází inovacemi.\\
+Je tedy jasné, že v případě jakýchkoliv nejasností je Wiki výchozím místem, kde hledat informace o projektu a všem, co s ním souvisí. Podoba Wiki se v průběhu času mění, jelikož nejen aplikace samotná, ale i způsob jejího vývoje prochází inovacemi.\\
 Je důležité na Wiki zaznamenávat i dokumentaci různých procesů, které většina členů projektu využívá pouze uživatelsky a nikoliv administrativně, a to především z důvodu, aby byl \emph{kdokoliv v projektu nahraditelný}. Kvalitní dokumentace umožní při výpadku člena týmu pokračování ve vývoji i v případech, kdy se daný člen staral například o nasazování aplikace na server nebo spravoval jinou důležitou součást.
 
 \subsection{Gitlab}
 
 Gitlab je druhým issue trackerem využívaným při vývoji DBS portálu. Používá se pro \emph{spojení s koncovými uživateli}, kteří zde nahlašují chyby. Jelikož issue tracker na Gitlabu je jednodušší než ten na Redmine a všichni studenti i vyučující na FIT ČVUT jsou na něm automaticky registrováni, je vhodný pro využití právě veřejného bug reportu.\\
-Já jakožto manažer projektu jsem na email upozorňován na všechny nově nahlášené bugy či žádosti o podporu s používáním aplikace a snažím se na úkoly v co nejkratší době reagovat. Podpora uživatelů je typicky vyřízena do několika hodin, opravy chyb či požadavky nových funkcí jsou však interně předány na Redmine a poté zadány k realizaci týmům studentů, z toho důvodu může jejich vyhotovení trvat dny až týdny.\\
+Já jakožto manažer projektu jsem emailem upozorňován na všechny nově nahlášené bugy či žádosti o podporu s používáním aplikace a snažím se na úkoly v co nejkratší době reagovat. Podpora uživatelů je typicky vyřízena do několika hodin, opravy chyb či požadavky nových funkcí jsou však interně předány na Redmine a poté zadány k realizaci týmům studentů, z toho důvodu může jejich vyhotovení trvat dny až týdny.\\
 Uživatelé aplikace se k tomuto issue trackeru dostanou přes proklik přímo z aplikace, je však dostupný i přes link \url{https://gitlab.fit.cvut.cz/malecold/newDBS-bug/issues}.
 \begin{figure}[h]
 \includegraphics[width=\textwidth]{../png/gitlab-bug.png}
@@ -175,12 +175,12 @@ Uživatelé aplikace se k tomuto issue trackeru dostanou přes proklik přímo z
 
 Prakticky jakýkoliv projekt, na kterém pracuje více lidí nebo trvá více než několik hodin je potřeba \emph{verzovat}. Jedním z nejpopulárnějších nástrojů pro verzování softwaru a jiných textově-založených projektů (jako je například tato práce psaná v \XeLaTeX) je \emph{Git}.\\
 Git sám o sobě nabízí pouze command line ovládání a prostředí, existují však různé nástavby nad gitem, které usnadňují či zpřehledňují jeho použití. Nejpopulárnějším je bezesporu Github, pro účely DBS projektu je však využíván Gitlab, který je na fakultě dostupný všem studentům i vyučujícím.
-S verzováním softwaru úzce souvisí jeho testování. Automatické testy, neboli CI je spouštěno na Gitlabu při každé změně zdrojových kódů.
+S verzováním softwaru úzce souvisí jeho testování. Automatické testy, neboli CI, je spouštěno na Gitlabu při každé změně zdrojových kódů.
 
 \subsection{Git} \label{version:git}
 
 \begin{quote}
-Git je distribuovaný systém správy verzí, který je zdarma a open source. Je navržený tak, aby zvládal vše od malých po velmi velké projekty s rychlostí a efektivitou \cite{git}.
+\quotedblbase Git je distribuovaný systém správy verzí, který je zdarma a open source. Je navržený tak, aby zvládal vše od malých po velmi velké projekty s rychlostí a efektivitou\textquotedblleft \cite{git}.
 \end{quote}
 
 \subsubsection{Branche v gitu} \label{version:git:branching}
@@ -195,7 +195,7 @@ Jednou z hlavních výhod vývoje softwaru pomocí gitu je možnost využíván�
 	\item \emph{Týmové větve} pojmenované \code{team1} a \code{team2} jsou již v režii týmových vedoucích. Je však doporučeno další rozdělení na branche jednotlivých členů týmu, jelikož každý typicky pracuje na jiné funkci.
 	\item \emph{Branche členů týmů} pojmenované \code{team1-username} či \code{team2-username}, kde \code{username} je uživatelské jméno studenta, které mu bylo přiděleno fakultou (5 písmen příjmení + 3 písmena jména, duplikáty nahrazovány odzadu čísly)
 \end{itemize}
-Díky tomuto rozdělení je mnohem snažší identifikovat kdo na čem pracuje a také je zaručena lepší kontrola výstupů. S tímto nastavením branchí souvisí také \nameref{picture:activity} dostupný v příloze \ref{picture:activity}. Jakmile je úkol předáván vedoucím týmu zpět na manažera projektu, musí být výsledek již v týmové větvi \code{team1} nebo \code{team2}. Manažer projektu tedy výstup zkontroluje v jedné z těchto větví a v případě, že byl úkol splněn a může být nasazen, provádí \emph{merge} do větve \code{devtest}. Zde provedené novinky jsou poté v určitých intervalech nasazovány na adresu \url{dbs2.fit.cvut.cz}, kde je ještě jednou zkontrolována jejich funkčnost. Vydání nové verze (tedy merge branche \code{devtest} do \code{master} probíhá typicky pouze jednou týdně, po několikadením testování nových funkcí na testovací doméně.
+Díky tomuto rozdělení je mnohem snažší identifikovat, kdo na čem pracuje, a také je zaručena lepší kontrola výstupů. S tímto nastavením branchí souvisí také \nameref{picture:activity} dostupný v příloze \ref{picture:activity}. Jakmile je úkol předáván vedoucím týmu zpět na manažera projektu, musí být výsledek již v týmové větvi \code{team1} nebo \code{team2}. Manažer projektu tedy výstup zkontroluje v jedné z těchto větví a v případě, že byl úkol splněn a může být nasazen, provádí \emph{merge} do větve \code{devtest}. Zde provedené novinky jsou poté v určitých intervalech nasazovány na adresu \url{dbs2.fit.cvut.cz}, kde je ještě jednou zkontrolována jejich funkčnost. Vydání nové verze (tedy merge branche \code{devtest} do \code{master}) probíhá typicky pouze jednou týdně, po několikadením testování nových funkcí na testovací doméně.
 
 \subsubsection{Formát commit message} \label{version:git:commit}
 Zanesení implementace nových funkcí do sdíleného repozitáře probíhá pomocí \emph{commitů}, ke kterým se píší krátké zprávy, které popisují, co daný commit přináší nového, co mění atp.\\
@@ -203,12 +203,12 @@ V DBS projektu jsme nastavili i požadovanou strukturu této \emph{commit messag
 Přidání ID úkolu z Redmine do commit message v gitu umožňuje jejich \emph{propojení}, které již bylo popisováno v sekci \ref{redmine:commitlink}.
 
 \subsubsection{Tagy v gitu} \label{version:git:tag}
-Tagy \cite{tags} jsou \emph{značky}, které lze přiřazovat určitým commitům. Toto umožňuje jednak zachytit jejich významnost, jednak umožňuje rychlý návrat k některé z takto označených verzí.\\
+Tagy \cite{tags} jsou \emph{značky}, které lze přiřazovat určitým commitům. To umožňuje jednak zachytit jejich významnost, jednak rychlý návrat k některé z takto označených verzí.\\
 Tagování commitů probíhá u DBS projektu automaticky, během nasazování nové verze aplikace. Tagy přidává skript, o kterém pojednává následující sekce.
 
 \subsubsection{Hooky v gitu} \label{version:git:hook}
 Hooky \cite{hooks}, česky háky nebo háčky, jsou vlastně skripty, které se automaticky spouští před nebo po provedení některé akce v gitu. Jako příklad lze uvést \code{pre-commit} hook, který je spuštěn vždy ve chvíli, kdy uživatel (nebo jiný skript) použije \code{commit}. Teprve po skončení \code{pre-commit} hooku se pokračuje ve vykonání samotného \emph{commitu}.\\
-V DBS projektu je na celoprojektové úrovni využíván \code{post-merge} hook, který je součástí repozitáře s nasazenou aplikací umístěného na serveru. Tento se spouští \emph{vždy}, kdy je proveden \emph{merge} (tedy při nasazení jakékoliv nové změny na server, protože v \code{pull} je interně zahrnut i \code{merge}). Jeho cílem je jednak změnit verzi aplikace, která se zobrazuje cílovému uživateli a používá se i pro verzování proměnných zdrojů - načítané Javascript a CSS soubory, jednak aktualizuje changelog, jak bude popsáno v sekci \ref{app:changelog}, která se tomutu tématu věnuje blíže. Nakonec je ještě přidán \emph{tag}, který byl popsán v sekci předchozí. Zkrácená ukázka \code{post-merge} hooku je znázorněna v ukázce kódu \ref{code:hook}.
+V DBS projektu je na celoprojektové úrovni využíván \code{post-merge} hook, který je součástí repozitáře s nasazenou aplikací umístěného na serveru. Tento se spouští \emph{vždy}, když je proveden \emph{merge} (tedy při nasazení jakékoliv nové změny na server, protože v \code{pull} je interně zahrnut i \code{merge}). Jeho cílem je jednak změnit verzi aplikace, která se zobrazuje cílovému uživateli a používá se i pro verzování proměnných zdrojů - načítané Javascript a CSS soubory, jednak aktualizuje changelog, jak bude popsáno v sekci \ref{app:changelog}, která se tomutu tématu věnuje blíže. Nakonec je ještě přidán \emph{tag}, který byl popsán v sekci předchozí. Zkrácená ukázka \code{post-merge} hooku je znázorněna v ukázce kódu \ref{code:hook}.
 \begin{listing}[H]
 	\begin{minted}[]{Bash}
 awk '
@@ -263,7 +263,7 @@ git push --tags
 \subsection{Gitlab} \label{version:gitlab}
 
 \begin{quote}
-Gitlab je webové rozhraní nad Gitem, které navíc obsahuje wiki, CI (Continuous integration) a CD (Continuous deployment). Nabízí jednotnou správu Git repozitářů, ať už soukromých nebo veřejných \cite{gitlab}.
+\quotedblbase Gitlab je webové rozhraní nad Gitem, které navíc obsahuje wiki, CI (Continuous integration) a CD (Continuous deployment). Nabízí jednotnou správu Git repozitářů, ať už soukromých nebo veřejných\textquotedblleft \cite{gitlab}.
 \end{quote}
 
 Využívání Gitlabu přináší především přehlednější správu celého projektu - interaktivní webové rozhraní je mnohem přívětivější než terminálové prostředí čistého Gitu. Kromě zobrazování nových commitů je často využívána možnost přidávat komentáře k určitému řádku souboru/commitu, což se hodí především při revizi kódu od studentů. Tuto funkci ilustruje obrázek \ref{picture:gitlab-commit}
@@ -295,9 +295,9 @@ Tým je ucelené sdružení lidí, kteří pracují na stejném projektu. V rám
 	\item \emph{\#quiz:} kanál sloužil zejména na začátku semestru pro řešení problémů se vstupním kvízem, o kterém jsem již psal v předchozí kapitole (\ref{DBSmanagement:quiz}).
 	\item \emph{\#random:} druhý z výchozích kanálů, spolu s \code{\#general}. Slouží pro ne-projektové povídání, spam či odreagování.
 	\item \emph{\#team\_leaders:} kanál určený pro komunikaci manažera s vedoucími týmů.
-	\item \emph{\#tests:} v tomto kanále se řeší problémy s automatickými testy či návrhy a požadavky nové testy.
+	\item \emph{\#tests:} v tomto kanále se řeší problémy s automatickými testy.
 	\item \emph{\#vagrant:} řešení problémů s Vagrantem - vývojovým prostředím programátorů na jejich lokálních strojích. Také se využívá pro oznamování vydání nových verzí Vagrantu a sběr požadavků pro zakomponování do nové verze.
-	\item \emph{\#vedeni:} uzavřený kanál vedení projektu, členem jsem já, Jiří Hunka a studenti pracující na BP týkající se projektu, kteří mají přímý zásah i do týmů, tento semestr tedy Pavel Kovář a Milan Vlasák. Z minulého semestru také v kanálu zůstal Filip Glazar, který je autorem kostry systému pro semestrální práce \cite{glazar}, ale v současnosti se již projektu nevěnuje v takové míře.
+	\item \emph{\#vedeni:} uzavřený kanál vedení projektu, členem jsem já, Jiří Hunka a studenti pracující na BP týkajících se projektu, kteří mají přímý zásah i do týmů, tento semestr tedy Pavel Kovář a Milan Vlasák. Z minulého semestru také v kanálu zůstal Filip Glazar, který je autorem kostry systému pro semestrální práce \cite{glazar}, ale v současnosti se již projektu nevěnuje v takové míře.
 \end{itemize}
 Kromě těchto kanálů jistě existují ještě další uzavřené, které si například vytvořily jednotlivé týmy a já k nim nemám přístup.
 \begin{figure}[h]
@@ -307,11 +307,11 @@ Kromě těchto kanálů jistě existují ještě další uzavřené, které si n
 
 \subsection{Redmine}
 
-Kromě Slacku je samozřejmě důležitým komunikačním kanálem i Redmine, na kterém se řeší úkoly. Především formou poznámek k úkolu dochází často k přímé komunikaci mezi manažerem, vedoucím týmu a řešitelem. Velikou výhodou je, že si uživatel může nastavit emailové notifikace na změny v Redmine, a to přesně podle jeho požadavků. Například manažer projektu bude chtít být informován o všech změnách ve všech projektech, vedoucí týmu poté pouze o všech změnách v jeho týmu a nakonec řadový člen bude odebírat pouze změny, které se týkají přímo jeho práce.
+Kromě Slacku je samozřejmě důležitým komunikačním kanálem i Redmine, na kterém se řeší úkoly. Především formou poznámek k úkolu dochází často k přímé komunikaci mezi manažerem, vedoucím týmu a řešitelem. Velikou výhodou je, že si uživatel může nastavit emailové notifikace na změny v Redmine, a to přesně podle svých požadavků. Například manažer projektu bude chtít být informován o všech změnách ve všech projektech, vedoucí týmu poté pouze o všech změnách ve svém týmu a nakonec řadový člen bude odebírat pouze změny, které se týkají přímo jeho práce.
 
 \subsection{Schůzka}
 
-Nejméně častým, ale zato neintenzivnějším komunikačním kanálem je bezesporu \emph{schůzka}, která probíhá jedenkrát týdně a trvá většinou kolem jedné hodiny, často však po schůzce zůstanou někteří studenti déle a probírají s vedením řešení jejich úkolů, či se řeší neočekávané chyby. Schůzka byla již částečně popisována v předchozí kapitole v sekci \ref{DBSmanagement:meeting} a tak ji v kapitole o \emph{Infrastruktuře} nebudu dále rozvádět.
+Nejméně častým, ale zato nejintenzivnějším komunikačním kanálem je bezesporu \emph{schůzka}, která probíhá jedenkrát týdně a trvá většinou kolem jedné hodiny, často však po schůzce zůstanou někteří studenti déle a probírají s vedením řešení svých úkolů, či neočekávané chyby. Schůzka byla již částečně popisována v předchozí kapitole v sekci \ref{DBSmanagement:meeting} a tak ji v kapitole o \emph{Infrastruktuře} nebudu dále rozvádět.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -319,23 +319,23 @@ Nejméně častým, ale zato neintenzivnějším komunikačním kanálem je beze
 
 \section{Správa aplikace}
 
-V poslední sekci správy infrastruktury se zaměřím na služby a procesy, které se týkají běhu samotné aplikace. Budu popisovat například Changelog, SSL, jednotné přihlašování, používání různých podpůrných skriptů nebo monitoring výkonu. Jedná se především o \emph{praktické} ukázky konfigurací, nastavených procesů, ale místy i analýzu výsledků například monitorovacích služeb.
+V poslední sekci správy infrastruktury se zaměřím na služby a procesy, které se týkají běhu samotné aplikace. Budu popisovat například Changelog, SSL, jednotné přihlašování, používání různých podpůrných skriptů nebo monitoring výkonu. Jedná se především o \emph{praktické} ukázky konfigurací, nastavených procesů, ale místy i analýzu výsledků, například monitorovacích služeb.
 
 \subsection{Changelog} \label{app:changelog}
 
 Changelog popisuje změny aplikace v jejích jednotlivých verzích. Je užitečný jak pro koncové uživatele, kteří se pomocí changelogu mohou dozvědět, co je v aplikaci nového, tak pro testery, kteří vědí, které změny testovat.\\
-Jak psát changelog hezky popisuje například Olivier Lacan \cite{changelog}. Changelog je pro lidi, rozhodně by tedy jeho obsah neměl být automaticky generován například z výpisu commitů z gitu. Tento výpis již existuje a vývojáři i testeři k němu mají v rámci repozitáře přístup, kopírovat jej do changelogu by tedy navíc byla duplikace informací. Správný changelog by měl jednoduše vypíchnout nejdůležitější novinky, změny a opravy v nové verzi.\\
+Jak psát changelog popisuje například Olivier Lacan \cite{changelog}. Changelog je pro lidi, rozhodně by tedy jeho obsah neměl být automaticky generován například z výpisu commitů z gitu. Tento výpis již existuje a vývojáři i testeři k němu mají v rámci repozitáře přístup, kopírovat jej do changelogu by tedy navíc byla duplikace informací. Správný changelog by měl jednoduše vypíchnout nejdůležitější novinky, změny a opravy v nové verzi.\\
 \begin{figure}[H]
 \includegraphics[width=\textwidth]{../png/changelog.png}
 \caption{Ukázka changelogu DBS portálu} \label{picture:changelog}
 \end{figure}
-Pro DBS aplikaci píši v současné době changelog já, a to ve chvíli, kdy se slévají změny z jednotlivých týmů do branche devtest, jak bylo popisováno ve workflow gitu v sekci \ref{version:git:branching}. Nejnovější sekce změn je nadepsána \emph{Unreleased} a v této verzi je aplikace nasazena na \url{dbs2.fit.cvut.cz}. Učitelé, kteří se rozhodnout na této doméně otestovat novou verzi tak mají k dospizici seznam změn, které se měnily, aby se na ně mohli zaměřit. Při následném nasazení na hlavní doménu \url{dbs.fit.cvut.cz} je součástí \code{post-merge} hooku (více v sekci \ref{version:git:hook}), automatická změna nadpisu \emph{Unreleased} na aktuální verzi a datum.
+Pro DBS aplikaci píši v současné době changelog já, a to ve chvíli, kdy se slévají změny z jednotlivých týmů do branche devtest, jak bylo popisováno ve workflow gitu v sekci \ref{version:git:branching}. Nejnovější sekce změn je nadepsána \emph{Unreleased} a v této verzi je aplikace nasazena na \url{dbs2.fit.cvut.cz}. Učitelé, kteří se rozhodnout na této doméně otestovat novou verzi, tak mají k dospozici seznam bodů, které popisující co se v systému měnilo, a mohou se na ně zaměřit. Při následném nasazení na hlavní doménu \url{dbs.fit.cvut.cz} je součástí \code{post-merge} hooku (více v sekci \ref{version:git:hook}), automatická změna nadpisu \emph{Unreleased} na aktuální verzi a datum.
 
 \subsection{SSL}
 
 \begin{quote}
-SSL (Secure Sockers Layer) je zabezpečovací technologie, použivaná pro navazování zašifrovaných spojení mezi serverem a klientem - typicky webovým serverem a prohlížečem, případně mezi mailovým serverem a mailovým klientem.\\
-Toto umožňuje bezpečně posílat citlivé údaje - čísla kreditních karet, hesla k účtům atp. \cite{ssl}.
+\quotedblbase SSL (Secure Sockers Layer) je zabezpečovací technologie, používaná pro navazování zašifrovaných spojení mezi serverem a klientem - typicky webovým serverem a prohlížečem, případně mezi mailovým serverem a mailovým klientem.\\
+Toto umožňuje bezpečně posílat citlivé údaje - čísla kreditních karet, hesla k účtům atp.\textquotedblleft \cite{ssl}.
 \end{quote}
 Pro DBS portál je toto důležité, jelikož umožňuje přihlašování uživatelů - učitelů i studentů. Jelikož je pro přihlašování navíc využívána technologie Shibboleth, o které ještě pojednává následující sekce \ref{app:shibboleth}, a pro jejíž běh je SSL vyžadováno, muselo být pro funkčnost portálu nasazeno.\\
 Aplikace standardně běží na adrese \url{dbs.fit.cvut.cz}, v letním semestru 2016 však zároveň probíhalo přepsání celé aplikace z důvodu nového lepšího návrhu a efektivnější znovupoužitelnosti kódu. Z toho důvodu byla zřízena nová doména \url{dbs2.fit.cvut.cz}, na které měla souběžně se starou verzí běžet i nová verze aplikace. I tuto doménu však bylo potřeba zabezpečit pomocí SSL, o což jsem se postaral vykonáním následujících kroků:
@@ -369,8 +369,8 @@ SSLCertificateKeyFile /etc/ssl/private/dbs2.fit.cvut.cz.key
 
 Jak již bylo zmíněno v předchozí sekci, přihlašování do aplikace zajišťuje \emph{Shibboleth:}
 \begin{quote}
-Shibboleth je jedním ze světově nejpoužívanějších řešení pro propojení uživatelů s aplikacemi, ať už uvnitř jedné nebo napříč různými organizacemi. Každá softwarová komponenta Shibbolethu je zdarma a open source.\\
-Shibboleth poskytuje SSO (Single Sign-On) a dovoluje stránkám provádět autorizovaná rozhodnutí o přístupu k chráněnému obsahu pro jednotlivé uživatele \cite{shibboleth}.
+\quotedblbase Shibboleth je jedním ze světově nejpoužívanějších řešení pro propojení uživatelů s aplikacemi, ať už uvnitř jedné nebo napříč různými organizacemi. Každá softwarová komponenta Shibbolethu je zdarma a open source.\\
+Shibboleth poskytuje SSO (Single Sign-On) a dovoluje stránkám provádět autorizovaná rozhodnutí o přístupu k chráněnému obsahu pro jednotlivé uživatele\textquotedblleft \cite{shibboleth}.
 \end{quote}
 Tento systém je využíván právě i na ČVUT, o jeho používání pro přihlašování do DBS portálu tedy nebylo pochyb. Systém umožňuje koncovému uživateli přihlásit se na \emph{jakoukoliv} stránku, kde autorizace přístupu probíhá pomocí Shibbolethu a následně má přístup i k ostatním aplikacím, které rovněž využívají Shibboleth, bez nutnosti dalšího přihlašování.\\
 \begin{listing}[H]
@@ -405,7 +405,7 @@ RewriteRule ^/shibboleth
 \end{listing}
 
 \paragraph{Poznámka k označení \emph{doména}}
-V předchozím textu jsem často používal označení \emph{doména} pro adresy \url{dbs.fit.cvut.cz} a \url{dbs2.fit.cvut.cz}. Ve skutečnosti se však nejedná o rozdílné domény, pouze rozdílná \code{CNAME} neboli Canonical name \cite{dns}. To znamená, že se jedná pouze o alias, který ukazuje na stejný server a zde probíhá rozdělení na základě name-based virtual hostů, které jsou nakonfigurované ve webserveru, v našem případě \code{apache}.
+V předchozím textu jsem často používal označení \emph{doména} pro adresy \url{dbs.fit.cvut.cz} a \url{dbs2.fit.cvut.cz}. Ve skutečnosti se však nejedná o rozdílné domény, pouze rozdílná \code{CNAME} neboli Canonical name \cite{dns}. To znamená, že se jedná pouze o alias, který odkazuje na stejný server a zde probíhá rozdělení na základě name-based virtual hostů, kteří jsou nakonfigurováni ve webserveru, v našem případě \code{apache}.
 
 \subsection{Skripty pro nasazení aplikace} \label{app:deploy_script}
 
@@ -441,13 +441,13 @@ cd -
 	\caption{Skript pro nasazení nové verze aplikace pomocí gitu} \label{code:deploy}
 \end{listing}
 Tento skript se spouští z rootu lokálně nasazené aplikace a využívá Git, ve kterém nejprve do \code{master} branche provede merge z \code{devtest}, jak bylo popisováno v sekci \ref{version:git:branching}. Následně se připojí na server přes \code{ssh} a zde provede \code{pull}, čímž aktualizuje zdrojové soubory ze sdíleného repozitáře. Nakonec jsou ještě promazány cache, které se mohly z důvodu aktualizace zdrojových souborů stát neaktuálními.\\
-Podobné skripty mám připraveny i pro samotné nasazení \code{master} branche, bez přidávání změn z \code{devtest}, což je využíváno při aplikaci hotfixů přímo do produkční větve. Dalším skriptem je nasazování testovací verze na \url{dbs2.fit.cvut.cz}, který se velmi podobná výše zmíněnému, pouze jsou prohozeny větve \code{master} a \code{devtest}, jelikož je cílem do druhé zmíněné dostat i případné hotfixy, které byly provedeny přímo v té produkční.
+Podobné skripty mám připraveny i pro samotné nasazení \code{master} branche, bez přidávání změn z \code{devtest}, což je využíváno při aplikaci hotfixů přímo do produkční větve. Dalším skriptem je nasazování testovací verze na \url{dbs2.fit.cvut.cz}, který se velmi podobný výše zmíněnému, pouze jsou prohozeny větve \code{master} a \code{devtest}, jelikož je cílem do druhé zmíněné dostat i případné hotfixy, které byly provedeny přímo v té produkční.
 
 \subsection{Zálohování}
 
-DBS portál v současnosti využívá zhruba 550 studentů a řada vyučujících. Studenti mají na serveru uložena data svých rozpracovaných i odevzdaných semestrálních prací, učitelé poté například testové otázky nebo hodnocení studentů. Je proto velmi žádoucí vše bezpečně zálohovat.\\
+DBS portál v současnosti využívá zhruba 550 studentů a řady vyučujících. Studenti mají na serveru uložena data svých rozpracovaných i odevzdaných semestrálních prací, učitelé například testové otázky nebo hodnocení studentů. Je proto velmi žádoucí vše bezpečně zálohovat.\\
 Zálohování probíhá jednak na serveru - na stejný filesystém. Tento typ zálohy se hodí ve chvíli, kdy se v současných datech objevil problém a je potřeba navrátit starší verzi. Pro případ problému s úložištěm samotným je však potřeba provédět i tzv. \emph{off-site} zálohy, neboli zálohy na \emph{jiný počítač}.\\
-Oba typy záloh provádí bash script znázorněný v ukázkách kódu \ref{code:backup-a} a \ref{code:backup-b}, který na serveru spouští \emph{cron}. Zálohy jsou spouštěny jedenkrát denně - kolem 4 hodiny ranní. Zálohuje se databáze a soubory na filesystému. Zálohy jsou uchovávány vždy týden, starší jsou mazány. Navíc jedenkrát měsíčně je uchována i persistenstní záloha. Na konci skriptu probíhá i nahrání nových souborů na externí úložiště - IDrive \cite{idrive}.
+Oba typy záloh provádí bash script znázorněný v ukázkách kódu \ref{code:backup-a} a \ref{code:backup-b}, který na serveru spouští \emph{cron}. Zálohy jsou spouštěny jedenkrát denně - kolem 4 hodiny ranní. Zálohuje se databáze a soubory na filesystému. Zálohy jsou uchovávány vždy týden, starší jsou mazány. Navíc jedenkrát měsíčně je uchována i persistentní záloha. Na konci skriptu probíhá i nahrání nových souborů na externí úložiště - IDrive \cite{idrive}.
 \begin{listing}[H]
 	\begin{minted}[]{Bash}
 #!/bin/bash
@@ -526,12 +526,12 @@ find . -maxdepth 1 -type f -regex '.*\.sql\.gz' | sort |
 	\end{minted}
 	\caption{Skript pro automatické zálohování - část B: odeslání záloh na externí úložiště} \label{code:backup-b}
 \end{listing}
-Kromě zálohování databáze a dat semestrálních prací a obrázků použitých v testech jsou samozřejmě zálohovány i zdrojové kódy aplikace. Toto je však řešeno implicitně používáním gitu, který je \emph{distribuovaný} a v případě problému s hlavním repozitářem je možné jej obnovit z jakéhokoliv klienta.
+Kromě zálohování databáze a dat semestrálních prací a obrázků použitých v testech jsou samozřejmě zálohovány i zdrojové kódy aplikace. Toto je však řešeno implicitně používáním gitu, který je \emph{distribuovaný}, a v případě problému s hlavním repozitářem ho je možné obnovit z jakéhokoliv klienta.
 
 \subsection{Monitoring serveru a aplikace}
 
-Každý server, který poskytuje obsah koncovým uživatelům, musí být nějakým způsobem monitorovaný - sledována jeho dostupnost, rychlost atp. Kromě serveru samotného je navíc vhodné sledovat i výkon aplikace, což může odhalit problémy s nastavením nebo neefektivnou kódu, které mohou vést až na dlouhé načítání stránek koncových uživatelů.\\
-Pro DBS portál jsou v současnosti využívány následující služby:
+Každý server, který poskytuje obsah koncovým uživatelům, musí být nějakým způsobem monitorovaný - sledována jeho dostupnost, rychlost atp. Kromě serveru samotného je navíc vhodné sledovat i výkon aplikace, což může odhalit problémy s nastavením nebo neefektivitu kódu, které mohou vést až na dlouhé načítání stránek koncových uživatelů.\\
+O monitorovacích službách, které se používají v DBS projektu, pojednávají následující sekce.
 
 \subsubsection{Datadog} \label{app:datadog}
 
@@ -543,9 +543,9 @@ Monitorované služby jsou:
 	\item \emph{obecné statistiky:} zatížení CPU, využití paměti,
 	\item \emph{síťové statistiky:} velikost přenesených dat (download vs upload),
 	\item \emph{diskové statistiky:} prodleva přístupu k disku, množství zápisu a čtení, využití CPU při diskových operacích,
-	\item \emph{monitoring webserveru (apache):} Množství přístupů, velikost servírovaných dat, poměr pracujících a čekajících threadů,
-	\item \emph{monitoring databáze (PostgreSQL):} Počet načtených řádků, počet připojení, počet úprav databáze, využití disku, zatížení systému, využití paměti, velikost přenesených dat po síti,
-	\item \emph{monitoring Docker kontejnerů:} Sledování výkonu automatických testů spouštěných v Dockeru (\ref{version:gitlab:tests}). U kontejnerů je sledováno velké množství informaci jako například využití CPU, paměti, swapu, cache, sítě, disku atp.
+	\item \emph{monitoring webserveru (apache):} množství přístupů, velikost servírovaných dat, poměr pracujících a čekajících threadů,
+	\item \emph{monitoring databáze (PostgreSQL):} počet načtených řádků, počet připojení, počet úprav databáze, využití disku, zatížení systému, využití paměti, velikost přenesených dat po síti,
+	\item \emph{monitoring Docker kontejnerů:} sledování výkonu automatických testů spouštěných v Dockeru (\ref{version:gitlab:tests}). U kontejnerů je sledováno velké množství informací jako například využití CPU, paměti, swapu, cache, sítě, disku atp.
 \end{itemize}
 V tuto chvíli jsou navíc do Datadogu integrovány i novinky z Redmine, commity z Gitu však zatím integrované nejsou. Je to z důvodu, že Datadog nabízí buďto integraci Gitu, jehož hlavní repozitář je právě na monitorovaném serveru, nebo externě na GitHubu. My však máme repozitář na školním GitLabu, který v současnosti jako integrace podporovaný není. Snažil jsem se integraci provést úpravou skriptů, které integrují repozitář hostovaný na monitorovaném serveru, bohužel však neúspěsně.\\
 Níže přikládám ukázku grafu \ref{picture:datadog-apache}, který znázorňuje počet příchozích požadavků na webserver. Graf je ze dne, kdy byly v aplikaci psány testy - je vidět zvýšená aktivita v době spouštění testů: 9:15, 11:00, 12:45 a 16:15, což odpovídá začátku výukových hodin.\\
@@ -564,25 +564,25 @@ Poslední graf \ref{picture:datadog-memory-tests} znázorňuje také využití p
 \caption{Sledování využití paměti v Datadogu během automatizovaného testování nové verze aplikace (Gitlab CI)} \label{picture:datadog-memory-tests}
 \end{figure}
 
-Během nasazování Datadogu jsem také narazil na problém s konfigurací monitoringu Postgres databáze. Kontaktoval jsem proto podporu a společně jsme problém vyřešili, musel jsem však udělit datadog-agentu více přístupových práv i k ostatním databázím. Dle všeho se zdá, že se jedná o chybu v datadogu, který ignoruje nastavení zvolené databáze. Záznam komunikace je na přiloženém médiu v souboru \code{datadog\_support.md}, pro vložení do práce samotné je moc dlouhý.
+Během nasazování Datadogu jsem také narazil na problém s konfigurací monitoringu Postgres databáze. Kontaktoval jsem proto podporu a společně jsme problém vyřešili, musel jsem však udělit datadog-agentu více přístupových práv i k ostatním databázím. Dle všeho se zdá, že se jedná o chybu v datadogu, který ignoruje nastavení zvolené databáze. Záznam komunikace je na přiloženém médiu v souboru \code{datadog\_support.md}, pro vložení do této práce je moc dlouhý.
 
 \subsubsection{Google Analytics}
 
 Analytics \cite{ga} je webová služba, která nabízí přehledy o uživatelích webové stránky, zdroj jejich příchodu, navštívené stránky, používaný operační systém, prohlížeč, rozlišení obrazovky atp.\\
-V komerční sféře jsou tato data využívána především pro zvýšení \emph{konverzního poměru}, jelikož je možné sledovat jak se například návštěvník eshopu dostane k finální koupi produktu či rozhodnout, zda je vhodné investovat i do optimalizace webu pro mobilní zobrazení díky znalosti poměru počtu návštěv z mobilního zařízení.\\
+V komerční sféře jsou tato data využívána především pro zvýšení \emph{konverzního poměru}, jelikož je možné například sledovat, jak se návštěvník eshopu dostane k finální koupi produktu, či rozhodnout, zda je vhodné investovat i do optimalizace webu pro mobilní zobrazení díky znalosti poměru počtu návštěv z mobilního zařízení.\\
 Pro DBS portál má však nasazení Google Analytics také svůj význam, jelikož je měřena i rychlost načítání stránek nebo průchod uživatelů systémem. Prvním zmíněným můžeme detekovat pomalé stránky a případně optimalizovat rychlost jejich načítání. Pomocí průchodu uživalů systémem zase můžeme zlepšovat rozdělení menu nebo zobrazování důležitých informací. Analýza současného \emph{user flow} odhalila například následující skutečnost:
 \begin{itemize}
-	\item V komponentě semestrálních prací je velmi často navštivována stránka \emph{termínů odevzdání}. Zde student získává pouze informaci, do kdy musí vyhotovit jednotlivé kontrolní body své práce. Na základě tohoto zjištění byl zadán úkol k realizaci zobrazování informací o termínech odevzdání přímo na domovské stránce studenta, kde bude přehledně vidět jak \emph{nejbližší termín}, tak přehled všech termínů.
+	\item V komponentě semestrálních prací je velmi často navštěvována stránka \emph{termínů odevzdání}. Zde student získává pouze informaci, do kdy musí vyhotovit jednotlivé kontrolní body své práce. Na základě tohoto zjištění byl zadán úkol k realizaci zobrazování informací o termínech odevzdání přímo na domovské stránce studenta, kde bude přehledně vidět jak \emph{nejbližší termín}, tak přehled všech termínů.
 \end{itemize}
 
-Kromě toho také získáváme obecné statistiky o uživatelích. Některé za zajímavých informací získaných z Google Analytics v období 1. 2. 2017 až 26. 4. 2017:
+Kromě toho také získáváme obecné statistiky o uživatelích. Některé ze zajímavých informací získaných z Google Analytics v období 1. 2. 2017 až 26. 4. 2017:
 \begin{itemize}
-	\item \emph{61,16\% připojení je z OS Linux} - toto je způsobeno jednak oblibou GNU/Linux mezi studenty FITu, ale především používáním systému ze školních učeben.
+	\item \emph{61,16\% připojení je z OS Linux} - toto je způsobeno jednak oblibou GNU/Linux mezi studenty FITu, ale především používáním systému ve školních učebnách.
 	\item \emph{57\% připojení je přes ISP ČVUT} - přesně odpovídá předchozímu zjištění - většina studentů se systémem pracuje ze školy.
 	\item \emph{7\% připojení je buďto z mobilu, nebo tabletu} - DBS portál není \emph{vůbec} optimalizován pro mobilní zařízení. Přesto jsou u této statistiky zajímavá data:
 	\begin{itemize}
 		\item \emph{Míra okamžitého opuštění}, neboli Bounce Rate, je u mobilních zařízení 3x vyšší: 18\% oproti 6\% u desktopu. Stále to však znamená, že \emph{82\%} uživatelů se rozhodne i přesto portál z mobilního zařízení používat.
-		\item \emph{Průměrná doba strávená na webu} je u mobilních zařízení 4 minuty, kdežto u desktopu 6 minut. Tento rozdíl je velmi malý, a poukazuje na to, že studenti opravdu portál používají i z mobilních zařízení i přes jeho absolutní neoptimalizaci. Tato data tedy poukazují na to, že by portál do budoucna měl být vyvíjen i pro použití na menších rozlišeních.
+		\item \emph{Průměrná doba strávená na webu} je u mobilních zařízení 4 minuty, kdežto u desktopu 6 minut. Tento rozdíl je velmi malý, a poukazuje na to, že studenti opravdu portál používají i z mobilních zařízení i přes jeho absolutní neoptimalizovanost. Tato data tedy poukazují na to, že by portál do budoucna měl být vyvíjen i pro použití na menších rozlišeních.
 	\end{itemize}
 \end{itemize}
 \begin{figure}[H]
@@ -592,21 +592,21 @@ Kromě toho také získáváme obecné statistiky o uživatelích. Některé za 
 
 \section{Návrhy budoucích vylepšení infrastruktury}
 
-Na závěr bych rád prezentoval některé další návrhy na zlepšení infrastuktury, které je možné v projektu dále rozvíjet. Mohou sloužit buďto jako inspirace pro další studenty pracující na portálu, nebo i pro mě, pokud se rozhodnu na téma DBS portálu vytvořit i mou diplomovou práci.
+Na závěr bych rád prezentoval některé další návrhy na zlepšení infrastuktury, které je možné v projektu dále rozvíjet. Mohou sloužit buď jako inspirace pro další studenty pracující na portálu, nebo pro mě samotného, pokud se rozhodnu na téma DBS portálu vytvořit i svou diplomovou práci.
 
 \subsection{Používání Datadogu}
 
-Datadog (\ref{app:datadog}) - tedy monitorovací službu serveru - jsem zavedl během tohoto semestru. Tento nástroj však nabízí \emph{obrovské} množství nastavitelných monitorů, upozornění atp. Cílem do budoucna by tedy mělo být další rozšiřování konfigurace Datadogu, z nichž některé návrhy dále rozvedu:
+Datadog (\ref{app:datadog}) - tedy monitorovací službu serveru - jsem zavedl během tohoto semestru. Tento nástroj však nabízí \emph{obrovské} množství nastavitelných monitorů, upozornění atp. Cílem do budoucna by tedy mělo být další rozšiřování konfigurace Datadogu, z nichž některé návrhy dále rozvedu.
 \begin{itemize}
-	\item \emph{Propojení s Gitem:} Na konci sekce o Datadogu jsem zmiňoval chybějící podporu integrace GitLabu do Datadogu. Při vylepšování monitoringu je jedním z cílů zahrnout do sledovaných událostí i informaci o commitech, což by usnadnilo případné hledání chyb.
-	\item \emph{Nastavení monitorů upozorňujících na výkonnostní problémy:} Datadog umožňuje konfigurovat vlastní monitory, které poté hlídají například počet příchozích spojení, využití CPU nebo jakoukoliv jinou statistiku, která je to Datadogu integrovaná. K těmto měřitelným jevům poté umožňuje nastavit limity, kterých by měly za normálního běhu dosahovat. Při překročení limitu je vyvoláno upozornění, buďto formou emailu, nebo zasláním zprávy na Slack. V současnosti jsou nastaveny pouze monitory \emph{nedostatku operační paměti} a \emph{nedostatku místa na disku}.
-	\item \emph{Statistiky přímo z aplikace:} Datadog umožňuje i integraci přímo do běžící aplikace, formou úpravy PHP souborů. Je tak možné tvořit vlastní grafy, měřit počty zobrazení určitých stránek nebo rychlost určitých bloků kódu. Pro ještě jemnější sledování využívání aplikace je tedy možné přidat na určitá místa kódu odesílání dat do Datadogu.
+	\item \emph{Propojení s Gitem}\\Na konci sekce o Datadogu jsem zmiňoval chybějící podporu integrace GitLabu do Datadogu. Při vylepšování monitoringu je jedním z cílů zahrnout do sledovaných událostí i informaci o commitech, což by usnadnilo případné hledání chyb.
+	\item \emph{Nastavení monitorů upozorňujících na výkonnostní problémy}\\Datadog umožňuje konfigurovat vlastní monitory, které poté hlídají například počet příchozích spojení, využití CPU nebo jakoukoliv jinou statistiku, která je to Datadogu integrovaná. K těmto měřitelným jevům poté umožňuje nastavit limity, kterých by měly za normálního běhu dosahovat. Při překročení limitu je vyvoláno upozornění, buďto formou emailu, nebo zasláním zprávy na Slack. V současnosti jsou nastaveny pouze monitory \emph{nedostatku operační paměti} a \emph{nedostatku místa na disku}.
+	\item \emph{Statistiky přímo z aplikace}\\Datadog umožňuje i integraci přímo do běžící aplikace, formou úpravy PHP souborů. Je tak možné tvořit vlastní grafy, měřit počty zobrazení určitých stránek nebo rychlost určitých bloků kódu. Pro ještě jemnější sledování využívání aplikace je tedy možné přidat na určitá místa kódu odesílání dat do Datadogu.
 \end{itemize}
 
 \subsection{Třetí testovací prostředí}
 
 V současnosti má aplikace jednu produkční verzi - \url{dbs.fit.cvut.cz} s nasazenou větví \code{master} a jedno \uv{testovací} prostředí nových verzí - \url{dbs2.fit.cvut.cz} s nasazenou větví \code{devtest}.\\
-Tato dvě prostředí mají \emph{sdílenou databázi}, což přináší jak výhody, tak nevýhody. Mezi výhody lze zařadit možnost používání testovací verze na ostrých datech - tester může s portálem pracovat na druhé doméně a testovat tak nové funkce. Když narazí na nepřekonatelnou chybu, tak ji nahlásí a pokračuje v práci na stabilní produkční verzi, jelikož data aplikací jsou stejná. Naopak nevýhodou je nemožnost testovat \uv{agresivně}, právě z důvodu možného poničení produkčních dat. Kvůli sdílení databáze také nemáme v projektu implementováno automatické nasazování změn z Gitu na server - jedná se o choulostivou akci, kterou je lepší provídět manuálně (byť skriptem (\ref{app:deploy_script}), ale manuálně spuštěným).\\
+Tato dvě prostředí mají \emph{sdílenou databázi}, což přináší jak výhody, tak nevýhody. Mezi výhody lze zařadit možnost používání testovací verze na ostrých datech - tester může s portálem pracovat na druhé doméně a testovat tak nové funkce. Když narazí na nepřekonatelnou chybu, tak ji nahlásí a pokračuje v práci na stabilní produkční verzi, jelikož data aplikací jsou stejná. Naopak nevýhodou je nemožnost testovat \uv{agresivně}, právě z důvodu možného poničení produkčních dat. Kvůli sdílení databáze také nemáme v projektu implementováno automatické nasazování změn z Gitu na server - jedná se o choulostivou akci, kterou je lepší provádět manuálně (byť skriptem (\ref{app:deploy_script}), ale manuálně spuštěným).\\
 Cílem tohoto návrhu je tedy zajištění \emph{třetího testovacího prostředí}, kam by se nové verze nasazovaly automaticky, a které by mělo vlastní, oddělenou databázi. Dále je před realizací vhodné zvážit:
 \begin{itemize}
 	\item Které větve z Gitu budou na nové testovací prostředí nasazovány?
@@ -624,8 +624,8 @@ V současnosti je na školním Gitlabu využíváno hned několik repozitářů,
  	\item \code{newDBS}: hlavní aplikace naprogramovná v Nette,
  	\item \code{newDBS-bug}: veřejné nahlašování chyb,
  	\item \code{newDBS-env}: konfigurace Dockeru a Vagrantu - automatické testy a vývojářské prostředí,
- 	\item \code{newRAT}: Používaný překladač relační algebry do SQL, fungující jako samostatná komponenta, s kterou portál komunikuje přes API,
- 	\item \code{DBSDM}: Datový modeller používaný v projektu, pravidelně integrovaný do hlavního projektu, avšak vyvíjen samostatně,
+ 	\item \code{newRAT}: používaný překladač relační algebry do SQL, fungující jako samostatná komponenta, s kterou portál komunikuje přes API,
+ 	\item \code{DBSDM}: datový modeller používaný v projektu, pravidelně integrovaný do hlavního projektu, avšak vyvíjen samostatně,
  	\item \code{newDBS-quiz}: nyní již nevyužívaný repozitář obsahující vstupní kvíz pro nové studenty v LS 2017.
 \end{itemize}
-Problém je, že tyto projekty jsou různě rozděleny mezi mne, Filipa Glazara a Pavla Kováře, což se může stát problémem po našem ukončení působnosti na škole. Cílem by tedy mělo být vytvořit novou skupinu projektů, do které budou všechny výše zmíněné projekty přesunuty. Proces to však není tak jednoduchý, jelikož změna \uv{umístění} repozitářů mění jejich adresu a je tedy potřeba aktualizovat i všechny repozitáře, které mají vývojáři staženy lokálně. \emph{Každý} kdo s některým ze zmíněných projektů pracuje si bude muset \emph{všechny} své lokální repozitáře aktualizovat tak, aby odkazovaly na novou adresu. Kromě lokálních repozitářů bude také potřeba aktualizovat skripty, ve kterých se adresy repozitářů mohou také vyskytovat.
+Problém je, že tyto projekty jsou různě rozděleny mezi mne, Filipa Glazara a Pavla Kováře, což se může stát problémem po našem ukončení působnosti na škole. Cílem by tedy mělo být vytvořit novou skupinu projektů, do které budou všechny výše zmíněné projekty přesunuty. Proces to však není tak jednoduchý, jelikož změna \uv{umístění} repozitářů mění jejich adresu a je tedy potřeba aktualizovat i všechny repozitáře, které mají vývojáři staženy lokálně. \emph{Každý}, kdo s některým ze zmíněných projektů pracuje, si bude muset \emph{všechny} své lokální repozitáře aktualizovat tak, aby odkazovaly na novou adresu. Kromě lokálních repozitářů bude také potřeba aktualizovat skripty, ve kterých se adresy repozitářů mohou také vyskytovat.
