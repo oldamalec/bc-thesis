@@ -447,7 +447,7 @@ Podobné skripty mám připraveny i pro samotné nasazení \code{master} branche
 
 DBS portál v současnosti využívá zhruba 550 studentů a řady vyučujících. Studenti mají na serveru uložena data svých rozpracovaných i odevzdaných semestrálních prací, učitelé například testové otázky nebo hodnocení studentů. Je proto velmi žádoucí vše bezpečně zálohovat.\\
 Zálohování probíhá jednak na serveru - na stejný filesystém. Tento typ zálohy se hodí ve chvíli, kdy se v současných datech objevil problém a je potřeba navrátit starší verzi. Pro případ problému s úložištěm samotným je však potřeba provédět i tzv. \emph{off-site} zálohy, neboli zálohy na \emph{jiný počítač}.\\
-Oba typy záloh provádí bash script znázorněný v ukázkách kódu \ref{code:backup-a} a \ref{code:backup-b}, který na serveru spouští \emph{cron}. Zálohy jsou spouštěny jedenkrát denně - kolem 4 hodiny ranní. Zálohuje se databáze a soubory na filesystému. Zálohy jsou uchovávány vždy týden, starší jsou mazány. Navíc jedenkrát měsíčně je uchována i persistentní záloha. Na konci skriptu probíhá i nahrání nových souborů na externí úložiště - IDrive \cite{idrive}.
+Oba typy záloh provádí bash script znázorněný v ukázce kódu \ref{code:backup}, který na serveru spouští \emph{cron}. Zálohy jsou spouštěny jedenkrát denně - kolem 4 hodiny ranní. Zálohuje se databáze a soubory na filesystému, zálohy jsou uchovávány vždy týden, starší jsou mazány. Navíc jedenkrát měsíčně je uchována i persistentní záloha. Na konci skriptu probíhá i nahrání nových souborů na externí úložiště - IDrive \cite{idrive}, ze kterého jsou také z kapacitních důvodů v průběhu skriptu odstraněny starší zálohy.
 \begin{listing}[H]
 	\begin{minted}[]{Bash}
 #!/bin/bash
@@ -456,75 +456,67 @@ PROJECTPATH="/var/www/newDBS"
 # ===== SWFILES =====
 for DIR in swFiles swFilesSubmitted images
 do
+    # preparements
     mkdir -p ${PROJECTPATH}/backup/${DIR}
 
     # create backup
     cd ${PROJECTPATH}/www
     tar zcf ${PROJECTPATH}/backup/${DIR}/$(date +%Y%m%d).tar.gz ${DIR}
 
-    # delete backups older than a week
+    # delete backups older than a week, also on the remote host
     cd ${PROJECTPATH}/backup/${DIR}/
-    rm $(find . -maxdepth 1 -type f -regex '.*\.tar\.gz' | sort |
-        head -n-7) 2>/dev/null
+    find . -maxdepth 1 -type f -regex '.*\.tar\.gz' | sort | head -n-7
+        > /etc/idrive/to_delete.txt
+    cat /etc/idrive/to_delete.txt | xargs rm
+    /etc/idrive/idevsutil --password-file=/etc/idrive/pwfile
+        --delete-items --files-from=/etc/idrive/to_delete.txt
+        dbsfitcvutcz@gmail.com@evs1247.idrive.com::
+        home/var/www/newDBS/backup/${DIR}
 
     # once a month, create a persistent backup
     if [ $(date +%d) == 01 ] ; then
         cd ${PROJECTPATH}/backup/${DIR}/
         mkdir -p persistent
-        cp $(find . -maxdepth 1 -type f -regex '.*\.tar\.gz' | sort |
-            tail -1) persistent/
+        cp $(find . -maxdepth 1 -type f -regex '.*\.tar\.gz' | sort
+            | tail -1) persistent/
     fi
 done
 
 # ===== DATABASE =====
+# preparements
 mkdir -p ${PROJECTPATH}/backup/database
+echo 'localhost:*:<dbname>:<dbuser>:<dbpass>' > ~/.pgpass
+chmod 0600 ~/.pgpass
 
 # create dump
 cd ${PROJECTPATH}/backup/database/
 pg_dump -h localhost -d <dbname> -U <dbuser> > $(date +%Y%m%d).sql
 gzip -f $(date +%Y%m%d).sql
-
-# delete dumps older than a week
-rm $(find . -maxdepth 1 -type f -regex '.*\.sql\.gz' | sort |
-    head -n-7)
+    \end{minted}
+\end{listing}
+\begin{listing}[H]
+	\begin{minted}[]{Bash}
+# delete dumps older than a week, also on the remote host
+find . -maxdepth 1 -type f -regex '.*\.sql\.gz' | sort | head -n-7
+    > /etc/idrive/to_delete.txt
+cat /etc/idrive/to_delete.txt | xargs rm
+/etc/idrive/idevsutil --delete-items --password-file=/etc/idrive/pwfile
+    --files-from=/etc/idrive/to_delete.txt dbsfitcvutcz@gmail.com
+    @evs1247.idrive.com::home/var/www/newDBS/backup/database
 
 # once a month, create a persistent dump
 if [ $(date +%d) == 01 ] ; then
     mkdir -p persistent
-    cp $(find . -maxdepth 1 -type f -regex '.*\.sql\.gz' | sort |
-        tail -1) persistent/
+    cp $(find . -maxdepth 1 -type f -regex '.*\.sql\.gz'
+    | sort | tail -1) persistent/
 fi
-	\end{minted}
-	\caption{Skript pro automatické zálohování - část A: vytvoření lokálních záloh souborů a databáze} \label{code:backup-a}
-\end{listing}
-\begin{listing}[H]
-	\begin{minted}[]{Bash}
-# ===== OFFSITE BACKUP =====
-# delete older backups, we only have 5 gigs of space there
-for DIR in swFiles swFilesSubmitted images
-do
-    cd ${PROJECTPATH}/backup/${DIR}/
-    find . -maxdepth 1 -type f -regex '.*\.tar\.gz' | sort |
-        head -n-7 > /etc/idrive/to_delete.txt
-    /etc/idrive/idevsutil --password-file=/etc/idrive/pwfile
-        --delete-items --files-from=/etc/idrive/to_delete.txt
-        dbsfitcvutcz@gmail.com@evs1247.idrive.com::
-        home/var/www/newDBS/backup/${DIR}
-done
-cd ${PROJECTPATH}/backup/database/
-find . -maxdepth 1 -type f -regex '.*\.sql\.gz' | sort |
-    head -n-7 > /etc/idrive/to_delete.txt
-/etc/idrive/idevsutil --delete-items
-    --password-file=/etc/idrive/pwfile
-    --files-from=/etc/idrive/to_delete.txt dbsfitcvutcz@gmail.com
-    @evs1247.idrive.com::home/var/www/newDBS/backup/database
 
-# upload new backups
+# ===== OFFSITE BACKUP =====
 /etc/idrive/idevsutil --password-file=/etc/idrive/pwfile
     --files-from=/etc/idrive/filelist.txt /
     dbsfitcvutcz@gmail.com@evs1247.idrive.com::home/
 	\end{minted}
-	\caption{Skript pro automatické zálohování - část B: odeslání záloh na externí úložiště} \label{code:backup-b}
+	\caption{Skript pro automatické zálohování} \label{code:backup}
 \end{listing}
 Kromě zálohování databáze a dat semestrálních prací a obrázků použitých v testech jsou samozřejmě zálohovány i zdrojové kódy aplikace. Toto je však řešeno implicitně používáním gitu, který je \emph{distribuovaný}, a v případě problému s hlavním repozitářem ho je možné obnovit z jakéhokoliv klienta.
 
